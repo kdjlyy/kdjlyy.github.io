@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>kdjlyy&#39;s Blog</title>
+    <link>https://kdjlyy.github.io/</link>
+    <description>Recent content on kdjlyy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 09 May 2023 21:27:42 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>计算机基础知识总结（语法篇）</title>
+      <link>https://kdjlyy.github.io/posts/first-blog/</link>
+      <pubDate>Tue, 09 May 2023 21:27:42 +0800</pubDate>
+      
+      <guid>https://kdjlyy.github.io/posts/first-blog/</guid>
+      <description>成员变量初始化 构造函数调用顺序 调用基类构造函数，调用顺序按照他们的继承时声明的顺序。 调用内嵌成员对象的构造函数，调用顺序按照他们在类中声明的</description>
+    </item>
+    
+  </channel>
+</rss>
