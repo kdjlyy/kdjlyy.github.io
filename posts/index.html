@@ -5,14 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Posts | kdjlyy&#39;s Blog</title>
+<title>文章 | kdjlyy&#39;s Blog</title>
 <meta name="keywords" content="">
-<meta name="description" content="Posts - kdjlyy&#39;s Blog">
+<meta name="description" content="学如逆水行舟，不进则退。">
 <meta name="author" content="kdjlyy">
 <link rel="canonical" href="https://kdjlyy.github.io/posts/">
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <meta name="referrer" content="no-referrer-when-downgrade">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e9169a39fe091868f2ee25393e8b60fa970074ca22d5da29cedeb6f85353a818.css" integrity="sha256-6RaaOf4JGGjy7iU5Potg&#43;pcAdMoi1dopzt62&#43;FNTqBg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5e03666153f39fa6b9d7b191f3969c92c84cca06291bda5ccd68a124d5d37619.css" integrity="sha256-XgNmYVPzn6a517GR85ackshMygYpG9pczWihJNXTdhk=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="https://kdjlyy.github.io/img/logo.ico">
@@ -29,35 +29,44 @@
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
 </noscript>
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
 
 <html>
 
@@ -89,14 +98,14 @@
     
 </body>
 
-</html><meta property="og:title" content="Posts" />
-<meta property="og:description" content="这是一个纯粹的博客......" />
+</html><meta property="og:title" content="文章" />
+<meta property="og:description" content="学如逆水行舟，不进则退。" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://kdjlyy.github.io/posts/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="这是一个纯粹的博客......"/>
+<meta name="twitter:title" content="文章"/>
+<meta name="twitter:description" content="学如逆水行舟，不进则退。"/>
 
 
 <script type="application/ld+json">
@@ -107,7 +116,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Posts",
+      "name": "文章",
       "item": "https://kdjlyy.github.io/posts/"
     }
   ]
@@ -118,10 +127,6 @@
 <body class="list" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
     }
 
@@ -156,7 +161,7 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://kdjlyy.github.io/search" title="🔍搜索">
+                <a href="https://kdjlyy.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
                     <span>🔍搜索</span>
                 </a>
             </li>
@@ -171,8 +176,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://kdjlyy.github.io/archives" title="⏱时间轴">
-                    <span>⏱时间轴</span>
+                <a href="https://kdjlyy.github.io/archives" title="⏱️时间轴">
+                    <span>⏱️时间轴</span>
                 </a>
             </li>
             <li>
@@ -189,22 +194,50 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://kdjlyy.github.io">主页</a></div>
+<header class="page-header">
   <h1>
-    Posts
+    文章
   </h1>
+  <div class="post-description">
+    学如逆水行舟，不进则退。
+  </div>
 </header>
+<div class="post-content"><!-- more -->
+
+
+</div>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>计算机基础知识总结（语法篇）
+    <h2>技术
     </h2>
   </header>
   <div class="entry-content">
-    <p>成员变量初始化 构造函数调用顺序 调用基类构造函数，调用顺序按照他们的继承时声明的顺序。 调用内嵌成员对象的构造函数，调用顺序按照他们在类中声明的...</p>
+    <p></p>
   </div>
-  <footer class="entry-footer"><span title='2023-05-09 21:27:42 +0800 CST'>2023-05-09</span>&nbsp;·&nbsp;5 分钟&nbsp;·&nbsp;kdjlyy</footer>
-  <a class="entry-link" aria-label="post link to 计算机基础知识总结（语法篇）" href="https://kdjlyy.github.io/posts/first-blog/"></a>
+  <a class="entry-link" aria-label="post link to 技术" href="https://kdjlyy.github.io/posts/tech/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>生活
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <a class="entry-link" aria-label="post link to 生活" href="https://kdjlyy.github.io/posts/life/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>阅读
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p></p>
+  </div>
+  <a class="entry-link" aria-label="post link to 阅读" href="https://kdjlyy.github.io/posts/read/"></a>
 </article>
     </main>
     

@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://kdjlyy.github.io/categories/">
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <meta name="referrer" content="no-referrer-when-downgrade">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e9169a39fe091868f2ee25393e8b60fa970074ca22d5da29cedeb6f85353a818.css" integrity="sha256-6RaaOf4JGGjy7iU5Potg&#43;pcAdMoi1dopzt62&#43;FNTqBg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5e03666153f39fa6b9d7b191f3969c92c84cca06291bda5ccd68a124d5d37619.css" integrity="sha256-XgNmYVPzn6a517GR85ackshMygYpG9pczWihJNXTdhk=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="https://kdjlyy.github.io/img/logo.ico">
@@ -29,35 +29,44 @@
         }
 
     </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
 </noscript>
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
 
 <html>
 
@@ -104,10 +113,6 @@
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
     }
 
 </script>
@@ -141,7 +146,7 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://kdjlyy.github.io/search" title="🔍搜索">
+                <a href="https://kdjlyy.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
                     <span>🔍搜索</span>
                 </a>
             </li>
@@ -156,8 +161,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://kdjlyy.github.io/archives" title="⏱时间轴">
-                    <span>⏱时间轴</span>
+                <a href="https://kdjlyy.github.io/archives" title="⏱️时间轴">
+                    <span>⏱️时间轴</span>
                 </a>
             </li>
             <li>
@@ -175,10 +180,19 @@
 </header>
 <main class="main">
 <header class="page-header">
-    <h1>Categories</h1>
+    <h1>🧩Categories</h1>
+    
 </header>
 
+
+
 <ul class="terms-tags">
+    <li>
+        <a href="https://kdjlyy.github.io/categories/category-1/">category 1 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="https://kdjlyy.github.io/categories/category-2/">category 2 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
 </ul>
     </main>
     

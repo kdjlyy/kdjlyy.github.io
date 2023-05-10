@@ -2,19 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://kdjlyy.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2023-05-09T21:27:42+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.github.io/categories/</loc>
+    <lastmod>2023-05-09T21:27:42+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.github.io/categories/category-1/</loc>
+    <lastmod>2023-05-09T21:27:42+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.github.io/categories/category-2/</loc>
+    <lastmod>2023-05-09T21:27:42+08:00</lastmod>
+  </url><url>
     <loc>https://kdjlyy.github.io/</loc>
+    <lastmod>2023-05-09T21:27:42+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.github.io/tags/</loc>
+    <lastmod>2023-05-09T21:27:42+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    <lastmod>2023-05-09T21:27:42+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.github.io/posts/tech/cs_basic_grammar/</loc>
+    <lastmod>2023-05-09T21:27:42+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.github.io/posts/tech/</loc>
     <lastmod>2023-05-09T21:27:42+08:00</lastmod>
   </url><url>
     <loc>https://kdjlyy.github.io/posts/</loc>
     <lastmod>2023-05-09T21:27:42+08:00</lastmod>
   </url><url>
-    <loc>https://kdjlyy.github.io/posts/first-blog/</loc>
-    <lastmod>2023-05-09T21:27:42+08:00</lastmod>
-  </url><url>
-    <loc>https://kdjlyy.github.io/categories/</loc>
-  </url><url>
     <loc>https://kdjlyy.github.io/series/</loc>
   </url><url>
-    <loc>https://kdjlyy.github.io/tags/</loc>
+    <loc>https://kdjlyy.github.io/about/</loc>
+  </url><url>
+    <loc>https://kdjlyy.github.io/posts/life/</loc>
+  </url><url>
+    <loc>https://kdjlyy.github.io/archives/</loc>
+  </url><url>
+    <loc>https://kdjlyy.github.io/search/</loc>
+  </url><url>
+    <loc>https://kdjlyy.github.io/posts/read/</loc>
   </url>
 </urlset>
