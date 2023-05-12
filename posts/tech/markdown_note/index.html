@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>PaperMod主题Markdown示例 | kdjlyy&#39;s Blog</title>
+<meta name="keywords" content="教程, markdown, hugo">
+<meta name="description" content="主要展示 PaperMod 主题中 Markdown 语法的页面效果">
+<meta name="author" content="
+作者:&nbsp;kdjlyy">
+<link rel="canonical" href="https://kdjlyy.github.io/posts/tech/markdown_note/">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<meta name="referrer" content="no-referrer-when-downgrade">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5e03666153f39fa6b9d7b191f3969c92c84cca06291bda5ccd68a124d5d37619.css" integrity="sha256-XgNmYVPzn6a517GR85ackshMygYpG9pczWihJNXTdhk=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://kdjlyy.github.io/img/logo.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kdjlyy.github.io/img/logo.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kdjlyy.github.io/img/logo.ico">
+<link rel="apple-touch-icon" href="https://kdjlyy.github.io/logo.ico">
+<link rel="mask-icon" href="https://kdjlyy.github.io/logo.ico">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/style.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css" />
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css" />
+    <style>
+        body {
+            font-family: "LXGW WenKai", sans-serif;
+             
+            font-family: "LXGW WenKai Lite", sans-serif;
+             
+            font-family: "LXGW WenKai TC", sans-serif;
+             
+            font-family: "LXGW WenKai Screen", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    
+</body>
+
+</html><meta property="og:title" content="PaperMod主题Markdown示例" />
+<meta property="og:description" content="主要展示 PaperMod 主题中 Markdown 语法的页面效果" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kdjlyy.github.io/posts/tech/markdown_note/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-11T18:13:32+08:00" />
+<meta property="article:modified_time" content="2023-05-11T18:13:32+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PaperMod主题Markdown示例"/>
+<meta name="twitter:description" content="主要展示 PaperMod 主题中 Markdown 语法的页面效果"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "文章",
+      "item": "https://kdjlyy.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "技术",
+      "item": "https://kdjlyy.github.io/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "PaperMod主题Markdown示例",
+      "item": "https://kdjlyy.github.io/posts/tech/markdown_note/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PaperMod主题Markdown示例",
+  "name": "PaperMod主题Markdown示例",
+  "description": "主要展示 PaperMod 主题中 Markdown 语法的页面效果",
+  "keywords": [
+    "教程", "markdown", "hugo"
+  ],
+  "articleBody": " 部分常见的Markdown语法，例如引用、标题、段落、无序列表、有序列表等不做讨论。\n字体种类 在Markdown中，使用标签的face属性修改文字字体：\n1 2 3 \u003cfont face='SimHei'\u003e这是黑体\u003c/font\u003e \u003cfont face='KaiTi'\u003e这是楷体\u003c/font\u003e \u003cfont face='Fangsong_GB2312'\u003e这是仿宋_GB2312字体\u003c/font\u003e 字体名称 字体写法 黑体 SimHei 宋体 SimSun 新宋体 NSimSun 仿宋 FangSong 楷体 KaiTi 仿宋_GB2312 FangSong_GB2312 楷体_GB2312 KaiTi_GB2312 微软雅黑 Microsoft YaHei 落霞文楷 LXGW WenKai 落霞文楷 Lite LXGW WenKai Lite 落霞文楷 Screen LXGW WenKai Screen 落霞文楷 TC LXGW WenKai TC 字号 1 2 3 4 5 6 7 \u003cfont size=\"1\"\u003e这是1号字体\u003c/font\u003e \u003cfont size=\"2\"\u003e这是2号字体\u003c/font\u003e \u003cfont size=\"3\"\u003e这是3号字体\u003c/font\u003e \u003cfont size=\"4\"\u003e这是4号字体\u003c/font\u003e \u003cfont size=\"5\"\u003e这是5号字体\u003c/font\u003e \u003cfont size=\"6\"\u003e这是6号字体\u003c/font\u003e \u003cfont size=\"7\"\u003e这是7号字体\u003c/font\u003e 这是1号字体\n这是2号字体 这是3号字体 这是4号字体 这是5号字体 这是6号字体 这是7号字体 字体颜色 1 2 3 4 \u003cfont color='red'\u003e这是红色字体\u003c/font\u003e \u003cfont color='rgb(200, 100, 100)'\u003e这是rgb(200, 100, 100)颜色字体\u003c/font\u003e \u003cfont color='#FF00BB'\u003e这是#FF00BB颜色字体\u003c/font\u003e \u003cfont style=\"background: linear-gradient(to right, #ff1616, #36c945, #10a5ce, #0f0096, #a51eff, #ff1616);\"\u003e这是7色渐变颜色\u003c/font\u003e 这是红色字体 这是rgb(200, 100, 100)颜色字体 这是#FF00BB颜色字体\n这是7色渐变颜色\n代办列表 使用-[]表示一项待办，当完成待办后给中括号中添加x（不区分大小写，注意空格不可省略）即可，例如：\n1 2 3 - [x] 吃饭 - [x] 睡觉 - [ ] 写作业 吃饭 睡觉 写作业 脚注 1 2 3 这是一个简单的脚注[^1]，这是另一个脚注[^bignote]。 [^1]:这是第一个脚注 [^bignote]:这是第二脚注 这是一个简单的脚注1，这是另一个脚注2。\n鼠标悬浮效果 1 \u003cabbr title=\"🙃🙃🙃\"\u003e鼠标悬浮这里\u003c/abbr\u003e可以看到详细的解释。 鼠标悬浮这里 可以看到详细的解释。\n自定义shortcodes Hugo博客通过简码方式插入pdf、bilibili以及博客文章内链等功能，实现方法来自Sulv’s Blog。\n插入pdf \u003c!DOCTYPE HTML\u003e \u003c!DOCTYPE HTML\u003e \u003c!DOCTYPE HTML\u003e 插入bilibili视频 1 2 3 4 {a{\u003c bilibili BV1WZ4y1a7MF \u003e}} # 使用的时候把字母a去掉，我加上是为了防止被识别生效 # BV1Ab4y117G2 指的是 bilibili 链接中的 bvid # 如果有集数（默认第一集），例如要播放第5集，则这样使用：{a{\u003c bilibili BV1WZ4y1a7MF 5 \u003e}} \u003c!DOCTYPE HTML\u003e 插入博客文章内链 1 2 3 4 {a{\u003c innerlink src=\"posts/tech/cs_basic_grammar.md\" \u003e}} # 使用的时候把字母a去掉，我加上是为了防止被识别生效 # 注意：结尾要加md，开头不用加域名 # 卡片获取的文章长度默认是70，需要在config.yaml配置文件添加 summaryLength: 140，即设置为140 计算机基础知识总结（语法篇） 日期: 2023-05-09 标签: #C++ #基础知识 成员变量初始化 构造函数内部初始化和初始化列表 初始化类的成员有两种方式，一是使用初始化列表，二是在构造函数体内进行赋值操作。 对于内置类型，如int, float等，使用初始化列表和在构造函数体内初始化差别不大； 对于类类型来说，使用初始化列表会减少调用默认构造函数的次数，更加高效。 1 2 ...... 其他 1 2 3 4 H\u003csub\u003e2\u003c/sub\u003eO C\u003csub\u003e6\u003c/sub\u003eH\u003csub\u003e12\u003c/sub\u003eO\u003csub\u003e6\u003c/sub\u003e X\u003csup\u003en\u003c/sup\u003e + Y\u003csup\u003en\u003c/sup\u003e = Z\u003csup\u003en\u003c/sup\u003e \u003cmark\u003e高亮标记语言\u003c/mark\u003e显示段落中的重要文字部分。 H2O C6H12O6 Xn + Yn = Zn 高亮标记语言显示段落中的重要文字部分。\n这是第一个脚注 ↩︎\n这是第二脚注 ↩︎\n",
+  "wordCount" : "1734",
+  "inLanguage": "zh",
+  "datePublished": "2023-05-11T18:13:32+08:00",
+  "dateModified": "2023-05-11T18:13:32+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "kdjlyy"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kdjlyy.github.io/posts/tech/markdown_note/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "kdjlyy's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kdjlyy.github.io/img/logo.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kdjlyy.github.io" accesskey="h" title="kdjlyy&#39;s Blog (Alt + H)">kdjlyy&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://kdjlyy.github.io/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.github.io/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.github.io/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.github.io/archives" title="⏱️时间轴">
+                    <span>⏱️时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.github.io/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.github.io/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post" autonumbering>
+  
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://kdjlyy.github.io">主页</a>&nbsp;»&nbsp;<a href="https://kdjlyy.github.io/posts/">文章</a>&nbsp;»&nbsp;<a href="https://kdjlyy.github.io/posts/tech/">技术</a></div>
+    <h1 class="post-title">
+      PaperMod主题Markdown示例
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+创建:&nbsp;<span title='2023-05-11 18:13:32 +0800 CST'>2023-05-11</span>&nbsp;|&nbsp;更新:&nbsp;2023-05-11&nbsp;|&nbsp;字数:&nbsp;1734字&nbsp;|&nbsp;时长: 4分钟&nbsp;|&nbsp;
+作者:&nbsp;kdjlyy
+
+
+      <div class="meta-item">&nbsp·&nbsp
+        <span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+      </div>
+    </div>
+  </header> <aside id="toc-container" class="toc-container wide">
+        <div class="toc">
+            <details  open>
+                <summary accesskey="c" title="(Alt + C)">
+                    <span class="details">目录</span>
+                </summary>
+
+                <div class="inner"><ul>
+                        <li>
+                            <a href="#%e5%ad%97%e4%bd%93%e7%a7%8d%e7%b1%bb" aria-label="字体种类">字体种类</a></li>
+                        <li>
+                            <a href="#%e5%ad%97%e5%8f%b7" aria-label="字号">字号</a></li>
+                        <li>
+                            <a href="#%e5%ad%97%e4%bd%93%e9%a2%9c%e8%89%b2" aria-label="字体颜色">字体颜色</a></li>
+                        <li>
+                            <a href="#%e4%bb%a3%e5%8a%9e%e5%88%97%e8%a1%a8" aria-label="代办列表">代办列表</a></li>
+                        <li>
+                            <a href="#%e8%84%9a%e6%b3%a8" aria-label="脚注">脚注</a></li>
+                        <li>
+                            <a href="#%e9%bc%a0%e6%a0%87%e6%82%ac%e6%b5%ae%e6%95%88%e6%9e%9c" aria-label="鼠标悬浮效果">鼠标悬浮效果</a></li>
+                        <li>
+                            <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89shortcodes" aria-label="自定义shortcodes">自定义shortcodes</a><ul>
+                                    
+                        <li>
+                            <a href="#%e6%8f%92%e5%85%a5pdf" aria-label="插入pdf">插入pdf</a></li>
+                        <li>
+                            <a href="#%e6%8f%92%e5%85%a5bilibili%e8%a7%86%e9%a2%91" aria-label="插入bilibili视频">插入bilibili视频</a></li>
+                        <li>
+                            <a href="#%e6%8f%92%e5%85%a5%e5%8d%9a%e5%ae%a2%e6%96%87%e7%ab%a0%e5%86%85%e9%93%be" aria-label="插入博客文章内链">插入博客文章内链</a></li></ul>
+                        </li>
+                        <li>
+                            <a href="#%e5%85%b6%e4%bb%96" aria-label="其他">其他</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+
+        window.addEventListener('resize', function (event) {
+            checkTocPosition();
+        }, false);
+
+        window.addEventListener('scroll', () => {
+            
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement) {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }, false);
+
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
+        }
+
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+  <div class="post-content"><blockquote>
+<p>部分常见的Markdown语法，例如引用、标题、段落、无序列表、有序列表等不做讨论。</p>
+</blockquote>
+<h2 id="字体种类">字体种类<a hidden class="anchor" aria-hidden="true" href="#字体种类">#</a></h2>
+<p>在Markdown中，使用<code>&lt;font&gt;</code>标签的<code>face</code>属性修改文字字体：</p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">face</span>=<span style="color:#0ff;font-weight:bold">&#39;SimHei&#39;</span>&gt;这是黑体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">face</span>=<span style="color:#0ff;font-weight:bold">&#39;KaiTi&#39;</span>&gt;这是楷体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">face</span>=<span style="color:#0ff;font-weight:bold">&#39;Fangsong_GB2312&#39;</span>&gt;这是仿宋_GB2312字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th style="text-align:center"><div style="width: 250pt">字体名称</th>
+<th style="text-align:center"><div style="width: 250pt">字体写法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><font face='SimHei'>黑体</font></td>
+<td style="text-align:center"><font face='SimHei'>SimHei</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='SimSun'>宋体</font></td>
+<td style="text-align:center"><font face='SimSun'>SimSun</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='NSimSun'>新宋体</font></td>
+<td style="text-align:center"><font face='NSimSun'>NSimSun</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='FangSong'>仿宋</font></td>
+<td style="text-align:center"><font face='FangSong'>FangSong</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='KaiTi'>楷体</font></td>
+<td style="text-align:center"><font face='KaiTi'>KaiTi</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='FangSong_GB2312'>仿宋_GB2312</font></td>
+<td style="text-align:center"><font face='FangSong_GB2312'>FangSong_GB2312</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='KaiTi_GB2312'>楷体_GB2312</font></td>
+<td style="text-align:center"><font face='KaiTi_GB2312'>KaiTi_GB2312</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='Microsoft YaHei'>微软雅黑</font></td>
+<td style="text-align:center"><font face='Microsoft YaHei'>Microsoft YaHei</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='LXGW WenKai'>落霞文楷</font></td>
+<td style="text-align:center"><font face='LXGW WenKai'>LXGW WenKai </font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='LXGW WenKai Lite'>落霞文楷 Lite</font></td>
+<td style="text-align:center"><font face='LXGW WenKai Lite'>LXGW WenKai Lite</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='LXGW WenKai Screen'>落霞文楷 Screen</font></td>
+<td style="text-align:center"><font face='LXGW WenKai Screen'>LXGW WenKai Screen</font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font face='LXGW WenKai TC'>落霞文楷 TC</font></td>
+<td style="text-align:center"><font face='LXGW WenKai TC'>LXGW WenKai TC</font></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="字号">字号<a hidden class="anchor" aria-hidden="true" href="#字号">#</a></h2>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">size</span>=<span style="color:#0ff;font-weight:bold">&#34;1&#34;</span>&gt;这是1号字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">size</span>=<span style="color:#0ff;font-weight:bold">&#34;2&#34;</span>&gt;这是2号字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">size</span>=<span style="color:#0ff;font-weight:bold">&#34;3&#34;</span>&gt;这是3号字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">size</span>=<span style="color:#0ff;font-weight:bold">&#34;4&#34;</span>&gt;这是4号字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">size</span>=<span style="color:#0ff;font-weight:bold">&#34;5&#34;</span>&gt;这是5号字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">size</span>=<span style="color:#0ff;font-weight:bold">&#34;6&#34;</span>&gt;这是6号字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">size</span>=<span style="color:#0ff;font-weight:bold">&#34;7&#34;</span>&gt;这是7号字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><font size="1">这是1号字体</font><br>
+<font size="2">这是2号字体 </font><br>
+<font size="3">这是3号字体  </font><br>
+<font size="4">这是4号字体 </font><br>
+<font size="5">这是5号字体 </font><br>
+<font size="6">这是6号字体 </font><br>
+<font size="7">这是7号字体 </font></p>
+<hr>
+<h2 id="字体颜色">字体颜色<a hidden class="anchor" aria-hidden="true" href="#字体颜色">#</a></h2>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">color</span>=<span style="color:#0ff;font-weight:bold">&#39;red&#39;</span>&gt;这是红色字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">color</span>=<span style="color:#0ff;font-weight:bold">&#39;rgb(200, 100, 100)&#39;</span>&gt;这是rgb(200, 100, 100)颜色字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">color</span>=<span style="color:#0ff;font-weight:bold">&#39;#FF00BB&#39;</span>&gt;这是#FF00BB颜色字体&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">font</span> <span style="color:#007f7f">style</span>=<span style="color:#0ff;font-weight:bold">&#34;background: linear-gradient(to right, #ff1616, #36c945, #10a5ce, #0f0096, #a51eff, #ff1616);&#34;</span>&gt;这是7色渐变颜色&lt;/<span style="font-weight:bold">font</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><font color='red'>这是红色字体 </font><br>
+<font color='rgb(200, 100, 100)'>这是rgb(200, 100, 100)颜色字体 </font><br>
+<font color='#FF00BB'>这是#FF00BB颜色字体</font><br>
+<font style="background: linear-gradient(to right, #ff1616, #36c945, #10a5ce, #0f0096, #a51eff, #ff1616);">这是7色渐变颜色</font></p>
+<hr>
+<h2 id="代办列表">代办列表<a hidden class="anchor" aria-hidden="true" href="#代办列表">#</a></h2>
+<p>使用<code>-[]</code>表示一项待办，当完成待办后给中括号中添加<code>x</code>（不区分大小写，注意空格不可省略）即可，例如：</p>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tex" data-lang="tex"><span style="display:flex;"><span>- [x] 吃饭
+</span></span><span style="display:flex;"><span>- [x] 睡觉
+</span></span><span style="display:flex;"><span>- [ ] 写作业
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><input checked="" disabled="" type="checkbox"> 吃饭</li>
+<li><input checked="" disabled="" type="checkbox"> 睡觉</li>
+<li><input disabled="" type="checkbox"> 写作业</li>
+</ul>
+<hr>
+<h2 id="脚注">脚注<a hidden class="anchor" aria-hidden="true" href="#脚注">#</a></h2>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tex" data-lang="tex"><span style="display:flex;"><span>这是一个简单的脚注[<span style="color:#fff;font-weight:bold">^</span>1]，这是另一个脚注[<span style="color:#fff;font-weight:bold">^</span>bignote]。
+</span></span><span style="display:flex;"><span>[<span style="color:#fff;font-weight:bold">^</span>1]:这是第一个脚注
+</span></span><span style="display:flex;"><span>[<span style="color:#fff;font-weight:bold">^</span>bignote]:这是第二脚注
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是一个简单的脚注<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，这是另一个脚注<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
+<hr>
+<h2 id="鼠标悬浮效果">鼠标悬浮效果<a hidden class="anchor" aria-hidden="true" href="#鼠标悬浮效果">#</a></h2>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="font-weight:bold">abbr</span> <span style="color:#007f7f">title</span>=<span style="color:#0ff;font-weight:bold">&#34;🙃🙃🙃&#34;</span>&gt;鼠标悬浮这里&lt;/<span style="font-weight:bold">abbr</span>&gt;可以看到详细的解释。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><abbr title="🙃🙃🙃">鼠标悬浮这里</abbr> 可以看到详细的解释。</p>
+<hr>
+<h2 id="自定义shortcodes">自定义shortcodes<a hidden class="anchor" aria-hidden="true" href="#自定义shortcodes">#</a></h2>
+<p>Hugo博客通过简码方式插入pdf、bilibili以及博客文章内链等功能，实现方法来自<a href="https://www.sulvblog.cn/posts/blog/shortcodes/#1-%E5%BC%95%E5%85%A5-ppt-%E5%8A%9F%E8%83%BD">Sulv’s Blog</a>。</p>
+<h3 id="插入pdf">插入pdf<a hidden class="anchor" aria-hidden="true" href="#插入pdf">#</a></h3>
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        #googleslides_shortcodes {
+            padding-bottom: 66%;
+            position: relative;
+            display: block;
+            width: 100%;
+            border-bottom: 5px solid;
+        }
+
+        #googleslides_shortcodes iframe {
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+    </style>
+    <title></title>
+</head>
+
+<body>
+    <div id="googleslides_shortcodes">
+        <iframe id="googleSlideIframe" width="100%" height="100%" src="" frameborder="0"
+            allowfullscreen="">
+        </iframe>
+    </div>
+</body>
+
+</html>
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        #googleslides_shortcodes {
+            padding-bottom: 66%;
+            position: relative;
+            display: block;
+            width: 100%;
+            border-bottom: 5px solid;
+        }
+
+        #googleslides_shortcodes iframe {
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+    </style>
+    <title></title>
+</head>
+
+<body>
+    <div id="googleslides_shortcodes">
+        <iframe id="googleSlideIframe" width="100%" height="100%" src="" frameborder="0"
+            allowfullscreen="">
+        </iframe>
+    </div>
+</body>
+
+</html>
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        #googleslides_shortcodes {
+            padding-bottom: 66%;
+            position: relative;
+            display: block;
+            width: 100%;
+            border-bottom: 5px solid;
+        }
+
+        #googleslides_shortcodes iframe {
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+    </style>
+    <title></title>
+</head>
+
+<body>
+    <div id="googleslides_shortcodes">
+        <iframe id="googleSlideIframe" width="100%" height="100%" src="" frameborder="0"
+            allowfullscreen="">
+        </iframe>
+    </div>
+</body>
+
+</html>
+<h3 id="插入bilibili视频">插入bilibili视频<a hidden class="anchor" aria-hidden="true" href="#插入bilibili视频">#</a></h3>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{a{&lt; <span style="font-weight:bold">bilibili</span> <span style="color:#007f7f">BV1WZ4y1a7MF</span> &gt;}}  
+</span></span><span style="display:flex;"><span># 使用的时候把字母a去掉，我加上是为了防止被识别生效
+</span></span><span style="display:flex;"><span># BV1Ab4y117G2 指的是 bilibili 链接中的 bvid
+</span></span><span style="display:flex;"><span># 如果有集数（默认第一集），例如要播放第5集，则这样使用：{a{&lt; <span style="font-weight:bold">bilibili</span> <span style="color:#007f7f">BV1WZ4y1a7MF</span> <span style="color:#007f7f">5</span> &gt;}}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        .bilibili_shortcodes {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 66%;
+            margin: auto;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .bilibili_shortcodes iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <title></title>
+</head>
+
+<body>
+    <div class="bilibili_shortcodes">
+        <iframe
+            src="https://player.bilibili.com/player.html?bvid=BV1WZ4y1a7MF&page=1&high_quality=1&danmaku=0&as_wide=0"
+            scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+        </iframe>
+    </div>
+</body>
+
+</html>
+<h3 id="插入博客文章内链">插入博客文章内链<a hidden class="anchor" aria-hidden="true" href="#插入博客文章内链">#</a></h3>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{a{&lt; <span style="font-weight:bold">innerlink</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">&#34;posts/tech/cs_basic_grammar.md&#34;</span> &gt;}}  
+</span></span><span style="display:flex;"><span># 使用的时候把字母a去掉，我加上是为了防止被识别生效
+</span></span><span style="display:flex;"><span># 注意：结尾要加md，开头不用加域名
+</span></span><span style="display:flex;"><span># 卡片获取的文章长度默认是70，需要在config.yaml配置文件添加 summaryLength: 140，即设置为140
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div style="height: 200px;margin: 1em auto;position: relative;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 25%), 0 0 2px rgb(0 0 0 / 25%);
+        border-radius: 15px;padding: 23px;max-width: 780px;background: var(--entry);">
+    
+    
+    <div style="font-size: 22px; font-weight: 600">
+        <a target="_blank" href="https://kdjlyy.github.io/posts/tech/cs_basic_grammar/" style="box-shadow: none">计算机基础知识总结（语法篇）</a>
+    </div>
+    <span style="font-size: 14px; color: #999">
+        日期: 2023-05-09
+        &nbsp;
+        标签:
+        
+        #C&#43;&#43;&nbsp;
+        
+        #基础知识&nbsp;
+        
+    </span>
+    <div style="font-size: 14px; line-height: 1.825;max-height: 75px; overflow: hidden;margin-top: 5px;">
+        成员变量初始化 构造函数内部初始化和初始化列表 初始化类的成员有两种方式，一是使用初始化列表，二是在构造函数体内进行赋值操作。 对于内置类型，如int, float等，使用初始化列表和在构造函数体内初始化差别不大； 对于类类型来说，使用初始化列表会减少调用默认构造函数的次数，更加高效。 1 2 ......
+    </div>
+    
+    
+</div>
+<hr>
+<h2 id="其他">其他<a hidden class="anchor" aria-hidden="true" href="#其他">#</a></h2>
+<div class="highlight"><div style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>H&lt;<span style="font-weight:bold">sub</span>&gt;2&lt;/<span style="font-weight:bold">sub</span>&gt;O
+</span></span><span style="display:flex;"><span>C&lt;<span style="font-weight:bold">sub</span>&gt;6&lt;/<span style="font-weight:bold">sub</span>&gt;H&lt;<span style="font-weight:bold">sub</span>&gt;12&lt;/<span style="font-weight:bold">sub</span>&gt;O&lt;<span style="font-weight:bold">sub</span>&gt;6&lt;/<span style="font-weight:bold">sub</span>&gt;
+</span></span><span style="display:flex;"><span>X&lt;<span style="font-weight:bold">sup</span>&gt;n&lt;/<span style="font-weight:bold">sup</span>&gt; + Y&lt;<span style="font-weight:bold">sup</span>&gt;n&lt;/<span style="font-weight:bold">sup</span>&gt; = Z&lt;<span style="font-weight:bold">sup</span>&gt;n&lt;/<span style="font-weight:bold">sup</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="font-weight:bold">mark</span>&gt;高亮标记语言&lt;/<span style="font-weight:bold">mark</span>&gt;显示段落中的重要文字部分。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>H<sub>2</sub>O
+C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>
+X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+<mark>高亮标记语言</mark>显示段落中的重要文字部分。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>这是第一个脚注&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>这是第二脚注&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://kdjlyy.github.io/tags/%E6%95%99%E7%A8%8B/">教程</a></li>
+      <li><a href="https://kdjlyy.github.io/tags/markdown/">markdown</a></li>
+      <li><a href="https://kdjlyy.github.io/tags/hugo/">hugo</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://kdjlyy.github.io/posts/tech/cs_basic_grammar/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>计算机基础知识总结（语法篇）</span>
+  </a>
+</nav>
+
+  </footer>
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">评论</span>
+        <br />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://utteranc.es/client.js" repo="kdjlyy/blog_comments" issue-term="title" theme="github-light"
+        crossorigin="anonymous" async>
+        </script>
+</div>
+</article>
+    </main>
+    
+<footer class="footer">
+    <div class="busuanzi-footer">
+        <span>&copy; 2023 <a href="https://kdjlyy.github.io">kdjlyy&#39;s Blog</a></span>
+        <span>
+            Powered by
+            <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+            <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+            
+            <span id="busuanzi_container_site_uv">| 🧑🏻‍💻<span id="busuanzi_value_site_uv"></span>
+                <span id="busuanzi_container_site_pv"> 👀<span id="busuanzi_value_site_pv"></span></span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script></body>
+
+</html>

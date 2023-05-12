@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>hugo on kdjlyy&#39;s Blog</title>
+    <link>https://kdjlyy.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on kdjlyy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 11 May 2023 18:13:32 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PaperMod主题Markdown示例</title>
+      <link>https://kdjlyy.github.io/posts/tech/markdown_note/</link>
+      <pubDate>Thu, 11 May 2023 18:13:32 +0800</pubDate>
+      
+      <guid>https://kdjlyy.github.io/posts/tech/markdown_note/</guid>
+      <description>主要展示 PaperMod 主题中 Markdown 语法的页面效果</description>
+    </item>
+    
+  </channel>
+</rss>
