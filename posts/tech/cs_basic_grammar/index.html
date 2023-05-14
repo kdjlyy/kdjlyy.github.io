@@ -11,8 +11,7 @@
 <meta name="author" content="
 作者:&nbsp;kdjlyy">
 <link rel="canonical" href="https://kdjlyy.github.io/posts/tech/cs_basic_grammar/">
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<meta name="referrer" content="no-referrer-when-downgrade">
+
 <link crossorigin="anonymous" href="/assets/css/stylesheet.5e03666153f39fa6b9d7b191f3969c92c84cca06291bda5ccd68a124d5d37619.css" integrity="sha256-XgNmYVPzn6a517GR85ackshMygYpG9pczWihJNXTdhk=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -100,7 +99,18 @@
     
 </body>
 
-</html><meta property="og:title" content="计算机基础知识总结（语法篇）" />
+</html>
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/mermaid/9.1.6/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: localStorage.getItem("pref-theme") === "dark" ? "dark" : "forest" 
+    });
+</script>
+<meta property="og:title" content="计算机基础知识总结（语法篇）" />
 <meta property="og:description" content="成员变量初始化 构造函数内部初始化和初始化列表 初始化类的成员有两种方式，一是使用初始化列表，二是在构造函数体内进行赋值操作。 对于内置类型，如int, float等，使用初始化列表和在构造函数体内初始化差别不大； 对于类类型来说，使用初始化列表会减少调用默认构造函数的次数，更加高效。 1 2" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kdjlyy.github.io/posts/tech/cs_basic_grammar/" /><meta property="article:section" content="posts" />
@@ -266,9 +276,7 @@
 作者:&nbsp;kdjlyy
 
 
-      <div class="meta-item">&nbsp·&nbsp
-        <span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-      </div>
+      
     </div>
   </header> <aside id="toc-container" class="toc-container wide">
         <div class="toc">
@@ -863,8 +871,7 @@
             <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
             <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
             
-            <span id="busuanzi_container_site_uv">| 🧑🏻‍💻<span id="busuanzi_value_site_uv"></span>
-                <span id="busuanzi_container_site_pv"> 👀<span id="busuanzi_value_site_pv"></span></span>
+            </span>
     </div>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
