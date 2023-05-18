@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>C&#43;&#43; on kdjlyy&#39;s Blog</title>
-    <link>https://kdjlyy.github.io/tags/c&#43;&#43;/</link>
+    <link>https://kdjlyy.cn/tags/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on kdjlyy&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 16 May 2023 15:31:26 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 May 2023 15:31:26 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>计算机基础知识总结（系统篇）</title>
-      <link>https://kdjlyy.github.io/posts/tech/cs_basic_os/</link>
+      <link>https://kdjlyy.cn/posts/tech/cs-basic-os/</link>
       <pubDate>Tue, 16 May 2023 15:31:26 +0800</pubDate>
       
-      <guid>https://kdjlyy.github.io/posts/tech/cs_basic_os/</guid>
+      <guid>https://kdjlyy.cn/posts/tech/cs-basic-os/</guid>
       <description>Linux用户空间内存分布 程序内存在地址空间中的分布情况称为内存模型。 对于32位环境，理论上程序可以拥有4GB的虚拟地址空间，要拿出一部分给操作系统内核使用，应用程序无法直接访问这一段内存，这一部分内存地址被称为内核空间。 Linux默认将高地址的1GB空间分配给内核。也就是说，应</description>
     </item>
     
     <item>
       <title>计算机基础知识总结（语法篇）</title>
-      <link>https://kdjlyy.github.io/posts/tech/cs_basic_grammar/</link>
+      <link>https://kdjlyy.cn/posts/tech/cs-basic-grammar/</link>
       <pubDate>Tue, 09 May 2023 21:27:42 +0800</pubDate>
       
-      <guid>https://kdjlyy.github.io/posts/tech/cs_basic_grammar/</guid>
+      <guid>https://kdjlyy.cn/posts/tech/cs-basic-grammar/</guid>
       <description>成员变量初始化 构造函数内部初始化和初始化列表 初始化类的成员有两种方式，一是使用初始化列表，二是在构造函数体内进行赋值操作。 对于内置类型，如int, float等，使用初始化列表和在构造函数体内初始化差别不大； 对于类类型来说，使用初始化列表会减少调用默认构造函数的次数，更加高效。 1 2</description>
     </item>
     
