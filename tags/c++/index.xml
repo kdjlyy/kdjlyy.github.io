@@ -6,7 +6,16 @@
     <description>Recent content in C&#43;&#43; on kdjlyy&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 09 May 2023 21:27:42 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 May 2023 15:31:26 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>计算机基础知识总结（系统篇）</title>
+      <link>https://kdjlyy.github.io/posts/tech/cs_basic_os/</link>
+      <pubDate>Tue, 16 May 2023 15:31:26 +0800</pubDate>
+      
+      <guid>https://kdjlyy.github.io/posts/tech/cs_basic_os/</guid>
+      <description>Linux用户空间内存分布 程序内存在地址空间中的分布情况称为内存模型。 对于32位环境，理论上程序可以拥有4GB的虚拟地址空间，要拿出一部分给操作系统内核使用，应用程序无法直接访问这一段内存，这一部分内存地址被称为内核空间。 Linux默认将高地址的1GB空间分配给内核。也就是说，应</description>
+    </item>
+    
     <item>
       <title>计算机基础知识总结（语法篇）</title>
       <link>https://kdjlyy.github.io/posts/tech/cs_basic_grammar/</link>
