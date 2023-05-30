@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>操作系统 on kdjlyy&#39;s Blog</title>
+    <title>操作系统 on 向着悠远的苍穹</title>
     <link>https://kdjlyy.cn/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
-    <description>Recent content in 操作系统 on kdjlyy&#39;s Blog</description>
+    <description>Recent content in 操作系统 on 向着悠远的苍穹</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 16 May 2023 15:31:26 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <pubDate>Tue, 16 May 2023 15:31:26 +0800</pubDate>
       
       <guid>https://kdjlyy.cn/posts/tech/cs-basic-os/</guid>
-      <description>Linux用户空间内存分布 程序内存在地址空间中的分布情况称为内存模型。 对于32位环境，理论上程序可以拥有4GB的虚拟地址空间，要拿出一部分给操作系统内核使用，应用程序无法直接访问这一段内存，这一部分内存地址被称为内核空间。 Linux默认将高地址的1GB空间分配给内核。也就是说，应</description>
+      <description>内存模型, Linux用户空间内存分布, 程序内存空间, 虚拟内存, new, delete, malloc, free, brk, mmap, ptmalloc, tcmalloc, 内存对敌, 用户态, 内核态, 中断, 系统调用, 缺页中断, 虚表, 虚表指针</description>
     </item>
     
   </channel>
