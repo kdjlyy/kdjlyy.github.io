@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>📋 建站 on 向着悠远的苍穹</title>
-    <link>https://kdjlyy.cn/posts/site/</link>
-    <description>Recent content in 📋 建站 on 向着悠远的苍穹</description>
+    <title>PaperMod on 向着悠远的苍穹</title>
+    <link>https://kdjlyy.cn/tags/papermod/</link>
+    <description>Recent content in PaperMod on 向着悠远的苍穹</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 02 Jun 2023 15:07:13 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/posts/site/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Jun 2023 15:07:13 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/tags/papermod/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo博客shortcodes使用</title>
       <link>https://kdjlyy.cn/posts/site/hugo_shortcodes/</link>
@@ -14,15 +14,6 @@
       
       <guid>https://kdjlyy.cn/posts/site/hugo_shortcodes/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo博客部署到云服务器</title>
-      <link>https://kdjlyy.cn/posts/site/ecs_deploy/</link>
-      <pubDate>Fri, 02 Jun 2023 15:06:58 +0800</pubDate>
-      
-      <guid>https://kdjlyy.cn/posts/site/ecs_deploy/</guid>
-      <description>准备工作</description>
     </item>
     
     <item>
@@ -50,6 +41,15 @@
       
       <guid>https://kdjlyy.cn/posts/site/site-init/</guid>
       <description>hugo, 静态博客, PaperMod, 快速启动</description>
+    </item>
+    
+    <item>
+      <title>PaperMod主题Markdown示例</title>
+      <link>https://kdjlyy.cn/posts/tech/markdown-note/</link>
+      <pubDate>Thu, 11 May 2023 18:13:32 +0800</pubDate>
+      
+      <guid>https://kdjlyy.cn/posts/tech/markdown-note/</guid>
+      <description>主要展示 PaperMod 主题中 Markdown 语法的页面效果</description>
     </item>
     
   </channel>

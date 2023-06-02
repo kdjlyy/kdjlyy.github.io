@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>基于Hugo搭建静态博客 | 向着悠远的苍穹</title>
+<meta name="keywords" content="Hugo, PaperMod">
+<meta name="description" content="hugo, 静态博客, PaperMod, 快速启动">
+<meta name="author" content="
+作者:&nbsp;kdjlyy">
+<link rel="canonical" href="https://kdjlyy.cn/posts/site/site-init/">
+
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5b696b3c2cd36f286fe9a79399e42aa1af2617d994fdbeadff5f4c9261aa1cdb.css" integrity="sha256-W2lrPCzTbyhv6aeTmeQqoa8mF9mU/b6t/19MkmGqHNs=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://kdjlyy.cn/img/logo.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kdjlyy.cn/img/logo.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kdjlyy.cn/img/logo.ico">
+<link rel="apple-touch-icon" href="https://kdjlyy.cn/logo.ico">
+<link rel="mask-icon" href="https://kdjlyy.cn/logo.ico">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            },
+            "HTML-CSS": {
+                availableFonts: ["Arial", "TeX"],
+                preferredFont: "TeX",
+                webFont: "TeX"
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css" />
+    <style>
+        body {
+             
+            font-family: "LXGW WenKai Lite", sans-serif;
+             
+            font-family: "LXGW WenKai Screen", sans-serif;
+        }
+    </style>
+</head>
+
+</html>
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/mermaid/9.1.6/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: localStorage.getItem("pref-theme") === "dark" ? "dark" : "forest" 
+    });
+</script>
+<meta property="og:title" content="基于Hugo搭建静态博客" />
+<meta property="og:description" content="hugo, 静态博客, PaperMod, 快速启动" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kdjlyy.cn/posts/site/site-init/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-30T17:17:15+08:00" />
+<meta property="article:modified_time" content="2023-05-30T17:17:15+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基于Hugo搭建静态博客"/>
+<meta name="twitter:description" content="hugo, 静态博客, PaperMod, 快速启动"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "文章",
+      "item": "https://kdjlyy.cn/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "📋 建站",
+      "item": "https://kdjlyy.cn/posts/site/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "基于Hugo搭建静态博客",
+      "item": "https://kdjlyy.cn/posts/site/site-init/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "基于Hugo搭建静态博客",
+  "name": "基于Hugo搭建静态博客",
+  "description": "hugo, 静态博客, PaperMod, 快速启动",
+  "keywords": [
+    "Hugo", "PaperMod"
+  ],
+  "articleBody": "前言 一直想搭建一个记录自己学习与生活的博客，断断续续尝试过很多种方案，例如基于 Typecho 或 Wordpress 的动态博客，基于 Hexo + Coding 的静态博客。\n其中基于 Wordpress 搭建动态博客在互联网上的比例很大，有海量的模版和丰富的教程。Typecho 和 Wordpress 类似，只是前者更加轻量级，界面更加简洁，理论上加载速度更快。Wordpress 的功能更加强大，可以用于搭建论坛、购物网站等，个人觉得只用来写技术博客有点大材小用了。因为不想花费很多精力在博客网站的排版、样式等功能上，更想专注于写文章本身，所以之前使用过较长时间的 Typecho 博客。\n但是动态博客的优点和缺点都很明显，动态博客可以提供诸如在线发布、数据统计、用户注册等一系列在线服务，但是需要部署在云服务器上，一般需要搭配域名使用。然而个人并不常用以上的在线服务，所以更倾向使用静态博客。Hexo 和 Hugo 的区别不大，但是 Hexo 需要 nodejs 环境并且加载速度没有 Hugo 快，优点是 Hexo 的主题更多。\n最终权衡下还是使用 Hugo + PaperMod主题的方案搭建了静态博客。\n技术选型 博客框架：Hugo\n博客主题：PaperMod\n博客字体：LXGW WenKai、JetBrains Mono\n托管工具：Github 或云服务器\n写作工具：Typora\n免费图床：遇见图床\n优点：\n不需要购买云服务器和域名，网站托管在 Github 上（也可以部署到云服务器上，绑定域名）； 网站功能简洁，加载速度快，不用花费精力维护； 使用本地 Typora 写作，所见即所得。 快速启动 搭建过程中参考了如下博客及教程：Sulv’s Blog、 田少晗的个人博客、Memory\n安装Hugo 安装前需要准备 Go 和 Git 环境，以下是个人使用的环境，合适的版本即可。\n基础环境 版本号 系统 MacOS Ventura 13.0 (M1 Pro) Go go version go1.17.7 darwin/amd64 Git git version 2.37.1 (Apple Git-137.1) Mac 用户输入：\n1 brew install hugo 安装完成后输入hugo version验证，若出现版本信息则表示安装成功。\n新建站点 新建站点目录kdjlyy_blog，并将站点配置文件改为.yml后缀写法：\n1 hugo new site kdjlyy_blog -f yml 会自动生成以下目录结构：\n1 2 3 4 5 6 7 8 9 10 11 kdjlyy_blog/ ├── archetypes/ │ └── default.md ├── assets/ ├── content/ ├── data/ ├── layouts/ ├── public/ ├── static/ ├── themes/ └── config.yml 目录结构详细介绍参考：https://gohugo.io/getting-started/directory-structure/\n下载主题 在 Hugo Themes 官网下载喜欢的主题到themes文件夹，以个人使用的 PaperMod 主题为例：\n1 2 cd themes git clone git@github.com:adityatelange/hugo-PaperMod.git ​\t把文件夹名称由 hugo-PaperMod 改为 PaperMod，方便后续配置。\n在站点文件夹下的配置文件config.yaml里配置主题：\n1 2 3 4 baseURL: \"/\" languageCode: 'en-us' title: 'My Blog' theme: \"PaperMod\" 新建文章 在站点目录下，新建文章：\n1 hugo new posts/first-blog.md 此时first-blog.md将自动生成在content/posts目录下:\n1 2 3 4 5 --- title: \"First Blog\" date: 2023-05-30T17:17:15+08:00 draft: false --- 在后面使用 markdown 格式书写即可。\n本地运行 在站点目录下执行命令：\n1 hugo server -D 进入 http://localhost:1313/ 即可访问个人主页。\n",
+  "wordCount" : "1149",
+  "inLanguage": "zh",
+  "datePublished": "2023-05-30T17:17:15+08:00",
+  "dateModified": "2023-05-30T17:17:15+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "kdjlyy"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kdjlyy.cn/posts/site/site-init/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "向着悠远的苍穹",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kdjlyy.cn/img/logo.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kdjlyy.cn" accesskey="h" title="向着悠远的苍穹 (Alt + H)">向着悠远的苍穹</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://kdjlyy.cn/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/archives" title="⏱️时间轴">
+                    <span>⏱️时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post" autonumbering>
+  
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://kdjlyy.cn">主页</a>&nbsp;»&nbsp;<a href="https://kdjlyy.cn/posts/">文章</a>&nbsp;»&nbsp;<a href="https://kdjlyy.cn/posts/site/">📋 建站</a></div>
+    <h1 class="post-title">
+      基于Hugo搭建静态博客
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+创建:&nbsp;<span title='2023-05-30 17:17:15 +0800 CST'>2023-05-30</span>&nbsp;|&nbsp;更新:&nbsp;2023-05-30&nbsp;|&nbsp;字数:&nbsp;1149字&nbsp;|&nbsp;
+作者:&nbsp;kdjlyy
+
+
+      
+    </div>
+  </header> <aside id="toc-container" class="toc-container wide">
+        <div class="toc">
+            <details  open>
+                <summary accesskey="c" title="(Alt + C)">
+                    <span class="details">目录</span>
+                </summary>
+
+                <div class="inner"><ul>
+                        <li>
+                            <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li>
+                        <li>
+                            <a href="#%e6%8a%80%e6%9c%af%e9%80%89%e5%9e%8b" aria-label="技术选型">技术选型</a></li>
+                        <li>
+                            <a href="#%e5%bf%ab%e9%80%9f%e5%90%af%e5%8a%a8" aria-label="快速启动">快速启动</a><ul>
+                                    
+                        <li>
+                            <a href="#%e5%ae%89%e8%a3%85hugo" aria-label="安装Hugo">安装Hugo</a></li>
+                        <li>
+                            <a href="#%e6%96%b0%e5%bb%ba%e7%ab%99%e7%82%b9" aria-label="新建站点">新建站点</a></li>
+                        <li>
+                            <a href="#%e4%b8%8b%e8%bd%bd%e4%b8%bb%e9%a2%98" aria-label="下载主题">下载主题</a></li>
+                        <li>
+                            <a href="#%e6%96%b0%e5%bb%ba%e6%96%87%e7%ab%a0" aria-label="新建文章">新建文章</a></li>
+                        <li>
+                            <a href="#%e6%9c%ac%e5%9c%b0%e8%bf%90%e8%a1%8c" aria-label="本地运行">本地运行</a>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+
+        window.addEventListener('resize', function (event) {
+            checkTocPosition();
+        }, false);
+
+        window.addEventListener('scroll', () => {
+            
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement) {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }, false);
+
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
+        }
+
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+  <div class="post-content"><h2 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h2>
+<p>一直想搭建一个记录自己学习与生活的博客，断断续续尝试过很多种方案，例如基于 Typecho 或 Wordpress 的动态博客，基于 Hexo + Coding 的静态博客。</p>
+<p>其中基于 Wordpress 搭建动态博客在互联网上的比例很大，有海量的模版和丰富的教程。Typecho 和 Wordpress 类似，只是前者更加轻量级，界面更加简洁，理论上加载速度更快。Wordpress 的功能更加强大，可以用于搭建论坛、购物网站等，个人觉得只用来写技术博客有点大材小用了。因为不想花费很多精力在博客网站的排版、样式等功能上，更想专注于写文章本身，所以之前使用过较长时间的 Typecho 博客。</p>
+<p>但是动态博客的优点和缺点都很明显，动态博客可以提供诸如在线发布、数据统计、用户注册等一系列在线服务，但是需要部署在云服务器上，一般需要搭配域名使用。然而个人并不常用以上的在线服务，所以更倾向使用静态博客。Hexo 和 Hugo 的区别不大，但是 Hexo 需要 nodejs 环境并且加载速度没有 Hugo 快，优点是 Hexo 的主题更多。</p>
+<p>最终权衡下还是使用 Hugo + PaperMod主题的方案搭建了静态博客。</p>
+<hr>
+<h2 id="技术选型">技术选型<a hidden class="anchor" aria-hidden="true" href="#技术选型">#</a></h2>
+<ul>
+<li>
+<p>博客框架：Hugo</p>
+</li>
+<li>
+<p>博客主题：PaperMod</p>
+</li>
+<li>
+<p>博客字体：LXGW WenKai、JetBrains Mono</p>
+</li>
+<li>
+<p>托管工具：Github 或云服务器</p>
+</li>
+<li>
+<p>写作工具：Typora</p>
+</li>
+<li>
+<p>免费图床：<a href="https://www.hualigs.cn/">遇见图床</a></p>
+</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>不需要购买云服务器和域名，网站托管在 Github 上（也可以部署到云服务器上，绑定域名）；</li>
+<li>网站功能简洁，加载速度快，不用花费精力维护；</li>
+<li>使用本地 Typora 写作，所见即所得。</li>
+</ul>
+<hr>
+<h2 id="快速启动">快速启动<a hidden class="anchor" aria-hidden="true" href="#快速启动">#</a></h2>
+<blockquote>
+<p>搭建过程中参考了如下博客及教程：<a href="https://www.sulvblog.cn/">Sulv&rsquo;s Blog</a>、<a href="https://shaohanyun.top/"> 田少晗的个人博客</a>、<a href="https://blog.yandaojiang.com/">Memory</a></p>
+</blockquote>
+<h3 id="安装hugo">安装Hugo<a hidden class="anchor" aria-hidden="true" href="#安装hugo">#</a></h3>
+<p>安装前需要准备 Go 和 Git 环境，以下是个人使用的环境，合适的版本即可。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">基础环境</th>
+<th>版本号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">系统</td>
+<td>MacOS Ventura 13.0 (M1 Pro)</td>
+</tr>
+<tr>
+<td style="text-align:left">Go</td>
+<td>go version go1.17.7 darwin/amd64</td>
+</tr>
+<tr>
+<td style="text-align:left">Git</td>
+<td>git version 2.37.1 (Apple Git-137.1)</td>
+</tr>
+</tbody>
+</table>
+<p>Mac 用户输入：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install hugo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装完成后输入<code>hugo version</code>验证，若出现版本信息则表示安装成功。</p>
+<h3 id="新建站点">新建站点<a hidden class="anchor" aria-hidden="true" href="#新建站点">#</a></h3>
+<p>新建站点目录<code>kdjlyy_blog</code>，并将站点配置文件改为<code>.yml</code>后缀写法：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new site kdjlyy_blog -f yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>会自动生成以下目录结构：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>kdjlyy_blog/
+</span></span><span style="display:flex;"><span>├── archetypes/
+</span></span><span style="display:flex;"><span>│   └── default.md
+</span></span><span style="display:flex;"><span>├── assets/
+</span></span><span style="display:flex;"><span>├── content/
+</span></span><span style="display:flex;"><span>├── data/
+</span></span><span style="display:flex;"><span>├── layouts/
+</span></span><span style="display:flex;"><span>├── public/
+</span></span><span style="display:flex;"><span>├── static/
+</span></span><span style="display:flex;"><span>├── themes/
+</span></span><span style="display:flex;"><span>└── config.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>目录结构详细介绍参考：https://gohugo.io/getting-started/directory-structure/</p>
+<h3 id="下载主题">下载主题<a hidden class="anchor" aria-hidden="true" href="#下载主题">#</a></h3>
+<ol>
+<li>
+<p>在 <a href="https://themes.gohugo.io/">Hugo Themes</a> 官网下载喜欢的主题到<code>themes</code>文件夹，以个人使用的 PaperMod 主题为例：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#81a1c1">cd</span> themes
+</span></span><span style="display:flex;"><span>git clone git@github.com:adityatelange/hugo-PaperMod.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p>​	把文件夹名称由 hugo-PaperMod 改为 PaperMod，方便后续配置。</p>
+<ol start="2">
+<li>
+<p>在站点文件夹下的配置文件<code>config.yaml</code>里配置主题：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#81a1c1">baseURL</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">languageCode</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#39;en-us&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">title</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#39;My Blog&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">theme</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;PaperMod&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="新建文章">新建文章<a hidden class="anchor" aria-hidden="true" href="#新建文章">#</a></h3>
+<p>在站点目录下，新建文章：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new posts/first-blog.md
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时<code>first-blog.md</code>将自动生成在<code>content/posts</code>目录下:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8fbcbb">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">title</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;First Blog&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">date</span><span style="color:#eceff4">:</span> 2023-05-30T17:17:15<span style="color:#b48ead">+08</span><span style="color:#eceff4">:</span><span style="color:#b48ead">00</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">draft</span><span style="color:#eceff4">:</span> <span style="color:#81a1c1;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#8fbcbb">---</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在后面使用 markdown 格式书写即可。</p>
+<h3 id="本地运行">本地运行<a hidden class="anchor" aria-hidden="true" href="#本地运行">#</a></h3>
+<p>在站点目录下执行命令：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>进入 <a href="http://localhost:1313/"><strong>http://localhost:1313/</strong></a> 即可访问个人主页。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://kdjlyy.cn/tags/hugo/">Hugo</a></li>
+      <li><a href="https://kdjlyy.cn/tags/papermod/">PaperMod</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://kdjlyy.cn/posts/site/hugo-papermod-configure/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Hugo主题配置及Github部署</span>
+  </a>
+  <a class="next" href="https://kdjlyy.cn/posts/tech/algorithm-simulation/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>常见算法-模拟篇</span>
+  </a>
+</nav>
+
+  </footer>
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">评论</span>
+        <br />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://utteranc.es/client.js" repo="kdjlyy/blog_comments" issue-term="title" theme="github-light"
+        crossorigin="anonymous" async>
+        </script>
+</div>
+</article>
+    </main>
+    
+<footer class="footer">
+    <div class="busuanzi-footer">
+        <span>&copy; 2023 <a href="https://kdjlyy.cn">向着悠远的苍穹</a></span>
+        <span>
+            
+            | <a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">皖ICP备2023007581号</a>
+            
+            </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'Copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'Done';
+            setTimeout(() => {
+                copybutton.innerHTML = 'Copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script></body>
+
+</html>
