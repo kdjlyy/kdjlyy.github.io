@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>搜索算法专题 | 向着悠远的苍穹</title>
+<meta name="keywords" content="LeetCode, 算法模版">
+<meta name="description" content="搜索算法, DFS, BFS, 记忆化搜索">
+<meta name="author" content="
+作者:&nbsp;kdjlyy">
+<link rel="canonical" href="https://kdjlyy.cn/posts/algorithm/algorithm-search/">
+
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5b696b3c2cd36f286fe9a79399e42aa1af2617d994fdbeadff5f4c9261aa1cdb.css" integrity="sha256-W2lrPCzTbyhv6aeTmeQqoa8mF9mU/b6t/19MkmGqHNs=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://kdjlyy.cn/img/logo.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kdjlyy.cn/img/logo.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kdjlyy.cn/img/logo.ico">
+<link rel="apple-touch-icon" href="https://kdjlyy.cn/logo.ico">
+<link rel="mask-icon" href="https://kdjlyy.cn/logo.ico">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            },
+            "HTML-CSS": {
+                availableFonts: ["Arial", "TeX"],
+                preferredFont: "TeX",
+                webFont: "TeX"
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css" />
+    <style>
+        body {
+             
+            font-family: "LXGW WenKai Lite", sans-serif;
+             
+            font-family: "LXGW WenKai Screen", sans-serif;
+        }
+    </style>
+</head>
+
+</html>
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/mermaid/9.1.6/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: localStorage.getItem("pref-theme") === "dark" ? "dark" : "forest" 
+    });
+</script>
+<meta property="og:title" content="搜索算法专题" />
+<meta property="og:description" content="搜索算法, DFS, BFS, 记忆化搜索" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kdjlyy.cn/posts/algorithm/algorithm-search/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-13T14:14:40+08:00" />
+<meta property="article:modified_time" content="2023-07-13T14:14:40+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="搜索算法专题"/>
+<meta name="twitter:description" content="搜索算法, DFS, BFS, 记忆化搜索"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "文章",
+      "item": "https://kdjlyy.cn/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "🎈 算法",
+      "item": "https://kdjlyy.cn/posts/algorithm/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "搜索算法专题",
+      "item": "https://kdjlyy.cn/posts/algorithm/algorithm-search/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "搜索算法专题",
+  "name": "搜索算法专题",
+  "description": "搜索算法, DFS, BFS, 记忆化搜索",
+  "keywords": [
+    "LeetCode", "算法模版"
+  ],
+  "articleBody": " 这里的搜索算法指的是 DFS、BFS等常见的基础算法。\nTODO: leetcode 迷宫II 迷宫III\nDFS\u0026BFS 记忆化搜索 记忆化搜索不像深度优先搜索那样重复枚举所有情况，而是把已经计算的子问题保存下来，所以说：记忆化搜索 = 深度优先搜索的实现 + 动态规划的思想。\n例1：矩阵中的最长递增路径\n代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 class Solution { public: int n, m, path[202][202], res = 0; // path[i][j] 表示 matrix[i][j] 位置的最长递增路径 int d[5] = {-1, 0, 1, 0, -1}; int dfs(int x, int y, vector\u003cvector\u003cint\u003e\u003e\u0026 matrix) { if (path[x][y] != 0) return path[x][y]; // 使用已经存储的数据 path[x][y] = 1; // 初始化为1 for (int i = 0; i \u003c 4; i++) { int nx = x + d[i], ny = y + d[i+1]; if (nx \u003e= 0 \u0026\u0026 nx \u003c n \u0026\u0026 ny \u003e= 0 \u0026\u0026 ny \u003c m \u0026\u0026 matrix[nx][ny] \u003e matrix[x][y]) path[x][y] = max(path[x][y], dfs(nx, ny, matrix) + 1); } return path[x][y]; } int longestIncreasingPath(vector\u003cvector\u003cint\u003e\u003e\u0026 matrix) { n = matrix.size(), m = matrix[0].size(); for (int i = 0; i \u003c n; i++) { for (int j = 0; j \u003c m; j++) { res = max(res, dfs(i, j, matrix)); } } return res; } }; 此外这道题也可以用动态规划的方法解决，参考：动态规划\n",
+  "wordCount" : "338",
+  "inLanguage": "zh",
+  "datePublished": "2023-07-13T14:14:40+08:00",
+  "dateModified": "2023-07-13T14:14:40+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "kdjlyy"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kdjlyy.cn/posts/algorithm/algorithm-search/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "向着悠远的苍穹",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kdjlyy.cn/img/logo.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kdjlyy.cn" accesskey="h" title="向着悠远的苍穹 (Alt + H)">向着悠远的苍穹</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://kdjlyy.cn/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/archives" title="⏱️时间轴">
+                    <span>⏱️时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post" autonumbering>
+  
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://kdjlyy.cn">主页</a>&nbsp;»&nbsp;<a href="https://kdjlyy.cn/posts/">文章</a>&nbsp;»&nbsp;<a href="https://kdjlyy.cn/posts/algorithm/">🎈 算法</a></div>
+    <h1 class="post-title">
+      搜索算法专题<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+创建:&nbsp;<span title='2023-07-13 14:14:40 +0800 CST'>2023-07-13</span>&nbsp;|&nbsp;更新:&nbsp;2023-07-13&nbsp;|&nbsp;字数:&nbsp;338字&nbsp;|&nbsp;
+作者:&nbsp;kdjlyy
+
+
+      
+    </div>
+  </header> <aside id="toc-container" class="toc-container wide">
+        <div class="toc">
+            <details  open>
+                <summary accesskey="c" title="(Alt + C)">
+                    <span class="details">目录</span>
+                </summary>
+
+                <div class="inner"><ul>
+                        <li>
+                            <a href="#dfsbfs" aria-label="DFS&amp;amp;BFS">DFS&amp;BFS</a></li>
+                        <li>
+                            <a href="#%e8%ae%b0%e5%bf%86%e5%8c%96%e6%90%9c%e7%b4%a2" aria-label="记忆化搜索">记忆化搜索</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+
+        window.addEventListener('resize', function (event) {
+            checkTocPosition();
+        }, false);
+
+        window.addEventListener('scroll', () => {
+            
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement) {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }, false);
+
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
+        }
+
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+  <div class="post-content"><blockquote>
+<p>这里的搜索算法指的是 DFS、BFS等常见的基础算法。</p>
+</blockquote>
+<p>TODO: leetcode 迷宫II 迷宫III</p>
+<h2 id="dfsbfs">DFS&amp;BFS<a hidden class="anchor" aria-hidden="true" href="#dfsbfs">#</a></h2>
+<h2 id="记忆化搜索">记忆化搜索<a hidden class="anchor" aria-hidden="true" href="#记忆化搜索">#</a></h2>
+<p>记忆化搜索不像深度优先搜索那样重复枚举所有情况，而是把已经计算的子问题保存下来，所以说：<strong>记忆化搜索 = 深度优先搜索的实现 + 动态规划的思想</strong>。</p>
+<blockquote>
+<p><strong>例1：</strong><a href="https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/">矩阵中的最长递增路径</a></p>
+
+
+<details>
+    <summary>
+        
+        <b> 代码 </b>
+    </summary>
+
+    <div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">class</span> <span style="color:#8fbcbb">Solution</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">public</span><span style="color:#81a1c1">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">int</span> n<span style="color:#eceff4">,</span> m<span style="color:#eceff4">,</span> path<span style="color:#eceff4">[</span><span style="color:#b48ead">202</span><span style="color:#eceff4">][</span><span style="color:#b48ead">202</span><span style="color:#eceff4">],</span> res <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// path[i][j] 表示 matrix[i][j] 位置的最长递增路径
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#81a1c1">int</span> d<span style="color:#eceff4">[</span><span style="color:#b48ead">5</span><span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> <span style="color:#eceff4">{</span><span style="color:#81a1c1">-</span><span style="color:#b48ead">1</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">-</span><span style="color:#b48ead">1</span><span style="color:#eceff4">};</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">int</span> <span style="color:#88c0d0">dfs</span><span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> x<span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span> y<span style="color:#eceff4">,</span> vector<span style="color:#81a1c1">&lt;</span>vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;&gt;&amp;</span> matrix<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">if</span> <span style="color:#eceff4">(</span>path<span style="color:#eceff4">[</span>x<span style="color:#eceff4">][</span>y<span style="color:#eceff4">]</span> <span style="color:#81a1c1">!=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1;font-weight:bold">return</span> path<span style="color:#eceff4">[</span>x<span style="color:#eceff4">][</span>y<span style="color:#eceff4">];</span>  <span style="color:#616e87;font-style:italic">// 使用已经存储的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>        
+</span></span><span style="display:flex;"><span>        path<span style="color:#eceff4">[</span>x<span style="color:#eceff4">][</span>y<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 初始化为1
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>        <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> i <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span> i <span style="color:#81a1c1">&lt;</span> <span style="color:#b48ead">4</span><span style="color:#eceff4">;</span> i<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">int</span> nx <span style="color:#81a1c1">=</span> x <span style="color:#81a1c1">+</span> d<span style="color:#eceff4">[</span>i<span style="color:#eceff4">],</span> ny <span style="color:#81a1c1">=</span> y <span style="color:#81a1c1">+</span> d<span style="color:#eceff4">[</span>i<span style="color:#81a1c1">+</span><span style="color:#b48ead">1</span><span style="color:#eceff4">];</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">if</span> <span style="color:#eceff4">(</span>nx <span style="color:#81a1c1">&gt;=</span> <span style="color:#b48ead">0</span> <span style="color:#81a1c1">&amp;&amp;</span> nx <span style="color:#81a1c1">&lt;</span> n <span style="color:#81a1c1">&amp;&amp;</span> ny <span style="color:#81a1c1">&gt;=</span> <span style="color:#b48ead">0</span> <span style="color:#81a1c1">&amp;&amp;</span> ny <span style="color:#81a1c1">&lt;</span> m <span style="color:#81a1c1">&amp;&amp;</span> matrix<span style="color:#eceff4">[</span>nx<span style="color:#eceff4">][</span>ny<span style="color:#eceff4">]</span> <span style="color:#81a1c1">&gt;</span> matrix<span style="color:#eceff4">[</span>x<span style="color:#eceff4">][</span>y<span style="color:#eceff4">])</span> 
+</span></span><span style="display:flex;"><span>                path<span style="color:#eceff4">[</span>x<span style="color:#eceff4">][</span>y<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> max<span style="color:#eceff4">(</span>path<span style="color:#eceff4">[</span>x<span style="color:#eceff4">][</span>y<span style="color:#eceff4">],</span> dfs<span style="color:#eceff4">(</span>nx<span style="color:#eceff4">,</span> ny<span style="color:#eceff4">,</span> matrix<span style="color:#eceff4">)</span> <span style="color:#81a1c1">+</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">return</span> path<span style="color:#eceff4">[</span>x<span style="color:#eceff4">][</span>y<span style="color:#eceff4">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">int</span> <span style="color:#88c0d0">longestIncreasingPath</span><span style="color:#eceff4">(</span>vector<span style="color:#81a1c1">&lt;</span>vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;&gt;&amp;</span> matrix<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        n <span style="color:#81a1c1">=</span> matrix<span style="color:#eceff4">.</span>size<span style="color:#eceff4">(),</span> m <span style="color:#81a1c1">=</span> matrix<span style="color:#eceff4">[</span><span style="color:#b48ead">0</span><span style="color:#eceff4">].</span>size<span style="color:#eceff4">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> i <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span> i <span style="color:#81a1c1">&lt;</span> n<span style="color:#eceff4">;</span> i<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> j <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span> j <span style="color:#81a1c1">&lt;</span> m<span style="color:#eceff4">;</span> j<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>                res <span style="color:#81a1c1">=</span> max<span style="color:#eceff4">(</span>res<span style="color:#eceff4">,</span> dfs<span style="color:#eceff4">(</span>i<span style="color:#eceff4">,</span> j<span style="color:#eceff4">,</span> matrix<span style="color:#eceff4">));</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">return</span> res<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</details>
+</blockquote>
+<p>此外这道题也可以用动态规划的方法解决，参考：<a href="/posts/algorithm/algorithm-dp/#%E4%BE%8B1%E6%BB%91%E9%9B%AA%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E8%B7%AF%E5%BE%84httpsleetcodecnproblemslongest-increasing-path-in-a-matrixdescription">动态规划</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://kdjlyy.cn/tags/leetcode/">LeetCode</a></li>
+      <li><a href="https://kdjlyy.cn/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E7%89%88/">算法模版</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://kdjlyy.cn/posts/algorithm/algorithm-linkedlist/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>链表专题</span>
+  </a>
+  <a class="next" href="https://kdjlyy.cn/posts/algorithm/algorithm-dp/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>动态规划专题</span>
+  </a>
+</nav>
+
+  </footer>
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">评论</span>
+        <br />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://utteranc.es/client.js" repo="kdjlyy/blog_comments" issue-term="title" theme="github-light"
+        crossorigin="anonymous" async>
+        </script>
+</div>
+</article>
+    </main>
+    
+<footer class="footer">
+    <div class="busuanzi-footer">
+        <span>&copy; 2023 <a href="https://kdjlyy.cn">向着悠远的苍穹</a></span>
+        <span>
+            
+            | <a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">皖ICP备2023007581号</a>
+            
+            </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'Copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'Done';
+            setTimeout(() => {
+                copybutton.innerHTML = 'Copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script></body>
+
+</html>

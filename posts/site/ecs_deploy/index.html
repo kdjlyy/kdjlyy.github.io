@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Hugo博客部署到云服务器 | 向着悠远的苍穹</title>
 <meta name="keywords" content="Hugo">
-<meta name="description" content="准备工作">
+<meta name="description" content="Hugo博客部署, 云服务器, ICP备案, 宝塔面板, SSL, Nginx">
 <meta name="author" content="
 作者:&nbsp;kdjlyy">
 <link rel="canonical" href="https://kdjlyy.cn/posts/site/ecs_deploy/">
@@ -106,7 +106,7 @@
     });
 </script>
 <meta property="og:title" content="Hugo博客部署到云服务器" />
-<meta property="og:description" content="准备工作" />
+<meta property="og:description" content="Hugo博客部署, 云服务器, ICP备案, 宝塔面板, SSL, Nginx" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kdjlyy.cn/posts/site/ecs_deploy/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-02T15:06:58+08:00" />
@@ -114,7 +114,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hugo博客部署到云服务器"/>
-<meta name="twitter:description" content="准备工作"/>
+<meta name="twitter:description" content="Hugo博客部署, 云服务器, ICP备案, 宝塔面板, SSL, Nginx"/>
 
 
 <script type="application/ld+json">
@@ -149,12 +149,12 @@
   "@type": "BlogPosting",
   "headline": "Hugo博客部署到云服务器",
   "name": "Hugo博客部署到云服务器",
-  "description": "准备工作",
+  "description": "Hugo博客部署, 云服务器, ICP备案, 宝塔面板, SSL, Nginx",
   "keywords": [
     "Hugo"
   ],
-  "articleBody": "准备工作 ",
-  "wordCount" : "4",
+  "articleBody": "准备工作 基于 Hugo 搭建的静态博客网页代码托管在 Github 上，我们可以直接使用 Github 的地址访问。但是为了提高加载速度，我们也可以选择将博客部署到各大厂商的云服务器上。\n在此之前，需要完成包括但不限于以下准备工作：\n购买云服务器； 购买域名； 域名解析和 ICP 备案; 防火墙/安全组设置。 安装宝塔面板 该步骤不是必选项，但是为了方便后续使用，建议安装宝塔面板，安装后可以使用图形化界面操作云服务器。\n参考链接：宝塔面板安装教程\n安装SSL证书 该步骤不是必选项，但是安装 SSL 证书后我们的博客网站支持 https 访问，推荐安装。\n一般我们购买的阿里云/腾讯云等平台的服务器，都可以使用免费的 SSL 证书。证书的有效期一般为一年，到期时可以提前免费续约。以阿里云为例，参考教程：在Nginx或Tengine服务器上安装证书。\n配置Nginx 在步骤2中，我们安装宝塔面板的同时一般已经安装了 Nginx，输入nginx -v查看。\n输入ps -ef | grep nginx可以查看正在运行的 Nginx 进程，我们可以看到宝塔面板安装的 Nginx 配置文件是：/www/server/nginx/conf/nginx.conf，个人配置如下：\n代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 user www www; worker_processes auto; error_log /www/wwwlogs/nginx_error.log crit; pid /www/server/nginx/logs/nginx.pid; worker_rlimit_nofile 51200; stream { log_format tcp_format '$time_local|$remote_addr|$protocol|$status|$bytes_sent|$bytes_received|$session_time|$upstream_addr|$upstream_bytes_sent|$upstream_bytes_received|$upstream_connect_time'; access_log /www/wwwlogs/tcp-access.log tcp_format; error_log /www/wwwlogs/tcp-error.log; include /www/server/panel/vhost/nginx/tcp/*.conf; } events { use epoll; worker_connections 51200; multi_accept on; } http { include mime.types; include proxy.conf; default_type application/octet-stream; server_names_hash_bucket_size 512; client_header_buffer_size 32k; large_client_header_buffers 4 32k; client_max_body_size 50m; sendfile on; tcp_nopush on; keepalive_timeout 60; tcp_nodelay on; fastcgi_connect_timeout 300; fastcgi_send_timeout 300; fastcgi_read_timeout 300; fastcgi_buffer_size 64k; fastcgi_buffers 4 64k; fastcgi_busy_buffers_size 128k; fastcgi_temp_file_write_size 256k; fastcgi_intercept_errors on; gzip on; gzip_min_length 1k; gzip_buffers 4 16k; gzip_http_version 1.1; gzip_comp_level 2; gzip_types text/plain application/javascript application/x-javascript text/javascript text/css application/xml; gzip_vary on; gzip_proxied expired no-cache no-store private auth; gzip_disable \"MSIE [1-6]\\.\"; limit_conn_zone $binary_remote_addr zone=perip:10m; limit_conn_zone $server_name zone=perserver:10m; server_tokens off; access_log off; server { listen 443 ssl; server_name kdjlyy.cn; root html; index index.html index.htm index.php; #填写证书文件名称 ssl_certificate cert/xxxxxxx_kdjlyy.cn.pem; #填写证书私钥文件名称 ssl_certificate_key cert/xxxxxxx_kdjlyy.cn.key; ssl_session_timeout 5m; #表示使用的加密套件的类型 ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4; #表示使用的TLS协议的类型，您需要自行评估是否配置TLSv1.1协议。 ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3; ssl_prefer_server_ciphers on; location / { root /www/wwwroot/public/ ; # 站点目录设置为之前Hugo生成的public路径即可 index index.html; } access_log /www/wwwlogs/access.log; } # 设置HTTP请求自动跳转HTTPS server { listen 80; server_name kdjlyy.cn; #需要将yourdomain替换成证书绑定的域名。 rewrite ^(.*)$ https://$host$1; #将所有HTTP请求通过rewrite指令重定向到HTTPS。 location / { index index.html index.htm; } } include /www/server/panel/vhost/nginx/*.conf; } 需要更改的地方为第68、73、75、83、91行，配置完 Nginx 后把博客的public目录上传到云服务器上，对应 Nginx 配置的 location 中的 root 字段。\n然后输入命令重启 Nginx 即可通过域名访问博客。\n1 /www/server/nginx/sbin/nginx -s reload ",
+  "wordCount" : "996",
   "inLanguage": "zh",
   "datePublished": "2023-06-02T15:06:58+08:00",
   "dateModified": "2023-06-02T15:06:58+08:00",
@@ -267,7 +267,7 @@
 
 
 
-创建:&nbsp;<span title='2023-06-02 15:06:58 +0800 CST'>2023-06-02</span>&nbsp;|&nbsp;更新:&nbsp;2023-06-02&nbsp;|&nbsp;字数:&nbsp;4字&nbsp;|&nbsp;
+创建:&nbsp;<span title='2023-06-02 15:06:58 +0800 CST'>2023-06-02</span>&nbsp;|&nbsp;更新:&nbsp;2023-06-02&nbsp;|&nbsp;字数:&nbsp;996字&nbsp;|&nbsp;
 作者:&nbsp;kdjlyy
 
 
@@ -282,7 +282,13 @@
 
                 <div class="inner"><ul>
                         <li>
-                            <a href="#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c" aria-label="准备工作">准备工作</a>
+                            <a href="#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c" aria-label="准备工作">准备工作</a></li>
+                        <li>
+                            <a href="#%e5%ae%89%e8%a3%85%e5%ae%9d%e5%a1%94%e9%9d%a2%e6%9d%bf" aria-label="安装宝塔面板">安装宝塔面板</a></li>
+                        <li>
+                            <a href="#%e5%ae%89%e8%a3%85ssl%e8%af%81%e4%b9%a6" aria-label="安装SSL证书">安装SSL证书</a></li>
+                        <li>
+                            <a href="#%e9%85%8d%e7%bd%aenginx" aria-label="配置Nginx">配置Nginx</a>
                         </li>
                     </ul>
                 </div>
@@ -349,7 +355,249 @@
         }
     </script>
   <div class="post-content"><h2 id="准备工作">准备工作<a hidden class="anchor" aria-hidden="true" href="#准备工作">#</a></h2>
+<p>基于 Hugo 搭建的静态博客网页代码托管在 Github 上，我们可以直接使用 Github 的地址访问。但是为了提高加载速度，我们也可以选择将博客部署到各大厂商的云服务器上。</p>
+<p>在此之前，需要完成包括但不限于以下准备工作：</p>
+<ul>
+<li>购买云服务器；</li>
+<li>购买域名；</li>
+<li>域名解析和 ICP 备案;</li>
+<li>防火墙/安全组设置。</li>
+</ul>
+<hr>
+<h2 id="安装宝塔面板">安装宝塔面板<a hidden class="anchor" aria-hidden="true" href="#安装宝塔面板">#</a></h2>
+<p>该步骤不是必选项，但是为了方便后续使用，建议安装宝塔面板，安装后可以使用图形化界面操作云服务器。</p>
+<p>参考链接：<a href="https://www.bt.cn/new/download.html">宝塔面板安装教程</a></p>
+<hr>
+<h2 id="安装ssl证书">安装SSL证书<a hidden class="anchor" aria-hidden="true" href="#安装ssl证书">#</a></h2>
+<p>该步骤不是必选项，但是安装 SSL 证书后我们的博客网站支持 https 访问，推荐安装。</p>
+<p>一般我们购买的阿里云/腾讯云等平台的服务器，都可以使用免费的 SSL 证书。证书的有效期一般为一年，到期时可以提前免费续约。以阿里云为例，参考教程：<a href="https://help.aliyun.com/document_detail/98728.htm?spm=a2c4g.11186623.0.0.4c5845b7mFWgir#concept-n45-21x-yfb">在Nginx或Tengine服务器上安装证书</a>。</p>
+<hr>
+<h2 id="配置nginx">配置Nginx<a hidden class="anchor" aria-hidden="true" href="#配置nginx">#</a></h2>
+<p>在步骤2中，我们安装宝塔面板的同时一般已经安装了 Nginx，输入<code>nginx -v</code>查看。</p>
+<p>输入<code>ps -ef | grep nginx</code>可以查看正在运行的 Nginx 进程，我们可以看到宝塔面板安装的 Nginx 配置文件是：<code>/www/server/nginx/conf/nginx.conf</code>，个人配置如下：</p>
 
+
+<details>
+    <summary>
+        
+        <b> 代码 </b>
+    </summary>
+
+    <div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">98
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>user  www www;
+</span></span><span style="display:flex;"><span>worker_processes auto;
+</span></span><span style="display:flex;"><span>error_log  /www/wwwlogs/nginx_error.log  crit;
+</span></span><span style="display:flex;"><span>pid        /www/server/nginx/logs/nginx.pid;
+</span></span><span style="display:flex;"><span>worker_rlimit_nofile 51200;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>stream {
+</span></span><span style="display:flex;"><span>    log_format tcp_format &#39;$time_local|$remote_addr|$protocol|$status|$bytes_sent|$bytes_received|$session_time|$upstream_addr|$upstream_bytes_sent|$upstream_bytes_received|$upstream_connect_time&#39;;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    access_log /www/wwwlogs/tcp-access.log tcp_format;
+</span></span><span style="display:flex;"><span>    error_log /www/wwwlogs/tcp-error.log;
+</span></span><span style="display:flex;"><span>    include /www/server/panel/vhost/nginx/tcp/*.conf;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>events
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        use epoll;
+</span></span><span style="display:flex;"><span>        worker_connections 51200;
+</span></span><span style="display:flex;"><span>        multi_accept on;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>http
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        include       mime.types;
+</span></span><span style="display:flex;"><span>		include proxy.conf;
+</span></span><span style="display:flex;"><span>        default_type  application/octet-stream;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        server_names_hash_bucket_size 512;
+</span></span><span style="display:flex;"><span>        client_header_buffer_size 32k;
+</span></span><span style="display:flex;"><span>        large_client_header_buffers 4 32k;
+</span></span><span style="display:flex;"><span>        client_max_body_size 50m;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        sendfile   on;
+</span></span><span style="display:flex;"><span>        tcp_nopush on;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        keepalive_timeout 60;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        tcp_nodelay on;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        fastcgi_connect_timeout 300;
+</span></span><span style="display:flex;"><span>        fastcgi_send_timeout 300;
+</span></span><span style="display:flex;"><span>        fastcgi_read_timeout 300;
+</span></span><span style="display:flex;"><span>        fastcgi_buffer_size 64k;
+</span></span><span style="display:flex;"><span>        fastcgi_buffers 4 64k;
+</span></span><span style="display:flex;"><span>        fastcgi_busy_buffers_size 128k;
+</span></span><span style="display:flex;"><span>        fastcgi_temp_file_write_size 256k;
+</span></span><span style="display:flex;"><span>		fastcgi_intercept_errors on;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        gzip on;
+</span></span><span style="display:flex;"><span>        gzip_min_length  1k;
+</span></span><span style="display:flex;"><span>        gzip_buffers     4 16k;
+</span></span><span style="display:flex;"><span>        gzip_http_version 1.1;
+</span></span><span style="display:flex;"><span>        gzip_comp_level 2;
+</span></span><span style="display:flex;"><span>        gzip_types     text/plain application/javascript application/x-javascript text/javascript text/css application/xml;
+</span></span><span style="display:flex;"><span>        gzip_vary on;
+</span></span><span style="display:flex;"><span>        gzip_proxied   expired no-cache no-store private auth;
+</span></span><span style="display:flex;"><span>        gzip_disable   &#34;MSIE [1-6]\.&#34;;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        limit_conn_zone $binary_remote_addr zone=perip:10m;
+</span></span><span style="display:flex;"><span>		limit_conn_zone $server_name zone=perserver:10m;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        server_tokens off;
+</span></span><span style="display:flex;"><span>        access_log off;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        listen 443 ssl;
+</span></span><span style="display:flex;"><span>        server_name kdjlyy.cn;
+</span></span><span style="display:flex;"><span>		root html;
+</span></span><span style="display:flex;"><span>        index index.html index.htm index.php;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    	<span style="color:#616e87;font-style:italic">#填写证书文件名称</span>
+</span></span><span style="display:flex;"><span>    	ssl_certificate cert/xxxxxxx_kdjlyy.cn.pem;
+</span></span><span style="display:flex;"><span>  		<span style="color:#616e87;font-style:italic">#填写证书私钥文件名称</span>
+</span></span><span style="display:flex;"><span>   		ssl_certificate_key cert/xxxxxxx_kdjlyy.cn.key;
+</span></span><span style="display:flex;"><span>    	ssl_session_timeout 5m;
+</span></span><span style="display:flex;"><span>    	<span style="color:#616e87;font-style:italic">#表示使用的加密套件的类型</span>
+</span></span><span style="display:flex;"><span>    	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+</span></span><span style="display:flex;"><span>    	<span style="color:#616e87;font-style:italic">#表示使用的TLS协议的类型，您需要自行评估是否配置TLSv1.1协议。</span>
+</span></span><span style="display:flex;"><span>    	ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
+</span></span><span style="display:flex;"><span>    	ssl_prefer_server_ciphers on;
+</span></span><span style="display:flex;"><span>    	location / {
+</span></span><span style="display:flex;"><span>        	root /www/wwwroot/public/ ;  <span style="color:#616e87;font-style:italic"># 站点目录设置为之前Hugo生成的public路径即可</span>
+</span></span><span style="display:flex;"><span>       		index index.html;
+</span></span><span style="display:flex;"><span>    	}
+</span></span><span style="display:flex;"><span>        access_log  /www/wwwlogs/access.log;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>	<span style="color:#616e87;font-style:italic"># 设置HTTP请求自动跳转HTTPS</span>
+</span></span><span style="display:flex;"><span>	server {
+</span></span><span style="display:flex;"><span>   		listen 80;
+</span></span><span style="display:flex;"><span>   	 	server_name kdjlyy.cn; <span style="color:#616e87;font-style:italic">#需要将yourdomain替换成证书绑定的域名。</span>
+</span></span><span style="display:flex;"><span>  	  	rewrite ^(.*)$ https://$host$1; <span style="color:#616e87;font-style:italic">#将所有HTTP请求通过rewrite指令重定向到HTTPS。</span>
+</span></span><span style="display:flex;"><span>  	 	location / {
+</span></span><span style="display:flex;"><span>   	   		index index.html index.htm;
+</span></span><span style="display:flex;"><span>   	 	}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>include /www/server/panel/vhost/nginx/*.conf;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</details>
+<p>需要更改的地方为第68、73、75、83、91行，配置完 Nginx 后把博客的<code>public</code>目录上传到云服务器上，对应 Nginx 配置的 location 中的 root 字段。</p>
+<p>然后输入命令重启 Nginx 即可通过域名访问博客。</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>/www/server/nginx/sbin/nginx -s reload
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 
   </div>
 

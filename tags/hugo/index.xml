@@ -13,7 +13,7 @@
       <pubDate>Fri, 02 Jun 2023 15:07:13 +0800</pubDate>
       
       <guid>https://kdjlyy.cn/posts/site/hugo_shortcodes/</guid>
-      <description></description>
+      <description>Shortcodes简介 大多数的静态博客会使用 Markdown 进行写作，因为它格式简单、所见即所得，但是 Markdown 也有它的不足之处。当我们想要将图片或者视频等插入到文章内容中时，Markdown 本身并不</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Fri, 02 Jun 2023 15:06:58 +0800</pubDate>
       
       <guid>https://kdjlyy.cn/posts/site/ecs_deploy/</guid>
-      <description>准备工作</description>
+      <description>Hugo博客部署, 云服务器, ICP备案, 宝塔面板, SSL, Nginx</description>
     </item>
     
     <item>
@@ -55,7 +55,7 @@
     <item>
       <title>PaperMod主题Markdown示例</title>
       <link>https://kdjlyy.cn/posts/tech/markdown-note/</link>
-      <pubDate>Thu, 11 May 2023 18:13:32 +0800</pubDate>
+      <pubDate>Mon, 08 May 2023 18:13:32 +0800</pubDate>
       
       <guid>https://kdjlyy.cn/posts/tech/markdown-note/</guid>
       <description>主要展示 PaperMod 主题中 Markdown 语法的页面效果</description>

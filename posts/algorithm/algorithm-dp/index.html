@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>动态规划专题 | 向着悠远的苍穹</title>
+<meta name="keywords" content="LeetCode, 算法模版">
+<meta name="description" content="动态规划, dp, 记忆化搜索, 滑雪， 矩阵中的最长递增路径">
+<meta name="author" content="
+作者:&nbsp;kdjlyy">
+<link rel="canonical" href="https://kdjlyy.cn/posts/algorithm/algorithm-dp/">
+
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5b696b3c2cd36f286fe9a79399e42aa1af2617d994fdbeadff5f4c9261aa1cdb.css" integrity="sha256-W2lrPCzTbyhv6aeTmeQqoa8mF9mU/b6t/19MkmGqHNs=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://kdjlyy.cn/img/logo.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://kdjlyy.cn/img/logo.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://kdjlyy.cn/img/logo.ico">
+<link rel="apple-touch-icon" href="https://kdjlyy.cn/logo.ico">
+<link rel="mask-icon" href="https://kdjlyy.cn/logo.ico">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            },
+            "HTML-CSS": {
+                availableFonts: ["Arial", "TeX"],
+                preferredFont: "TeX",
+                webFont: "TeX"
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css" />
+    <style>
+        body {
+             
+            font-family: "LXGW WenKai Lite", sans-serif;
+             
+            font-family: "LXGW WenKai Screen", sans-serif;
+        }
+    </style>
+</head>
+
+</html>
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/mermaid/9.1.6/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: localStorage.getItem("pref-theme") === "dark" ? "dark" : "forest" 
+    });
+</script>
+<meta property="og:title" content="动态规划专题" />
+<meta property="og:description" content="动态规划, dp, 记忆化搜索, 滑雪， 矩阵中的最长递增路径" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kdjlyy.cn/posts/algorithm/algorithm-dp/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-11T17:36:38+08:00" />
+<meta property="article:modified_time" content="2023-07-11T17:36:38+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="动态规划专题"/>
+<meta name="twitter:description" content="动态规划, dp, 记忆化搜索, 滑雪， 矩阵中的最长递增路径"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "文章",
+      "item": "https://kdjlyy.cn/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "🎈 算法",
+      "item": "https://kdjlyy.cn/posts/algorithm/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "动态规划专题",
+      "item": "https://kdjlyy.cn/posts/algorithm/algorithm-dp/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "动态规划专题",
+  "name": "动态规划专题",
+  "description": "动态规划, dp, 记忆化搜索, 滑雪， 矩阵中的最长递增路径",
+  "keywords": [
+    "LeetCode", "算法模版"
+  ],
+  "articleBody": "动态规划入门 例1：最大子数组和 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。子数组是数组中的一个连续部分。\n输入：nums = [-2,1,-3,4,-1,2,1,-5,4]\n输出：6\n解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。\n【解法1】：\n[解析]：对于每一位数字，都有选和不选两种抉择。用 $dp[i]$ 表示以 $nums[i]$ 结尾的连续子数组的最大和。\n如果数组的数都是正数，对于第 $i$ 个数，很明显有：$dp[i]=dp[i-1]+nums[i],\\quad (i\u003e0)$，这里的 $dp[i-1]$ 恒大于 0。\n当 $dp[i-1]\u003c0$ 时，很明显 $dp[i]=nums[i]$，即重新计算最大子数组和，因为 $dp[i-1]$ 已经产生了负收益。\n初始时 $dp[0]=nums[0]$，最终数组中最大子数组和为 $dp[i]$ 中的最大值。\n代码 1 2 3 4 5 6 7 8 9 int maxSubArray(vector\u003cint\u003e\u0026 nums) { int n = nums.size(); vector\u003cint\u003e dp(n); dp[0] = nums[0]; for (int i = 1; i \u003c n; i++) { dp[i] = max(nums[i], dp[i-1] + nums[i]); } return *max_element(dp.begin(), dp.end()); } 【解法2】：\n从解法1的动态规划方程可以看出，$dp[i]$ 仅与 $dp[i-1]$ 相关，所以我们可以利用滚动数组的思想继续优化时间复杂度。\n代码 1 2 3 4 5 6 7 8 int maxSubArray(vector\u003cint\u003e\u0026 nums) { int currmax = 0, res = nums[0]; for (int x : nums) { currmax = max(currmax + x, x); res = max(res, currmax); } return res; } 二维动态规划 例1：滑雪/矩阵中的最长递增路径 给定一个 m x n 整数矩阵 matrix ，找出其中 最长递增路径 的长度。对于每个单元格，你可以往上，下，左，右四个方向移动。 你 不能 在 对角线 方向上移动或移动到 边界外（即不允许环绕）。\nmatrix example: result is 4 [解析]：我们用 $dp[i][j]$ 表示 $matrix$ 中以 $matrix[i][j]$ 为起点的最长递增路径，$dp[i][j]$ 初始为1，表示每个位置至少是长度为1的递增路径。 设 $(i^{’},j^{’})$ 为 $(i,j)$ 周围的某一点，则状态转移方程为：$$dp[i][j]=max(dp[i][j],\\ dp[i^{’}][j^{’}]+1),\\quad if \\ matrix[i^{’}][j^{’}]",
+  "wordCount" : "1153",
+  "inLanguage": "zh",
+  "datePublished": "2023-07-11T17:36:38+08:00",
+  "dateModified": "2023-07-11T17:36:38+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "kdjlyy"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kdjlyy.cn/posts/algorithm/algorithm-dp/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "向着悠远的苍穹",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kdjlyy.cn/img/logo.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://kdjlyy.cn" accesskey="h" title="向着悠远的苍穹 (Alt + H)">向着悠远的苍穹</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://kdjlyy.cn/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/posts" title="📚文章">
+                    <span>📚文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/archives" title="⏱️时间轴">
+                    <span>⏱️时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/tags" title="🔖标签">
+                    <span>🔖标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kdjlyy.cn/about" title="🙋🏻‍♂️关于">
+                    <span>🙋🏻‍♂️关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post" autonumbering>
+  
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://kdjlyy.cn">主页</a>&nbsp;»&nbsp;<a href="https://kdjlyy.cn/posts/">文章</a>&nbsp;»&nbsp;<a href="https://kdjlyy.cn/posts/algorithm/">🎈 算法</a></div>
+    <h1 class="post-title">
+      动态规划专题<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+创建:&nbsp;<span title='2023-07-11 17:36:38 +0800 CST'>2023-07-11</span>&nbsp;|&nbsp;更新:&nbsp;2023-07-11&nbsp;|&nbsp;字数:&nbsp;1153字&nbsp;|&nbsp;
+作者:&nbsp;kdjlyy
+
+
+      
+    </div>
+  </header> <aside id="toc-container" class="toc-container wide">
+        <div class="toc">
+            <details  open>
+                <summary accesskey="c" title="(Alt + C)">
+                    <span class="details">目录</span>
+                </summary>
+
+                <div class="inner"><ul>
+                        <li>
+                            <a href="#%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92%e5%85%a5%e9%97%a8" aria-label="动态规划入门">动态规划入门</a><ul>
+                                    
+                        <li>
+                            <a href="#%e4%be%8b1%e6%9c%80%e5%a4%a7%e5%ad%90%e6%95%b0%e7%bb%84%e5%92%8chttpsleetcodecnproblemsmaximum-subarray" aria-label="例1：最大子数组和">例1：<a href="https://leetcode.cn/problems/maximum-subarray/">最大子数组和</a></a></li></ul>
+                        </li>
+                        <li>
+                            <a href="#%e4%ba%8c%e7%bb%b4%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92" aria-label="二维动态规划">二维动态规划</a><ul>
+                                    
+                        <li>
+                            <a href="#%e4%be%8b1%e6%bb%91%e9%9b%aa%e7%9f%a9%e9%98%b5%e4%b8%ad%e7%9a%84%e6%9c%80%e9%95%bf%e9%80%92%e5%a2%9e%e8%b7%af%e5%be%84httpsleetcodecnproblemslongest-increasing-path-in-a-matrixdescription" aria-label="例1：滑雪/矩阵中的最长递增路径">例1：<a href="https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/description/">滑雪/矩阵中的最长递增路径</a></a></li></ul>
+                        </li>
+                        <li>
+                            <a href="#%e8%b7%af%e5%be%84%e9%97%ae%e9%a2%98" aria-label="路径问题">路径问题</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+
+        window.addEventListener('resize', function (event) {
+            checkTocPosition();
+        }, false);
+
+        window.addEventListener('scroll', () => {
+            
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement) {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }, false);
+
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
+        }
+
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+  <div class="post-content"><h2 id="动态规划入门">动态规划入门<a hidden class="anchor" aria-hidden="true" href="#动态规划入门">#</a></h2>
+<h3 id="例1最大子数组和httpsleetcodecnproblemsmaximum-subarray">例1：<a href="https://leetcode.cn/problems/maximum-subarray/">最大子数组和</a><a hidden class="anchor" aria-hidden="true" href="#例1最大子数组和httpsleetcodecnproblemsmaximum-subarray">#</a></h3>
+<p>给你一个整数数组 <code>nums</code> ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。<strong>子数组</strong>是数组中的一个连续部分。</p>
+<p>输入：nums = [-2,1,-3,4,-1,2,1,-5,4]<br>
+输出：6<br>
+解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。</p>
+<p>【解法1】：</p>
+<blockquote>
+<p><strong>[解析]</strong>：对于每一位数字，都有选和不选两种抉择。用 $dp[i]$ 表示以 $nums[i]$ 结尾的连续子数组的最大和。</p>
+<p>如果数组的数都是正数，对于第 $i$ 个数，很明显有：$dp[i]=dp[i-1]+nums[i],\quad (i&gt;0)$，这里的 $dp[i-1]$ 恒大于 0。</p>
+<p>当 $dp[i-1]&lt;0$ 时，很明显 $dp[i]=nums[i]$，即重新计算最大子数组和，因为 $dp[i-1]$ 已经产生了负收益。</p>
+<p>初始时 $dp[0]=nums[0]$，最终数组中最大子数组和为 $dp[i]$ 中的最大值。</p>
+
+
+<details>
+    <summary>
+        
+        <b> 代码 </b>
+    </summary>
+
+    <div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#81a1c1">int</span> <span style="color:#88c0d0">maxSubArray</span><span style="color:#eceff4">(</span>vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;&amp;</span> nums<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">int</span> n <span style="color:#81a1c1">=</span> nums<span style="color:#eceff4">.</span>size<span style="color:#eceff4">();</span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;</span> dp<span style="color:#eceff4">(</span>n<span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>    dp<span style="color:#eceff4">[</span><span style="color:#b48ead">0</span><span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> nums<span style="color:#eceff4">[</span><span style="color:#b48ead">0</span><span style="color:#eceff4">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> i <span style="color:#81a1c1">=</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">;</span> i <span style="color:#81a1c1">&lt;</span> n<span style="color:#eceff4">;</span> i<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        dp<span style="color:#eceff4">[</span>i<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> max<span style="color:#eceff4">(</span>nums<span style="color:#eceff4">[</span>i<span style="color:#eceff4">],</span> dp<span style="color:#eceff4">[</span>i<span style="color:#81a1c1">-</span><span style="color:#b48ead">1</span><span style="color:#eceff4">]</span> <span style="color:#81a1c1">+</span> nums<span style="color:#eceff4">[</span>i<span style="color:#eceff4">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">return</span> <span style="color:#81a1c1">*</span>max_element<span style="color:#eceff4">(</span>dp<span style="color:#eceff4">.</span>begin<span style="color:#eceff4">(),</span> dp<span style="color:#eceff4">.</span>end<span style="color:#eceff4">());</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</details>
+</blockquote>
+<p>【解法2】：</p>
+<blockquote>
+<p>从解法1的动态规划方程可以看出，$dp[i]$ 仅与 $dp[i-1]$ 相关，所以我们可以利用滚动数组的思想继续优化时间复杂度。</p>
+
+
+<details>
+    <summary>
+        
+        <b> 代码 </b>
+    </summary>
+
+    <div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#81a1c1">int</span> <span style="color:#88c0d0">maxSubArray</span><span style="color:#eceff4">(</span>vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;&amp;</span> nums<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">int</span> currmax <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">,</span> res <span style="color:#81a1c1">=</span> nums<span style="color:#eceff4">[</span><span style="color:#b48ead">0</span><span style="color:#eceff4">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> <span style="color:#8fbcbb">x</span> <span style="color:#eceff4">:</span> nums<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        currmax <span style="color:#81a1c1">=</span> max<span style="color:#eceff4">(</span>currmax <span style="color:#81a1c1">+</span> x<span style="color:#eceff4">,</span> x<span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>        res <span style="color:#81a1c1">=</span> max<span style="color:#eceff4">(</span>res<span style="color:#eceff4">,</span> currmax<span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">return</span> res<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</details>
+</blockquote>
+<h2 id="二维动态规划">二维动态规划<a hidden class="anchor" aria-hidden="true" href="#二维动态规划">#</a></h2>
+<h3 id="例1滑雪矩阵中的最长递增路径httpsleetcodecnproblemslongest-increasing-path-in-a-matrixdescription">例1：<a href="https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/description/">滑雪/矩阵中的最长递增路径</a><a hidden class="anchor" aria-hidden="true" href="#例1滑雪矩阵中的最长递增路径httpsleetcodecnproblemslongest-increasing-path-in-a-matrixdescription">#</a></h3>
+<p>给定一个 <code>m x n</code> 整数矩阵 <code>matrix</code> ，找出其中 <strong>最长递增路径</strong> 的长度。对于每个单元格，你可以往上，下，左，右四个方向移动。 你 <strong>不能</strong> 在 <strong>对角线</strong> 方向上移动或移动到 <strong>边界外</strong>（即不允许环绕）。</p>
+<div style="text-align:center;">
+  <img style="display: block; margin: 0 auto;" src="https://assets.leetcode.com/uploads/2021/01/05/grid1.jpg" width="20%" height="20%" >
+  <span style="font-size: 14px; color: grey;">matrix example: result is 4</span>
+</div>
+<blockquote>
+<p><strong>[解析]</strong>：我们用 $dp[i][j]$ 表示 $matrix$ 中以 $matrix[i][j]$ 为起点的最长递增路径，$dp[i][j]$ 初始为1，表示每个位置至少是长度为1的递增路径。 设 $(i^{&rsquo;},j^{&rsquo;})$ 为 $(i,j)$ 周围的某一点，则状态转移方程为：$$dp[i][j]=max(dp[i][j],\ dp[i^{&rsquo;}][j^{&rsquo;}]+1),\quad if \ matrix[i^{&rsquo;}][j^{&rsquo;}]&lt;matrix[i][j]$$</p>
+<p>需要注意的是，更新 $dp[i][j]$ 时是从高度更小的 $dp[i^{&rsquo;}][j^{&rsquo;}]$ 转移过来的，所以为了保证我们更新 $dp[i][j]$ 时 $dp[i^{&rsquo;}][j^{&rsquo;}]$ 已经准备好，我们需要新建一个 $M[m*n]$ 存储 $matrix$ 矩阵，并且按照高度对 $M$ 从小到大排序，按照排序后的 $M$ 数组的顺序更新 $dp[i][j]$。</p>
+<p>时间复杂度取决于排序操作，为 $O(nm\log(nm))$。</p>
+
+
+<details>
+    <summary>
+        
+        <b> 代码 </b>
+    </summary>
+
+    <div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">37
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">class</span> <span style="color:#8fbcbb">Solution</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">public</span><span style="color:#81a1c1">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">int</span> n<span style="color:#eceff4">,</span> m<span style="color:#eceff4">,</span> dp<span style="color:#eceff4">[</span><span style="color:#b48ead">202</span><span style="color:#eceff4">][</span><span style="color:#b48ead">202</span><span style="color:#eceff4">];</span>  <span style="color:#616e87;font-style:italic">// dp[i][j] 表示 matrix[i][j] 位置的最长递增路径
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    vector<span style="color:#81a1c1">&lt;</span>tuple<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;&gt;</span> M<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 矩阵的位置和高度
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#81a1c1">int</span> d<span style="color:#eceff4">[</span><span style="color:#b48ead">5</span><span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> <span style="color:#eceff4">{</span><span style="color:#81a1c1">-</span><span style="color:#b48ead">1</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">-</span><span style="color:#b48ead">1</span><span style="color:#eceff4">};</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">int</span> <span style="color:#88c0d0">longestIncreasingPath</span><span style="color:#eceff4">(</span>vector<span style="color:#81a1c1">&lt;</span>vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;&gt;&amp;</span> matrix<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        n <span style="color:#81a1c1">=</span> matrix<span style="color:#eceff4">.</span>size<span style="color:#eceff4">(),</span> m <span style="color:#81a1c1">=</span> matrix<span style="color:#eceff4">[</span><span style="color:#b48ead">0</span><span style="color:#eceff4">].</span>size<span style="color:#eceff4">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> i <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span> i <span style="color:#81a1c1">&lt;</span> n<span style="color:#eceff4">;</span> i<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> j <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span> j <span style="color:#81a1c1">&lt;</span> m<span style="color:#eceff4">;</span> j<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>                M<span style="color:#eceff4">.</span>emplace_back<span style="color:#eceff4">(</span>make_tuple<span style="color:#eceff4">(</span>i<span style="color:#eceff4">,</span> j<span style="color:#eceff4">,</span> matrix<span style="color:#eceff4">[</span>i<span style="color:#eceff4">][</span>j<span style="color:#eceff4">]));</span>
+</span></span><span style="display:flex;"><span>                dp<span style="color:#eceff4">[</span>i<span style="color:#eceff4">][</span>j<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>        sort<span style="color:#eceff4">(</span>M<span style="color:#eceff4">.</span>begin<span style="color:#eceff4">(),</span> M<span style="color:#eceff4">.</span>end<span style="color:#eceff4">(),</span> <span style="color:#eceff4">[</span><span style="color:#81a1c1">&amp;</span><span style="color:#eceff4">](</span><span style="color:#81a1c1;font-weight:bold">auto</span> <span style="color:#81a1c1">&amp;</span>x<span style="color:#eceff4">,</span> <span style="color:#81a1c1;font-weight:bold">auto</span> <span style="color:#81a1c1">&amp;</span>y<span style="color:#eceff4">){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">auto</span> <span style="color:#81a1c1">&amp;&amp;</span><span style="color:#eceff4">[</span>i1<span style="color:#eceff4">,</span> j1<span style="color:#eceff4">,</span> k1<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> x<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">auto</span> <span style="color:#81a1c1">&amp;&amp;</span><span style="color:#eceff4">[</span>i2<span style="color:#eceff4">,</span> j2<span style="color:#eceff4">,</span> k2<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> y<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">return</span> k1 <span style="color:#81a1c1">&lt;</span> k2<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">});</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> i <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span> i <span style="color:#81a1c1">&lt;</span> n<span style="color:#81a1c1">*</span>m<span style="color:#eceff4">;</span> i<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">auto</span> <span style="color:#eceff4">[</span>x<span style="color:#eceff4">,</span> y<span style="color:#eceff4">,</span> z<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> M<span style="color:#eceff4">[</span>i<span style="color:#eceff4">];</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> j <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span> j <span style="color:#81a1c1">&lt;</span> <span style="color:#b48ead">4</span><span style="color:#eceff4">;</span> j<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#616e87;font-style:italic">// 比较周围的四个方向的点(x&#39;,y&#39;)，判断(x&#39;,y&#39;)的高度是否更小并且dp[x&#39;][y&#39;]+1是否比dp[x][y]更大
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>                <span style="color:#81a1c1">int</span> nx <span style="color:#81a1c1">=</span> x <span style="color:#81a1c1">+</span> d<span style="color:#eceff4">[</span>j<span style="color:#eceff4">],</span> ny <span style="color:#81a1c1">=</span> y <span style="color:#81a1c1">+</span> d<span style="color:#eceff4">[</span>j<span style="color:#81a1c1">+</span><span style="color:#b48ead">1</span><span style="color:#eceff4">];</span>  
+</span></span><span style="display:flex;"><span>                <span style="color:#81a1c1;font-weight:bold">if</span> <span style="color:#eceff4">(</span>nx <span style="color:#81a1c1">&gt;=</span> <span style="color:#b48ead">0</span> <span style="color:#81a1c1">&amp;&amp;</span> nx <span style="color:#81a1c1">&lt;</span> n <span style="color:#81a1c1">&amp;&amp;</span> ny <span style="color:#81a1c1">&gt;=</span> <span style="color:#b48ead">0</span> <span style="color:#81a1c1">&amp;&amp;</span> ny <span style="color:#81a1c1">&lt;</span> m <span style="color:#81a1c1">&amp;&amp;</span> matrix<span style="color:#eceff4">[</span>nx<span style="color:#eceff4">][</span>ny<span style="color:#eceff4">]</span> <span style="color:#81a1c1">&lt;</span> z<span style="color:#eceff4">)</span> 
+</span></span><span style="display:flex;"><span>                    dp<span style="color:#eceff4">[</span>x<span style="color:#eceff4">][</span>y<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> max<span style="color:#eceff4">(</span>dp<span style="color:#eceff4">[</span>x<span style="color:#eceff4">][</span>y<span style="color:#eceff4">],</span> dp<span style="color:#eceff4">[</span>nx<span style="color:#eceff4">][</span>ny<span style="color:#eceff4">]</span> <span style="color:#81a1c1">+</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1">int</span> res <span style="color:#81a1c1">=</span> INT_MIN<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> i <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span> i <span style="color:#81a1c1">&lt;</span> n<span style="color:#eceff4">;</span> i<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> j <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span> j <span style="color:#81a1c1">&lt;</span> m<span style="color:#eceff4">;</span> j<span style="color:#81a1c1">++</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>                res <span style="color:#81a1c1">=</span> max<span style="color:#eceff4">(</span>res<span style="color:#eceff4">,</span> dp<span style="color:#eceff4">[</span>i<span style="color:#eceff4">][</span>j<span style="color:#eceff4">]);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">return</span> res<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</details>
+</blockquote>
+<p>该题更推荐使用<a href="/posts/algorithm/algorithm-search/#%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2">记忆化搜索的解法</a>。</p>
+<h2 id="路径问题">路径问题<a hidden class="anchor" aria-hidden="true" href="#路径问题">#</a></h2>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://kdjlyy.cn/tags/leetcode/">LeetCode</a></li>
+      <li><a href="https://kdjlyy.cn/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E7%89%88/">算法模版</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://kdjlyy.cn/posts/algorithm/algorithm-search/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>搜索算法专题</span>
+  </a>
+  <a class="next" href="https://kdjlyy.cn/posts/algorithm/algorithm-template/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>常用算法模版</span>
+  </a>
+</nav>
+
+  </footer>
+<div>
+    <div class="pagination__title">
+        <span class="pagination__title-h" style="font-size: 20px;">评论</span>
+        <br />
+    </div>
+    <div id="tcomment"></div>
+    <script src="https://utteranc.es/client.js" repo="kdjlyy/blog_comments" issue-term="title" theme="github-light"
+        crossorigin="anonymous" async>
+        </script>
+</div>
+</article>
+    </main>
+    
+<footer class="footer">
+    <div class="busuanzi-footer">
+        <span>&copy; 2023 <a href="https://kdjlyy.cn">向着悠远的苍穹</a></span>
+        <span>
+            
+            | <a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">皖ICP备2023007581号</a>
+            
+            </span>
+    </div>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'Copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'Done';
+            setTimeout(() => {
+                copybutton.innerHTML = 'Copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script></body>
+
+</html>

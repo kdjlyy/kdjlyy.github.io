@@ -6,14 +6,23 @@
     <description>Recent content in 👨🏻‍💻 技术 on 向着悠远的苍穹</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 18 May 2023 18:17:41 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Aug 2023 23:14:25 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/posts/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>常见算法-模拟篇</title>
-      <link>https://kdjlyy.cn/posts/tech/algorithm-simulation/</link>
-      <pubDate>Thu, 18 May 2023 18:17:41 +0800</pubDate>
+      <title>reveal.js体验</title>
+      <link>https://kdjlyy.cn/posts/tech/revealjs-start/</link>
+      <pubDate>Thu, 17 Aug 2023 23:14:25 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/tech/algorithm-simulation/</guid>
-      <description>大数 大数加法 大数乘法</description>
+      <guid>https://kdjlyy.cn/posts/tech/revealjs-start/</guid>
+      <description>reveal.js, revealjs</description>
+    </item>
+    
+    <item>
+      <title>Docker基础</title>
+      <link>https://kdjlyy.cn/posts/tech/docker-basic/</link>
+      <pubDate>Mon, 05 Jun 2023 23:10:59 +0800</pubDate>
+      
+      <guid>https://kdjlyy.cn/posts/tech/docker-basic/</guid>
+      <description>Docker基础</description>
     </item>
     
     <item>
@@ -26,21 +35,21 @@
     </item>
     
     <item>
-      <title>PaperMod主题Markdown示例</title>
-      <link>https://kdjlyy.cn/posts/tech/markdown-note/</link>
-      <pubDate>Thu, 11 May 2023 18:13:32 +0800</pubDate>
-      
-      <guid>https://kdjlyy.cn/posts/tech/markdown-note/</guid>
-      <description>主要展示 PaperMod 主题中 Markdown 语法的页面效果</description>
-    </item>
-    
-    <item>
       <title>计算机基础知识总结（语法篇）</title>
       <link>https://kdjlyy.cn/posts/tech/cs-basic-grammar/</link>
       <pubDate>Tue, 09 May 2023 21:27:42 +0800</pubDate>
       
       <guid>https://kdjlyy.cn/posts/tech/cs-basic-grammar/</guid>
       <description>成员变量初始化 构造函数内部初始化和初始化列表 初始化类的成员有两种方式，一是使用初始化列表，二是在构造函数体内进行赋值操作。 对于内置类型，如int, float等，使用初始化列表和在构</description>
+    </item>
+    
+    <item>
+      <title>PaperMod主题Markdown示例</title>
+      <link>https://kdjlyy.cn/posts/tech/markdown-note/</link>
+      <pubDate>Mon, 08 May 2023 18:13:32 +0800</pubDate>
+      
+      <guid>https://kdjlyy.cn/posts/tech/markdown-note/</guid>
+      <description>主要展示 PaperMod 主题中 Markdown 语法的页面效果</description>
     </item>
     
   </channel>

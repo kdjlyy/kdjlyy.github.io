@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>模拟 on 向着悠远的苍穹</title>
+    <link>https://kdjlyy.cn/tags/%E6%A8%A1%E6%8B%9F/</link>
+    <description>Recent content in 模拟 on 向着悠远的苍穹</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 18 May 2023 18:17:41 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/tags/%E6%A8%A1%E6%8B%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>常见算法-模拟篇</title>
+      <link>https://kdjlyy.cn/posts/algorithm/algorithm-simulation/</link>
+      <pubDate>Thu, 18 May 2023 18:17:41 +0800</pubDate>
+      
+      <guid>https://kdjlyy.cn/posts/algorithm/algorithm-simulation/</guid>
+      <description>大数, 大数加法, 大数乘法, 位运算, 二进制</description>
+    </item>
+    
+  </channel>
+</rss>

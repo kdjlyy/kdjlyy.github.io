@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Hugo博客shortcodes使用 | 向着悠远的苍穹</title>
 <meta name="keywords" content="Hugo, PaperMod">
-<meta name="description" content="Hugo博客shortcodes使用 - 向着悠远的苍穹">
+<meta name="description" content="Shortcodes简介 大多数的静态博客会使用 Markdown 进行写作，因为它格式简单、所见即所得，但是 Markdown 也有它的不足之处。当我们想要将图片或者视频等插入到文章内容中时，Markdown 本身并不">
 <meta name="author" content="
 作者:&nbsp;kdjlyy">
 <link rel="canonical" href="https://kdjlyy.cn/posts/site/hugo_shortcodes/">
@@ -106,7 +106,7 @@
     });
 </script>
 <meta property="og:title" content="Hugo博客shortcodes使用" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Shortcodes简介 大多数的静态博客会使用 Markdown 进行写作，因为它格式简单、所见即所得，但是 Markdown 也有它的不足之处。当我们想要将图片或者视频等插入到文章内容中时，Markdown 本身并不" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kdjlyy.cn/posts/site/hugo_shortcodes/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-02T15:07:13+08:00" />
@@ -114,7 +114,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hugo博客shortcodes使用"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Shortcodes简介 大多数的静态博客会使用 Markdown 进行写作，因为它格式简单、所见即所得，但是 Markdown 也有它的不足之处。当我们想要将图片或者视频等插入到文章内容中时，Markdown 本身并不"/>
 
 
 <script type="application/ld+json">
@@ -149,12 +149,12 @@
   "@type": "BlogPosting",
   "headline": "Hugo博客shortcodes使用",
   "name": "Hugo博客shortcodes使用",
-  "description": "",
+  "description": "Shortcodes简介 大多数的静态博客会使用 Markdown 进行写作，因为它格式简单、所见即所得，但是 Markdown 也有它的不足之处。当我们想要将图片或者视频等插入到文章内容中时，Markdown 本身并不",
   "keywords": [
     "Hugo", "PaperMod"
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "Shortcodes简介 大多数的静态博客会使用 Markdown 进行写作，因为它格式简单、所见即所得，但是 Markdown 也有它的不足之处。当我们想要将图片或者视频等插入到文章内容中时，Markdown 本身并不能提供很好的支持，因此不得不将一些 HTML 片段加入到 Markdown 内容中。尽管在一些简单的场景中这样做能够解决问题，但是却破坏了 Markdown 文件的简洁性质。另外如果想对一些内容进行装饰也变得非常麻烦，而且不能起到复用的效果。为此，Hugo 引入了 shortcodes，允许我们在 Markdown 文件中以一种简洁的形式书写 HTML。\n这种方式可以理解为“模版的模版”，Hugo 框架的模版会解析我们自定义的 shortcodes 模版，生成对应的 HTML 代码。本人博客的 shortcodes 使用方式参考该博文的第7节：\nPaperMod主题Markdown示例 日期: 2023-05-08 标签: #教程 #markdown #Hugo #PaperMod 主要展示 PaperMod 主题中 Markdown 语法的页面效果 ...... 在线PPT/PDF 新建themes/PaperMod/layouts/shortcodes/ppt.html，输入以下内容：\n1 2 3 4 5 {{ $src := .Get \"src\" }} \u003ciframe src=\"{{ $src }}\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" style=\"border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px\" allowfullscreen=\"\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" width=\"100%\" height=\"600\" frameborder=\"0\"\u003e \u003c/iframe\u003e 在线Bilibili视频 新建themes/PaperMod/layouts/shortcodes/bilibili.html，输入以下内容：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 \u003c!DOCTYPE HTML\u003e \u003chtml lang=\"en\"\u003e \u003chead\u003e \u003cstyle type=\"text/css\"\u003e .bilibili_shortcodes { position: relative; width: 100%; height: 0; padding-bottom: 66%; margin: auto; overflow: hidden; text-align: center; } .bilibili_shortcodes iframe { position: absolute; width: 100%; height: 100%; left: 0; top: 0; } \u003c/style\u003e \u003ctitle\u003e\u003c/title\u003e \u003c/head\u003e \u003cbody\u003e \u003cdiv class=\"bilibili_shortcodes\"\u003e \u003ciframe src=\"https://player.bilibili.com/player.html?bvid={{.Get 0 }}\u0026page={{ if .Get 1 }}{{.Get 1}}{{ else }}1\u0026high_quality=1\u0026danmaku=0\u0026as_wide=0{{end}}\" scrolling=\"no\" border=\"0\" frameborder=\"no\" framespacing=\"0\" allowfullscreen=\"true\"\u003e \u003c/iframe\u003e \u003c/div\u003e \u003c/body\u003e \u003c/html\u003e 博客文章内链 新建themes/PaperMod/layouts/shortcodes/innerlink.html，输入以下内容：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 \u003cdiv style=\"height: 150px;margin: 1em auto;position: relative; box-shadow: 0 2px 4px rgb(0 0 0 / 25%), 0 0 2px rgb(0 0 0 / 25%); border-radius: 15px;padding: 23px;max-width: 780px;background: var(--entry);\"\u003e {{ $url := .Get \"src\" }} {{ with .Site.GetPage $url }} \u003cdiv style=\"font-size: 22px; font-weight: 600\"\u003e \u003ca target=\"_blank\" href=\"{{ .Permalink }}\" style=\"box-shadow: none\"\u003e{{ .Title }}\u003c/a\u003e \u003c/div\u003e \u003cspan style=\"font-size: 14px; color: #999\"\u003e 日期: {{ .Date.Format ( default \"2006-01-02\") }} {{ if .Params.tags }}\u0026nbsp; 标签: {{ range .Params.tags }} #{{ . }}\u0026nbsp; {{ end }} \u003c/span\u003e \u003cdiv style=\"font-size: 14px; line-height: 1.825;max-height: 75px; overflow: hidden;margin-top: 5px;\"\u003e {{ .Summary | plainify}} ...... \u003c/div\u003e {{ end }} {{ end }} \u003c/div\u003e 代码折叠 新建themes/PaperMod/layouts/shortcodes/code.html，输入以下内容：\n1 2 3 4 5 6 7 8 9 {{ $_hugo_config := `{ \"version\": 1 }` }} \u003cdetails\u003e \u003csummary\u003e \u003cb\u003e 代码 \u003c/b\u003e \u003c/summary\u003e {{.Inner}} \u003c/details\u003e Github卡片 新建themes/PaperMod/layouts/shortcodes/github.html，输入以下内容：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 {{ $title := .Get \"title\" }} \u003carticle class=\"shortcode-card\"\u003e \u003ca href=\"https://github.com/{{ $title }}\" target=\"_blank\" rel=\"noopener\"\u003e \u003cheader\u003e \u003cimg alt=\"{{ $title }}\" src=\"https://opengraph.githubassets.com/1/{{ $title }}\" width=\"50%\" height=\"50%\" /\u003e \u003c/header\u003e \u003c/a\u003e \u003c/article\u003e 更多内容参考：Hugo Shortcodes 示例、Shortcodes、Hugo博客自定义shortcodes\n",
+  "wordCount" : "1113",
   "inLanguage": "zh",
   "datePublished": "2023-06-02T15:07:13+08:00",
   "dateModified": "2023-06-02T15:07:13+08:00",
@@ -267,13 +267,358 @@
 
 
 
-创建:&nbsp;<span title='2023-06-02 15:07:13 +0800 CST'>2023-06-02</span>&nbsp;|&nbsp;更新:&nbsp;2023-06-02&nbsp;|&nbsp;字数:&nbsp;0字&nbsp;|&nbsp;
+创建:&nbsp;<span title='2023-06-02 15:07:13 +0800 CST'>2023-06-02</span>&nbsp;|&nbsp;更新:&nbsp;2023-06-02&nbsp;|&nbsp;字数:&nbsp;1113字&nbsp;|&nbsp;
 作者:&nbsp;kdjlyy
 
 
       
     </div>
-  </header> 
+  </header> <aside id="toc-container" class="toc-container wide">
+        <div class="toc">
+            <details  open>
+                <summary accesskey="c" title="(Alt + C)">
+                    <span class="details">目录</span>
+                </summary>
+
+                <div class="inner"><ul>
+                        <li>
+                            <a href="#shortcodes%e7%ae%80%e4%bb%8b" aria-label="Shortcodes简介">Shortcodes简介</a></li>
+                        <li>
+                            <a href="#%e5%9c%a8%e7%ba%bfpptpdf" aria-label="在线PPT/PDF">在线PPT/PDF</a></li>
+                        <li>
+                            <a href="#%e5%9c%a8%e7%ba%bfbilibili%e8%a7%86%e9%a2%91" aria-label="在线Bilibili视频">在线Bilibili视频</a></li>
+                        <li>
+                            <a href="#%e5%8d%9a%e5%ae%a2%e6%96%87%e7%ab%a0%e5%86%85%e9%93%be" aria-label="博客文章内链">博客文章内链</a></li>
+                        <li>
+                            <a href="#%e4%bb%a3%e7%a0%81%e6%8a%98%e5%8f%a0" aria-label="代码折叠">代码折叠</a></li>
+                        <li>
+                            <a href="#github%e5%8d%a1%e7%89%87" aria-label="Github卡片">Github卡片</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+
+        window.addEventListener('resize', function (event) {
+            checkTocPosition();
+        }, false);
+
+        window.addEventListener('scroll', () => {
+            
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement) {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }, false);
+
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
+        }
+
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+  <div class="post-content"><h2 id="shortcodes简介">Shortcodes简介<a hidden class="anchor" aria-hidden="true" href="#shortcodes简介">#</a></h2>
+<blockquote>
+<p>大多数的静态博客会使用 Markdown 进行写作，因为它格式简单、所见即所得，但是 Markdown 也有它的不足之处。当我们想要将图片或者视频等插入到文章内容中时，Markdown 本身并不能提供很好的支持，因此不得不将一些 HTML 片段加入到 Markdown 内容中。尽管在一些简单的场景中这样做能够解决问题，但是却破坏了 Markdown 文件的简洁性质。另外如果想对一些内容进行装饰也变得非常麻烦，而且不能起到复用的效果。为此，Hugo 引入了 shortcodes，允许我们在 Markdown 文件中以一种简洁的形式书写 HTML。</p>
+</blockquote>
+<p>这种方式可以理解为“模版的模版”，Hugo 框架的模版会解析我们自定义的 shortcodes 模版，生成对应的 HTML 代码。本人博客的 shortcodes 使用方式参考该博文的第7节：</p>
+<div style="height: 150px;margin: 1em auto;position: relative;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 25%), 0 0 2px rgb(0 0 0 / 25%);
+        border-radius: 15px;padding: 23px;max-width: 780px;background: var(--entry);">
+    
+    
+    <div style="font-size: 22px; font-weight: 600">
+        <a target="_blank" href="https://kdjlyy.cn/posts/tech/markdown-note/" style="box-shadow: none">PaperMod主题Markdown示例</a>
+    </div>
+    <span style="font-size: 14px; color: #999">
+        日期: 2023-05-08
+        &nbsp;
+        标签:
+        
+        #教程&nbsp;
+        
+        #markdown&nbsp;
+        
+        #Hugo&nbsp;
+        
+        #PaperMod&nbsp;
+        
+    </span>
+    <div style="font-size: 14px; line-height: 1.825;max-height: 75px; overflow: hidden;margin-top: 5px;">
+        主要展示 PaperMod 主题中 Markdown 语法的页面效果 ......
+    </div>
+    
+    
+</div>
+<hr>
+<h2 id="在线pptpdf">在线PPT/PDF<a hidden class="anchor" aria-hidden="true" href="#在线pptpdf">#</a></h2>
+<p>新建<code>themes/PaperMod/layouts/shortcodes/ppt.html</code>，输入以下内容：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ $src := .Get &#34;src&#34; }}
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">iframe</span> <span style="color:#8fbcbb">src</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;{{ $src }}&#34;</span> <span style="color:#8fbcbb">marginwidth</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;0&#34;</span> <span style="color:#8fbcbb">marginheight</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;0&#34;</span> <span style="color:#8fbcbb">scrolling</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;no&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8fbcbb">style</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34;</span> <span style="color:#8fbcbb">allowfullscreen</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;&#34;</span> <span style="color:#8fbcbb">webkitallowfullscreen</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8fbcbb">mozallowfullscreen</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;&#34;</span> <span style="color:#8fbcbb">width</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;100%&#34;</span> <span style="color:#8fbcbb">height</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;600&#34;</span> <span style="color:#8fbcbb">frameborder</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;0&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">iframe</span><span style="color:#eceff4">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="在线bilibili视频">在线Bilibili视频<a hidden class="anchor" aria-hidden="true" href="#在线bilibili视频">#</a></h2>
+<p>新建<code>themes/PaperMod/layouts/shortcodes/bilibili.html</code>，输入以下内容：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">36
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#5e81ac;font-style:italic">&lt;!DOCTYPE HTML&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">html</span> <span style="color:#8fbcbb">lang</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;en&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">head</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">style</span> <span style="color:#8fbcbb">type</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;text/css&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">.</span><span style="color:#8fbcbb">bilibili_shortcodes</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">position</span><span style="color:#eceff4">:</span> <span style="color:#81a1c1;font-weight:bold">relative</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">width</span><span style="color:#eceff4">:</span> <span style="color:#b48ead">100</span><span style="color:#81a1c1">%</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">height</span><span style="color:#eceff4">:</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">padding-bottom</span><span style="color:#eceff4">:</span> <span style="color:#b48ead">66</span><span style="color:#81a1c1">%</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">margin</span><span style="color:#eceff4">:</span> <span style="color:#81a1c1;font-weight:bold">auto</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">overflow</span><span style="color:#eceff4">:</span> <span style="color:#81a1c1;font-weight:bold">hidden</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">text-align</span><span style="color:#eceff4">:</span> <span style="color:#81a1c1;font-weight:bold">center</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">.</span><span style="color:#8fbcbb">bilibili_shortcodes</span> <span style="color:#81a1c1">iframe</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">position</span><span style="color:#eceff4">:</span> <span style="color:#81a1c1;font-weight:bold">absolute</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">width</span><span style="color:#eceff4">:</span> <span style="color:#b48ead">100</span><span style="color:#81a1c1">%</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">height</span><span style="color:#eceff4">:</span> <span style="color:#b48ead">100</span><span style="color:#81a1c1">%</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">left</span><span style="color:#eceff4">:</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">top</span><span style="color:#eceff4">:</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">style</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">title</span><span style="color:#eceff4">&gt;&lt;/</span><span style="color:#81a1c1">title</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">head</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">body</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">div</span> <span style="color:#8fbcbb">class</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;bilibili_shortcodes&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">iframe</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8fbcbb">src</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;https://player.bilibili.com/player.html?bvid={{.Get 0 }}&amp;page={{ if .Get 1 }}{{.Get 1}}{{ else }}1&amp;high_quality=1&amp;danmaku=0&amp;as_wide=0{{end}}&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8fbcbb">scrolling</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;no&#34;</span> <span style="color:#8fbcbb">border</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;0&#34;</span> <span style="color:#8fbcbb">frameborder</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;no&#34;</span> <span style="color:#8fbcbb">framespacing</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;0&#34;</span> <span style="color:#8fbcbb">allowfullscreen</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;true&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">iframe</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">div</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">body</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">html</span><span style="color:#eceff4">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="博客文章内链">博客文章内链<a hidden class="anchor" aria-hidden="true" href="#博客文章内链">#</a></h2>
+<p>新建<code>themes/PaperMod/layouts/shortcodes/innerlink.html</code>，输入以下内容：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">div</span> <span style="color:#8fbcbb">style</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;height: 150px;margin: 1em auto;position: relative;
+</span></span></span><span style="display:flex;"><span><span style="color:#a3be8c">        box-shadow: 0 2px 4px rgb(0 0 0 / 25%), 0 0 2px rgb(0 0 0 / 25%);
+</span></span></span><span style="display:flex;"><span><span style="color:#a3be8c">        border-radius: 15px;padding: 23px;max-width: 780px;background: var(--entry);&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    {{ $url := .Get &#34;src&#34; }}
+</span></span><span style="display:flex;"><span>    {{ with .Site.GetPage $url }}
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">div</span> <span style="color:#8fbcbb">style</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;font-size: 22px; font-weight: 600&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">a</span> <span style="color:#8fbcbb">target</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;_blank&#34;</span> <span style="color:#8fbcbb">href</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;{{ .Permalink }}&#34;</span> <span style="color:#8fbcbb">style</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;box-shadow: none&#34;</span><span style="color:#eceff4">&gt;</span>{{ .Title }}<span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">a</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">div</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">span</span> <span style="color:#8fbcbb">style</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;font-size: 14px; color: #999&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>        日期: {{ .Date.Format ( default &#34;2006-01-02&#34;) }}
+</span></span><span style="display:flex;"><span>        {{ if .Params.tags }}<span style="color:#d08770">&amp;nbsp;</span>
+</span></span><span style="display:flex;"><span>        标签:
+</span></span><span style="display:flex;"><span>        {{ range .Params.tags }}
+</span></span><span style="display:flex;"><span>        #{{ . }}<span style="color:#d08770">&amp;nbsp;</span>
+</span></span><span style="display:flex;"><span>        {{ end }}
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">span</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">div</span> <span style="color:#8fbcbb">style</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;font-size: 14px; line-height: 1.825;max-height: 75px; overflow: hidden;margin-top: 5px;&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>        {{ .Summary | plainify}} ......
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">div</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    {{ end }}
+</span></span><span style="display:flex;"><span>    {{ end }}
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">div</span><span style="color:#eceff4">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="代码折叠">代码折叠<a hidden class="anchor" aria-hidden="true" href="#代码折叠">#</a></h2>
+<p>新建<code>themes/PaperMod/layouts/shortcodes/code.html</code>，输入以下内容：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ $_hugo_config := `{ &#34;version&#34;: 1 }` }}
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">details</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">summary</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#616e87;font-style:italic">&lt;!-- &lt;span style=&#34;background-color:rgb(255, 255, 255);&#34;&gt;&lt;b&gt; 代码 🔍&lt;/b&gt;&lt;/span&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">b</span><span style="color:#eceff4">&gt;</span> 代码 <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">b</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">summary</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {{.Inner}}
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">details</span><span style="color:#eceff4">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="github卡片">Github卡片<a hidden class="anchor" aria-hidden="true" href="#github卡片">#</a></h2>
+<p>新建<code>themes/PaperMod/layouts/shortcodes/github.html</code>，输入以下内容：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ $title := .Get &#34;title&#34; }}
+</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">&lt;!-- {{ $detail := .Get &#34;detail&#34; }} --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">article</span> <span style="color:#8fbcbb">class</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;shortcode-card&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">a</span> <span style="color:#8fbcbb">href</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;https://github.com/{{ $title }}&#34;</span> <span style="color:#8fbcbb">target</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;_blank&#34;</span> <span style="color:#8fbcbb">rel</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;noopener&#34;</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">header</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">img</span> <span style="color:#8fbcbb">alt</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;{{ $title }}&#34;</span> <span style="color:#8fbcbb">src</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;https://opengraph.githubassets.com/1/{{ $title }}&#34;</span> <span style="color:#8fbcbb">width</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;50%&#34;</span> <span style="color:#8fbcbb">height</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;50%&#34;</span> <span style="color:#eceff4">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">header</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#616e87;font-style:italic">&lt;!-- &lt;div class=&#34;shortcode-card-content&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">            &lt;h2&gt;{{ .Get &#34;title&#34; }}&lt;/h2&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">            {{ with $detail }}
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">            &lt;p&gt;{{ . }}&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">            {{ end }}
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">            &lt;span&gt;github.com&lt;/span&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">        &lt;/div&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">a</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">article</span><span style="color:#eceff4">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>更多内容参考：<a href="https://blog.yandaojiang.com/posts/others/hugo_shortcodes%E7%A4%BA%E4%BE%8B/">Hugo Shortcodes 示例</a>、<a href="https://gohugo.io/content-management/shortcodes/">Shortcodes</a>、<a href="https://www.sulvblog.cn/posts/blog/shortcodes/">Hugo博客自定义shortcodes</a></p>
+
+
+  </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
@@ -281,6 +626,11 @@
       <li><a href="https://kdjlyy.cn/tags/papermod/">PaperMod</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="https://kdjlyy.cn/posts/tech/docker-basic/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Docker基础</span>
+  </a>
   <a class="next" href="https://kdjlyy.cn/posts/site/ecs_deploy/">
     <span class="title">下一页 »</span>
     <br>

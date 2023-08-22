@@ -2,26 +2,71 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://kdjlyy.cn/posts/tech/</loc>
+    <lastmod>2023-08-17T23:14:25+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/tags/javascript/</loc>
+    <lastmod>2023-08-17T23:14:25+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/tech/revealjs-start/</loc>
+    <lastmod>2023-08-17T23:14:25+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/tags/</loc>
+    <lastmod>2023-08-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/</loc>
+    <lastmod>2023-08-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/</loc>
+    <lastmod>2023-08-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/algorithm/</loc>
+    <lastmod>2023-07-21T14:25:19+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/tags/leetcode/</loc>
+    <lastmod>2023-07-21T14:25:19+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/algorithm/algorithm-tree/</loc>
+    <lastmod>2023-07-21T14:25:19+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E7%89%88/</loc>
+    <lastmod>2023-07-21T14:25:19+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/algorithm/algorithm-linkedlist/</loc>
+    <lastmod>2023-07-21T12:36:41+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/algorithm/algorithm-search/</loc>
+    <lastmod>2023-07-13T14:14:40+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/algorithm/algorithm-dp/</loc>
+    <lastmod>2023-07-11T17:36:38+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/algorithm/algorithm-template/</loc>
+    <lastmod>2023-07-06T17:09:51+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/tags/stl/</loc>
+    <lastmod>2023-07-06T16:50:01+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/algorithm/stl-basic/</loc>
+    <lastmod>2023-07-06T16:50:01+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/tags/docker/</loc>
+    <lastmod>2023-06-05T23:10:59+08:00</lastmod>
+  </url><url>
+    <loc>https://kdjlyy.cn/posts/tech/docker-basic/</loc>
+    <lastmod>2023-06-05T23:10:59+08:00</lastmod>
+  </url><url>
     <loc>https://kdjlyy.cn/posts/site/</loc>
-    <lastmod>2023-06-02T15:07:13+08:00</lastmod>
+    <lastmod>2023-08-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kdjlyy.cn/tags/hugo/</loc>
-    <lastmod>2023-06-02T15:07:13+08:00</lastmod>
+    <lastmod>2023-08-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kdjlyy.cn/posts/site/hugo_shortcodes/</loc>
     <lastmod>2023-06-02T15:07:13+08:00</lastmod>
   </url><url>
     <loc>https://kdjlyy.cn/tags/papermod/</loc>
-    <lastmod>2023-06-02T15:07:13+08:00</lastmod>
-  </url><url>
-    <loc>https://kdjlyy.cn/tags/</loc>
-    <lastmod>2023-06-02T15:07:13+08:00</lastmod>
-  </url><url>
-    <loc>https://kdjlyy.cn/posts/</loc>
-    <lastmod>2023-06-02T15:07:13+08:00</lastmod>
-  </url><url>
-    <loc>https://kdjlyy.cn/</loc>
-    <lastmod>2023-06-02T15:07:13+08:00</lastmod>
+    <lastmod>2023-08-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kdjlyy.cn/posts/site/ecs_deploy/</loc>
     <lastmod>2023-06-02T15:06:58+08:00</lastmod>
@@ -33,22 +78,10 @@
     <lastmod>2023-05-31T15:04:05+08:00</lastmod>
   </url><url>
     <loc>https://kdjlyy.cn/posts/site/site-init/</loc>
-    <lastmod>2023-05-30T17:17:15+08:00</lastmod>
+    <lastmod>2023-08-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kdjlyy.cn/posts/tech/</loc>
-    <lastmod>2023-05-18T18:17:41+08:00</lastmod>
-  </url><url>
-    <loc>https://kdjlyy.cn/tags/leetcode/</loc>
-    <lastmod>2023-05-18T18:17:41+08:00</lastmod>
-  </url><url>
-    <loc>https://kdjlyy.cn/posts/tech/algorithm-simulation/</loc>
-    <lastmod>2023-05-18T18:17:41+08:00</lastmod>
-  </url><url>
-    <loc>https://kdjlyy.cn/tags/%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2023-05-18T18:17:41+08:00</lastmod>
-  </url><url>
-    <loc>https://kdjlyy.cn/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2023-05-18T18:17:41+08:00</lastmod>
+    <loc>https://kdjlyy.cn/posts/algorithm/algorithm-simulation/</loc>
+    <lastmod>2023-07-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://kdjlyy.cn/tags/c&#43;&#43;/</loc>
     <lastmod>2023-05-18T00:00:00+00:00</lastmod>
@@ -62,6 +95,9 @@
     <loc>https://kdjlyy.cn/posts/tech/cs-basic-os/</loc>
     <lastmod>2023-05-18T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://kdjlyy.cn/posts/tech/cs-basic-grammar/</loc>
+    <lastmod>2023-05-11T13:25:00+08:00</lastmod>
+  </url><url>
     <loc>https://kdjlyy.cn/tags/markdown/</loc>
     <lastmod>2023-05-14T00:00:00+00:00</lastmod>
   </url><url>
@@ -71,16 +107,11 @@
     <loc>https://kdjlyy.cn/tags/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://kdjlyy.cn/posts/tech/cs-basic-grammar/</loc>
-    <lastmod>2023-05-11T13:25:00+08:00</lastmod>
-  </url><url>
-    <loc>https://kdjlyy.cn/posts/read/</loc>
+    <loc>https://kdjlyy.cn/posts/tools/</loc>
   </url><url>
     <loc>https://kdjlyy.cn/categories/</loc>
   </url><url>
     <loc>https://kdjlyy.cn/series/</loc>
-  </url><url>
-    <loc>https://kdjlyy.cn/posts/life/</loc>
   </url><url>
     <loc>https://kdjlyy.cn/about/</loc>
   </url><url>
