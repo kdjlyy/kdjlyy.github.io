@@ -6,7 +6,34 @@
     <description>Recent content on 向着悠远的苍穹</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 17 Aug 2023 23:14:25 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Sep 2023 22:47:21 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elasticsearch初体验</title>
+      <link>https://kdjlyy.cn/posts/tech/elasticsearch-start/</link>
+      <pubDate>Wed, 20 Sep 2023 22:47:21 +0800</pubDate>
+      
+      <guid>https://kdjlyy.cn/posts/tech/elasticsearch-start/</guid>
+      <description>elasticsearch</description>
+    </item>
+    
+    <item>
+      <title>图论专题</title>
+      <link>https://kdjlyy.cn/posts/algorithm/algorithm-graph/</link>
+      <pubDate>Tue, 12 Sep 2023 23:14:58 +0800</pubDate>
+      
+      <guid>https://kdjlyy.cn/posts/algorithm/algorithm-graph/</guid>
+      <description>图论, Floyd算法, 弗洛伊德算法</description>
+    </item>
+    
+    <item>
+      <title>Vue2开发指南</title>
+      <link>https://kdjlyy.cn/posts/tech/vue-start/</link>
+      <pubDate>Sat, 09 Sep 2023 22:13:35 +0800</pubDate>
+      
+      <guid>https://kdjlyy.cn/posts/tech/vue-start/</guid>
+      <description>Vue, Vue2, 前端, ElementUI, axios</description>
+    </item>
+    
     <item>
       <title>reveal.js体验</title>
       <link>https://kdjlyy.cn/posts/tech/revealjs-start/</link>

@@ -12,7 +12,7 @@
 作者:&nbsp;kdjlyy">
 <link rel="canonical" href="https://kdjlyy.cn/posts/algorithm/stl-basic/">
 
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5b696b3c2cd36f286fe9a79399e42aa1af2617d994fdbeadff5f4c9261aa1cdb.css" integrity="sha256-W2lrPCzTbyhv6aeTmeQqoa8mF9mU/b6t/19MkmGqHNs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c2f0e623e86eeca31ef4d93192e55ff58676853610c86e9ed2fb22b5ce7e6479.css" integrity="sha256-wvDmI&#43;hu7KMe9NkxkuVf9YZ2hTYQyG6e0vsitc5&#43;ZHk=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://kdjlyy.cn/img/logo.ico">
@@ -153,8 +153,8 @@
   "keywords": [
     "STL"
   ],
-  "articleBody": "set set 容器的功用就是维护一个集合，其中的元素默认升序排列。其底层由红黑树实现，insert、erase、find 操作的时间复杂度均为$O(logN)$。\n自定义从大到小排序 1 2 3 4 set\u003cint, greater\u003c\u003e\u003e st; // 或者 auto func = [](const int\u0026 x, const int\u0026 y) { return x \u003e y; }; set\u003cint, decltype(func)\u003e st(func); map map 容器存储的都是 pair 对象，该容器会自动根据各键值对的键的大小，默认选用std::less排序规则（其中 T 表示键的数据类型），其会根据键的大小对所有键值对做升序排序。其底层由红黑树实现。\n自定义从大到小排序 1 2 3 4 map\u003cint, int, greater\u003c\u003e\u003e mp; // 或者 auto func = [](const int\u0026 x, const int\u0026 y) { return x \u003e y; }; map\u003cint, int, decltype(func)\u003e mp(func); priority_queue 在优先队列中，优先级高的元素先出队列，并非按照先进先出的要求，类似一个堆。优先队列默认大根堆，重载方式与 sort、set、map 相反。\n建立小根堆 1 2 3 4 5 6 7 8 9 10 11 priority_queue\u003cint, vector\u003cint\u003e, greater\u003c\u003e\u003e q; // 或者 auto func = [](const int\u0026 x, const int\u0026 y) { return x \u003c y; }; priority_queue\u003cint, vector\u003cint\u003e, decltype(func)\u003e q(func); // 或者 struct edge{ int to, w; edge(int _to, int _w): to(_to), w(_w) {} // 运算符重载 让priority_queue为小顶堆 bool operator \u003c (const edge\u0026 x) const { return w \u003e x.w; } }; erase和remove erase 1 2 iterator erase(iterator position); iterator erase(iterator first, iterator last); erase()函数可以用于删除 vector 容器（或 string）中的一个或者一段元素，在删除一个元素的时候，其参数为指向相应元素的迭代器，而在删除一段元素的时候，参数为指向一段元素的开头的迭代器以及指向结尾元素的下一个元素的迭代器。\n在进行单个元素删除后，传入的迭代器指向不变，仍然指向被删除元素的位置，而被删除元素之后的所有元素都向前移动一位，也就是该迭代器实际上是指向了原来被删除元素的下一个元素。\nremove 1 iterator remove(iterator first, iterator last, val); remove()的作用是将等于 val 的元素放到 vector（或 string）的尾部，但并不减少 vector 的 size。执行 remove 之后返回新的 end() 迭代器，但是不改变原来数组的 end() 迭代器的值。也就是数组中新的 end() 至原 end() 范围内的值是原数组中等于 val 的值，但是这部分状态不可靠。begin() 到新的 end() 这部分是不等于 val 的值。\n区别 也就是说 erase 和 remove 的区别在于执行函数之后返回值不同，被执行的 vector 的大小会不会改变。\nvector 中 erase 的作用是删除掉某个位置或一段区域中的元素，减少其 size，返回被删除元素下一个元素的位置。\nvector 中 remove 的作用是将范围内为 val 的值都 remove 到后面，返回新的 end() 值（非 val 部分的end）,但传入的原 vector 的 end 并没有发生改变，因此 size 也就没有变化。\n所以说remove()不是真正的删除，而是移除。erase()结合remove()能做到删除一段范围内的某个元素。\n1 2 3 4 5 // 删除vector中值为x的元素 vec.erase(remove(vec.begin(), vec.end(), x), vec.end()); // 删除string中所有的'_' s.erase(remove(s.begin(), s.end(), '_'), s.end()); 图的存储方式 常用的图的存储方式很多，例如邻接矩阵、邻接链表、链式前向星等，兼顾性能和效率，一般使用的最多的是邻接链表。\n不需要保存权值 当不需要保存边的权值信息（或每条边的权值固定）时，直接使用二维 vector 即可（假设有10000个结点，编号从1到10000）：\n1 2 3 4 vector\u003cvector\u003cint\u003e\u003e G(10002, vector\u003cint\u003e()); G[i].emplace_back(j); // 表示有一条 i→j 的边 G[i].size();\t// 表示结点 i 的出度 使用pair 使用 pair 能很方便地保存边的权值。\n1 2 3 4 typedef pair\u003cint, int\u003e PII; vector\u003cPII\u003e G[10002]; G[i].emplace_back(make_pair(j, 100)); // 表示有一条 i→j 的边，权值为100 需要进行排序的情况 有时候需要按边权对结点进行排序，这时候我们可以使用以下存储结构：\n1 2 3 4 5 6 7 8 9 struct edge{ int s, t, cost; edge(int _s, int _t, int _cost): s(_s), t(_t), cost(_cost) {} bool operator \u003c (const edge\u0026 o) const { return cost \u003c o.cost; } }; vector\u003cedge\u003e G; G.emplace_back(edge(i, j, 100)); //表示有一条 i→j 的边，权值为100 sort(G.begin(), G.end()); 或者使用 tuple：\n1 2 3 4 5 6 7 8 9 vector\u003ctuple\u003cint, int, int\u003e\u003e edges; // 结点i 结点j 权值 edges.emplace_back(make_tuple(i, j, 100)); // 表示有一条 i→j 的边，权值为100 // 按权值从小到大排序 sort(edges.begin(), edges.end(), [](const auto\u0026 e1, const auto\u0026 e2) { auto\u0026\u0026 [x1, y1, v1] = e1; auto\u0026\u0026 [x2, y2, v2] = e2; return v1 \u003c v2; }); ",
-  "wordCount" : "1464",
+  "articleBody": "set set 容器的功用就是维护一个集合，其中的元素默认升序排列。其底层由红黑树实现，insert、erase、find 操作的时间复杂度均为$O(logN)$。\n自定义从大到小排序 1 2 3 4 set\u003cint, greater\u003c\u003e\u003e st; // 或者 auto func = [](const int\u0026 x, const int\u0026 y) { return x \u003e y; }; set\u003cint, decltype(func)\u003e st(func); map map 容器存储的都是 pair 对象，该容器会自动根据各键值对的键的大小，默认选用std::less排序规则（其中 T 表示键的数据类型），其会根据键的大小对所有键值对做升序排序。其底层由红黑树实现。\n自定义从大到小排序 1 2 3 4 map\u003cint, int, greater\u003c\u003e\u003e mp; // 或者 auto func = [](const int\u0026 x, const int\u0026 y) { return x \u003e y; }; map\u003cint, int, decltype(func)\u003e mp(func); priority_queue 在优先队列中，优先级高的元素先出队列，并非按照先进先出的要求，类似一个堆。优先队列默认大根堆，重载方式与 sort、set、map 相反。\n建立小根堆 1 2 3 4 5 6 7 8 9 10 11 priority_queue\u003cint, vector\u003cint\u003e, greater\u003c\u003e\u003e q; // 或者 auto func = [](const int\u0026 x, const int\u0026 y) { return x \u003c y; }; priority_queue\u003cint, vector\u003cint\u003e, decltype(func)\u003e q(func); // 或者 struct edge{ int to, w; edge(int _to, int _w): to(_to), w(_w) {} // 运算符重载 让priority_queue为小顶堆 bool operator \u003c (const edge\u0026 x) const { return w \u003e x.w; } }; erase和remove erase 1 2 iterator erase(iterator position); iterator erase(iterator first, iterator last); erase()函数可以用于删除 vector 容器（或 string）中的一个或者一段元素，在删除一个元素的时候，其参数为指向相应元素的迭代器，而在删除一段元素的时候，参数为指向一段元素的开头的迭代器以及指向结尾元素的下一个元素的迭代器。\n在进行单个元素删除后，传入的迭代器指向不变，仍然指向被删除元素的位置，而被删除元素之后的所有元素都向前移动一位，也就是该迭代器实际上是指向了原来被删除元素的下一个元素。\nremove 1 iterator remove(iterator first, iterator last, val); remove()的作用是将等于 val 的元素放到 vector（或 string）的尾部，但并不减少 vector 的 size。执行 remove 之后返回新的 end() 迭代器，但是不改变原来数组的 end() 迭代器的值。也就是数组中新的 end() 至原 end() 范围内的值是原数组中等于 val 的值，但是这部分状态不可靠。begin() 到新的 end() 这部分是不等于 val 的值。\n区别 也就是说 erase 和 remove 的区别在于执行函数之后返回值不同，被执行的 vector 的大小会不会改变。\nvector 中 erase 的作用是删除掉某个位置或一段区域中的元素，减少其 size，返回被删除元素下一个元素的位置。\nvector 中 remove 的作用是将范围内为 val 的值都 remove 到后面，返回新的 end() 值（非 val 部分的end）,但传入的原 vector 的 end 并没有发生改变，因此 size 也就没有变化。\n所以说remove()不是真正的删除，而是移除。erase()结合remove()能做到删除一段范围内的某个元素。\n1 2 3 4 5 // 删除vector中值为x的元素 vec.erase(remove(vec.begin(), vec.end(), x), vec.end()); // 删除string中所有的'_' s.erase(remove(s.begin(), s.end(), '_'), s.end()); 图的存储方式 常用的图的存储方式很多，例如邻接矩阵、邻接链表、链式前向星等，兼顾性能和效率，一般使用的最多的是邻接链表。\n不需要保存权值 当不需要保存边的权值信息（或每条边的权值固定）时，直接使用二维 vector 即可（假设有10000个结点，编号从1到10000）：\n1 2 3 4 vector\u003cvector\u003cint\u003e\u003e G(10002, vector\u003cint\u003e()); G[i].emplace_back(j); // 表示有一条 i→j 的边 G[i].size();\t// 表示结点 i 的出度 使用 pair 使用 pair 能很方便地保存边的权值。\n1 2 3 4 typedef pair\u003cint, int\u003e PII; vector\u003cPII\u003e G[10002]; G[i].emplace_back(make_pair(j, 100)); // 表示有一条 i→j 的边，权值为100 需要进行排序的情况 有时候需要按边权对结点进行排序，这时候我们可以使用以下存储结构：\n1 2 3 4 5 6 7 8 9 struct edge{ int s, t, cost; edge(int _s, int _t, int _cost): s(_s), t(_t), cost(_cost) {} bool operator \u003c (const edge\u0026 o) const { return cost \u003c o.cost; } }; vector\u003cedge\u003e G; G.emplace_back(edge(i, j, 100)); //表示有一条 i→j 的边，权值为100 sort(G.begin(), G.end()); 或者使用 tuple：\n1 2 3 4 5 6 7 8 9 vector\u003ctuple\u003cint, int, int\u003e\u003e edges; // 结点i 结点j 权值 edges.emplace_back(make_tuple(i, j, 100)); // 表示有一条 i→j 的边，权值为100 // 按权值从小到大排序 sort(edges.begin(), edges.end(), [](const auto\u0026 e1, const auto\u0026 e2) { auto\u0026\u0026 [x1, y1, v1] = e1; auto\u0026\u0026 [x2, y2, v2] = e2; return v1 \u003c v2; }); __builtin系列 以 __builtin 开头的函数，是一种相当神奇的位运算函数，熟练运用此类函数可以方便解决位运算相关问题。\n__builtin_ctz(x)和__buitlin_clz(x) __builtin_ctz(x)返回 x 的二进制表示数末尾 0 的个数；\n__builtin_clz(x)返回 x 的二进制表示数前导 0 的个数。\n对应的 64 位长整型版本分别为：__builtin_ctzll(x)和__builtin_clzll(x)\n1 2 3 4 5 cout \u003c\u003c __builtin_ctz(128) \u003c\u003c endl; // 7 cout \u003c\u003c __builtin_ctz(128) \u003c\u003c endl; // 24 cout \u003c\u003c __builtin_ctzll(1024L) \u003c\u003c endl; // 10 cout \u003c\u003c __builtin_clzll(1024L) \u003c\u003c endl; // 53 __builtin_popcount(x) 返回 x 的二进制表示数 1 的个数。\n1 cout \u003c\u003c __builtin_popcount(15) \u003c\u003c endl; // 4 __builtin_parity(x) 判断 x 的二进制表示数 1 的个数的奇偶性(偶数返回 0，奇数返回 1)。\n1 2 cout \u003c\u003c __builtin_parity(14) \u003c\u003c endl; // 1 cout \u003c\u003c __builtin_parity(15) \u003c\u003c endl; // 0 __builtin_ffs(x) 返回 x 的二进制表示数的最后一个 1 在第几位（从后往前算）。\n1 2 3 cout \u003c\u003c __builtin_ffs(1024) \u003c\u003c endl; // 11 cout \u003c\u003c __builtin_ffs(6) \u003c\u003c endl; // 2 cout \u003c\u003c __builtin_ffs(0) \u003c\u003c endl; // 0 ",
+  "wordCount" : "1825",
   "inLanguage": "zh",
   "datePublished": "2023-07-06T16:50:01+08:00",
   "dateModified": "2023-07-06T16:50:01+08:00",
@@ -267,7 +267,7 @@
 
 
 
-创建:&nbsp;<span title='2023-07-06 16:50:01 +0800 CST'>2023-07-06</span>&nbsp;|&nbsp;更新:&nbsp;2023-07-06&nbsp;|&nbsp;字数:&nbsp;1464字&nbsp;|&nbsp;
+创建:&nbsp;<span title='2023-07-06 16:50:01 +0800 CST'>2023-07-06</span>&nbsp;|&nbsp;更新:&nbsp;2023-07-06&nbsp;|&nbsp;字数:&nbsp;1825字&nbsp;|&nbsp;
 作者:&nbsp;kdjlyy
 
 
@@ -307,9 +307,21 @@
                         <li>
                             <a href="#%e4%b8%8d%e9%9c%80%e8%a6%81%e4%bf%9d%e5%ad%98%e6%9d%83%e5%80%bc" aria-label="不需要保存权值">不需要保存权值</a></li>
                         <li>
-                            <a href="#%e4%bd%bf%e7%94%a8pair" aria-label="使用pair">使用pair</a></li>
+                            <a href="#%e4%bd%bf%e7%94%a8-pair" aria-label="使用 pair">使用 pair</a></li>
                         <li>
-                            <a href="#%e9%9c%80%e8%a6%81%e8%bf%9b%e8%a1%8c%e6%8e%92%e5%ba%8f%e7%9a%84%e6%83%85%e5%86%b5" aria-label="需要进行排序的情况">需要进行排序的情况</a>
+                            <a href="#%e9%9c%80%e8%a6%81%e8%bf%9b%e8%a1%8c%e6%8e%92%e5%ba%8f%e7%9a%84%e6%83%85%e5%86%b5" aria-label="需要进行排序的情况">需要进行排序的情况</a></li></ul>
+                        </li>
+                        <li>
+                            <a href="#__builtin%e7%b3%bb%e5%88%97" aria-label="__builtin系列">__builtin系列</a><ul>
+                                    
+                        <li>
+                            <a href="#__builtin_ctzx%e5%92%8c__buitlin_clzx" aria-label="__builtin_ctz(x)和__buitlin_clz(x)">__builtin_ctz(x)和__buitlin_clz(x)</a></li>
+                        <li>
+                            <a href="#__builtin_popcountx" aria-label="__builtin_popcount(x)">__builtin_popcount(x)</a></li>
+                        <li>
+                            <a href="#__builtin_parityx" aria-label="__builtin_parity(x)">__builtin_parity(x)</a></li>
+                        <li>
+                            <a href="#__builtin_ffsx" aria-label="__builtin_ffs(x)">__builtin_ffs(x)</a>
                         </li>
                     </ul>
                     </li>
@@ -515,7 +527,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>G<span style="color:#eceff4">[</span>i<span style="color:#eceff4">].</span>size<span style="color:#eceff4">();</span>		   <span style="color:#616e87;font-style:italic">// 表示结点 i 的出度 
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="使用pair">使用pair<a hidden class="anchor" aria-hidden="true" href="#使用pair">#</a></h3>
+</div><h3 id="使用-pair">使用 pair<a hidden class="anchor" aria-hidden="true" href="#使用-pair">#</a></h3>
 <p>使用 pair 能很方便地保存边的权值。</p>
 <div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -582,7 +594,67 @@
 </span></span><span style="display:flex;"><span><span style="color:#eceff4">});</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><hr>
+<h2 id="__builtin系列">__builtin系列<a hidden class="anchor" aria-hidden="true" href="#__builtin系列">#</a></h2>
+<p>以 __builtin 开头的函数，是一种相当神奇的位运算函数，熟练运用此类函数可以方便解决位运算相关问题。</p>
+<h3 id="__builtin_ctzx和__buitlin_clzx">__builtin_ctz(x)和__buitlin_clz(x)<a hidden class="anchor" aria-hidden="true" href="#__builtin_ctzx和__buitlin_clzx">#</a></h3>
+<p><code>__builtin_ctz(x)</code>返回 x 的二进制表示数末尾 0 的个数；</p>
+<p><code>__builtin_clz(x)</code>返回 x 的二进制表示数前导 0 的个数。</p>
+<p>对应的 64 位长整型版本分别为：<code>__builtin_ctzll(x)</code>和<code>__builtin_clzll(x)</code></p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ctz<span style="color:#eceff4">(</span><span style="color:#b48ead">128</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 7
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ctz<span style="color:#eceff4">(</span><span style="color:#b48ead">128</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 24
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ctzll<span style="color:#eceff4">(</span><span style="color:#b48ead">1024L</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 10
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_clzll<span style="color:#eceff4">(</span><span style="color:#b48ead">1024L</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 53
+</span></span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="__builtin_popcountx">__builtin_popcount(x)<a hidden class="anchor" aria-hidden="true" href="#__builtin_popcountx">#</a></h3>
+<p>返回 x 的二进制表示数 1 的个数。</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_popcount<span style="color:#eceff4">(</span><span style="color:#b48ead">15</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 4
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__builtin_parityx">__builtin_parity(x)<a hidden class="anchor" aria-hidden="true" href="#__builtin_parityx">#</a></h3>
+<p>判断 x 的二进制表示数 1 的个数的奇偶性(偶数返回 0，奇数返回 1)。</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_parity<span style="color:#eceff4">(</span><span style="color:#b48ead">14</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_parity<span style="color:#eceff4">(</span><span style="color:#b48ead">15</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 0
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__builtin_ffsx">__builtin_ffs(x)<a hidden class="anchor" aria-hidden="true" href="#__builtin_ffsx">#</a></h3>
+<p>返回 x 的二进制表示数的最后一个 1 在第几位（从后往前算）。</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ffs<span style="color:#eceff4">(</span><span style="color:#b48ead">1024</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 11
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ffs<span style="color:#eceff4">(</span><span style="color:#b48ead">6</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>     <span style="color:#616e87;font-style:italic">// 2
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ffs<span style="color:#eceff4">(</span><span style="color:#b48ead">0</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>     <span style="color:#616e87;font-style:italic">// 0
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+
 
   </div>
 
