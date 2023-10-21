@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>📋 建站 on 向着悠远的苍穹</title>
-    <link>https://kdjlyy.cn/posts/site/</link>
+    <link>https://kdjlyy.github.io/posts/site/</link>
     <description>Recent content in 📋 建站 on 向着悠远的苍穹</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 02 Jun 2023 15:07:13 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/posts/site/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Jun 2023 15:07:13 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/posts/site/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo博客shortcodes使用</title>
-      <link>https://kdjlyy.cn/posts/site/hugo_shortcodes/</link>
+      <link>https://kdjlyy.github.io/posts/site/hugo_shortcodes/</link>
       <pubDate>Fri, 02 Jun 2023 15:07:13 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/site/hugo_shortcodes/</guid>
+      <guid>https://kdjlyy.github.io/posts/site/hugo_shortcodes/</guid>
       <description>Shortcodes简介 大多数的静态博客会使用 Markdown 进行写作，因为它格式简单、所见即所得，但是 Markdown 也有它的不足之处。当我们想要将图片或者视频等插入到文章内容中时，Markdown 本身并不</description>
     </item>
     
     <item>
       <title>Hugo博客部署到云服务器</title>
-      <link>https://kdjlyy.cn/posts/site/ecs_deploy/</link>
+      <link>https://kdjlyy.github.io/posts/site/ecs_deploy/</link>
       <pubDate>Fri, 02 Jun 2023 15:06:58 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/site/ecs_deploy/</guid>
+      <guid>https://kdjlyy.github.io/posts/site/ecs_deploy/</guid>
       <description>Hugo博客部署, 云服务器, ICP备案, 宝塔面板, SSL, Nginx</description>
     </item>
     
     <item>
       <title>PaperMod主题优化</title>
-      <link>https://kdjlyy.cn/posts/site/hugo-papermod-optimization/</link>
+      <link>https://kdjlyy.github.io/posts/site/hugo-papermod-optimization/</link>
       <pubDate>Wed, 31 May 2023 16:26:23 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/site/hugo-papermod-optimization/</guid>
+      <guid>https://kdjlyy.github.io/posts/site/hugo-papermod-optimization/</guid>
       <description>PaperMod, 主题优化, 标签页面, MathJax, 自定义头部, 自定义字体, 卜算子, busuanzi, post_meta, 背景图片, 自动编号, utterances, 评论</description>
     </item>
     
     <item>
       <title>Hugo主题配置及Github部署</title>
-      <link>https://kdjlyy.cn/posts/site/hugo-papermod-configure/</link>
+      <link>https://kdjlyy.github.io/posts/site/hugo-papermod-configure/</link>
       <pubDate>Wed, 31 May 2023 15:04:05 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/site/hugo-papermod-configure/</guid>
+      <guid>https://kdjlyy.github.io/posts/site/hugo-papermod-configure/</guid>
       <description>hugo, papermod, 主题配置</description>
     </item>
     
     <item>
       <title>基于Hugo搭建静态博客</title>
-      <link>https://kdjlyy.cn/posts/site/site-init/</link>
+      <link>https://kdjlyy.github.io/posts/site/site-init/</link>
       <pubDate>Tue, 30 May 2023 17:17:15 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/site/site-init/</guid>
+      <guid>https://kdjlyy.github.io/posts/site/site-init/</guid>
       <description>hugo, 静态博客, PaperMod, 快速启动</description>
     </item>
     

@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>算法模版 on 向着悠远的苍穹</title>
-    <link>https://kdjlyy.cn/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E7%89%88/</link>
+    <link>https://kdjlyy.github.io/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E7%89%88/</link>
     <description>Recent content in 算法模版 on 向着悠远的苍穹</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 21 Jul 2023 14:25:19 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E7%89%88/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Jul 2023 14:25:19 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E7%89%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>二叉树专题</title>
-      <link>https://kdjlyy.cn/posts/algorithm/algorithm-tree/</link>
+      <link>https://kdjlyy.github.io/posts/algorithm/algorithm-tree/</link>
       <pubDate>Fri, 21 Jul 2023 14:25:19 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/algorithm/algorithm-tree/</guid>
+      <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-tree/</guid>
       <description>数, 二叉树, 遍历, 先序遍历, 中序遍历，后序遍历</description>
     </item>
     
     <item>
       <title>链表专题</title>
-      <link>https://kdjlyy.cn/posts/algorithm/algorithm-linkedlist/</link>
+      <link>https://kdjlyy.github.io/posts/algorithm/algorithm-linkedlist/</link>
       <pubDate>Fri, 21 Jul 2023 12:36:41 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/algorithm/algorithm-linkedlist/</guid>
+      <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-linkedlist/</guid>
       <description>链表, linkedlist, 尾插法, 头插法, 合并两个有序单链表, 判断链表是否有环</description>
     </item>
     
     <item>
       <title>搜索算法专题</title>
-      <link>https://kdjlyy.cn/posts/algorithm/algorithm-search/</link>
+      <link>https://kdjlyy.github.io/posts/algorithm/algorithm-search/</link>
       <pubDate>Thu, 13 Jul 2023 14:14:40 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/algorithm/algorithm-search/</guid>
+      <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-search/</guid>
       <description>搜索算法, DFS, BFS, 记忆化搜索</description>
     </item>
     
     <item>
       <title>动态规划专题</title>
-      <link>https://kdjlyy.cn/posts/algorithm/algorithm-dp/</link>
+      <link>https://kdjlyy.github.io/posts/algorithm/algorithm-dp/</link>
       <pubDate>Tue, 11 Jul 2023 17:36:38 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/algorithm/algorithm-dp/</guid>
+      <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-dp/</guid>
       <description>动态规划, dp, 记忆化搜索, 滑雪， 矩阵中的最长递增路径</description>
     </item>
     
     <item>
       <title>常用算法模版</title>
-      <link>https://kdjlyy.cn/posts/algorithm/algorithm-template/</link>
+      <link>https://kdjlyy.github.io/posts/algorithm/algorithm-template/</link>
       <pubDate>Thu, 06 Jul 2023 17:09:51 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/algorithm/algorithm-template/</guid>
+      <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-template/</guid>
       <description>算法, 差分数组, 并查集, 拓扑排序, Dijkstra, 点面关系, 判断点是否在三角形内, 最小生成树, kruskal, 排列数, 组合数, 最长上升子序列, LIS, 最长公共子序列, LCS, 编辑距离</description>
     </item>
     
     <item>
       <title>常见算法-模拟篇</title>
-      <link>https://kdjlyy.cn/posts/algorithm/algorithm-simulation/</link>
+      <link>https://kdjlyy.github.io/posts/algorithm/algorithm-simulation/</link>
       <pubDate>Thu, 18 May 2023 18:17:41 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/algorithm/algorithm-simulation/</guid>
+      <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-simulation/</guid>
       <description>大数, 大数加法, 大数乘法, 位运算, 二进制</description>
     </item>
     

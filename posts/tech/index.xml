@@ -2,71 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>👨🏻‍💻 技术 on 向着悠远的苍穹</title>
-    <link>https://kdjlyy.cn/posts/tech/</link>
+    <link>https://kdjlyy.github.io/posts/tech/</link>
     <description>Recent content in 👨🏻‍💻 技术 on 向着悠远的苍穹</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 20 Sep 2023 22:47:21 +0800</lastBuildDate><atom:link href="https://kdjlyy.cn/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Sep 2023 22:47:21 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/posts/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elasticsearch初体验</title>
-      <link>https://kdjlyy.cn/posts/tech/elasticsearch-start/</link>
+      <link>https://kdjlyy.github.io/posts/tech/elasticsearch-start/</link>
       <pubDate>Wed, 20 Sep 2023 22:47:21 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/tech/elasticsearch-start/</guid>
+      <guid>https://kdjlyy.github.io/posts/tech/elasticsearch-start/</guid>
       <description>elasticsearch</description>
     </item>
     
     <item>
       <title>Vue2开发指南</title>
-      <link>https://kdjlyy.cn/posts/tech/vue-start/</link>
+      <link>https://kdjlyy.github.io/posts/tech/vue-start/</link>
       <pubDate>Sat, 09 Sep 2023 22:13:35 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/tech/vue-start/</guid>
+      <guid>https://kdjlyy.github.io/posts/tech/vue-start/</guid>
       <description>Vue, Vue2, 前端, ElementUI, axios</description>
     </item>
     
     <item>
       <title>reveal.js体验</title>
-      <link>https://kdjlyy.cn/posts/tech/revealjs-start/</link>
+      <link>https://kdjlyy.github.io/posts/tech/revealjs-start/</link>
       <pubDate>Thu, 17 Aug 2023 23:14:25 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/tech/revealjs-start/</guid>
+      <guid>https://kdjlyy.github.io/posts/tech/revealjs-start/</guid>
       <description>reveal.js, revealjs</description>
     </item>
     
     <item>
       <title>Docker基础</title>
-      <link>https://kdjlyy.cn/posts/tech/docker-basic/</link>
+      <link>https://kdjlyy.github.io/posts/tech/docker-basic/</link>
       <pubDate>Mon, 05 Jun 2023 23:10:59 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/tech/docker-basic/</guid>
+      <guid>https://kdjlyy.github.io/posts/tech/docker-basic/</guid>
       <description>Docker基础</description>
     </item>
     
     <item>
       <title>计算机基础知识总结（系统篇）</title>
-      <link>https://kdjlyy.cn/posts/tech/cs-basic-os/</link>
+      <link>https://kdjlyy.github.io/posts/tech/cs-basic-os/</link>
       <pubDate>Tue, 16 May 2023 15:31:26 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/tech/cs-basic-os/</guid>
+      <guid>https://kdjlyy.github.io/posts/tech/cs-basic-os/</guid>
       <description>内存模型, Linux用户空间内存分布, 程序内存空间, 虚拟内存, new, delete, malloc, free, brk, mmap, ptmalloc, tcmalloc, 内存对敌, 用户态, 内核态, 中断, 系统调用, 缺页中断, 虚表, 虚表指针</description>
     </item>
     
     <item>
       <title>计算机基础知识总结（语法篇）</title>
-      <link>https://kdjlyy.cn/posts/tech/cs-basic-grammar/</link>
+      <link>https://kdjlyy.github.io/posts/tech/cs-basic-grammar/</link>
       <pubDate>Tue, 09 May 2023 21:27:42 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/tech/cs-basic-grammar/</guid>
+      <guid>https://kdjlyy.github.io/posts/tech/cs-basic-grammar/</guid>
       <description>成员变量初始化 构造函数内部初始化和初始化列表 初始化类的成员有两种方式，一是使用初始化列表，二是在构造函数体内进行赋值操作。 对于内置类型，如int, float等，使用初始化列表和在构</description>
     </item>
     
     <item>
       <title>PaperMod主题Markdown示例</title>
-      <link>https://kdjlyy.cn/posts/tech/markdown-note/</link>
+      <link>https://kdjlyy.github.io/posts/tech/markdown-note/</link>
       <pubDate>Mon, 08 May 2023 18:13:32 +0800</pubDate>
       
-      <guid>https://kdjlyy.cn/posts/tech/markdown-note/</guid>
+      <guid>https://kdjlyy.github.io/posts/tech/markdown-note/</guid>
       <description>主要展示 PaperMod 主题中 Markdown 语法的页面效果</description>
     </item>
     
