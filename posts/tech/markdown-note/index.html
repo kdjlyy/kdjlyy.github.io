@@ -154,7 +154,7 @@
     "教程", "markdown", "Hugo", "PaperMod"
   ],
   "articleBody": " 常见的Markdown语法，例如引用、标题、段落、无序列表、有序列表等不做讨论。\n参考：Sulv’s Blog、荷戟独彷徨、Memory、3rd’s Blog、Doit。\n字体种类 在Markdown中，使用标签的face属性修改文字字体：\n1 2 3 \u003cfont face='SimHei'\u003e这是黑体\u003c/font\u003e \u003cfont face='KaiTi'\u003e这是楷体\u003c/font\u003e \u003cfont face='Fangsong_GB2312'\u003e这是仿宋_GB2312字体\u003c/font\u003e 这是黑体 这是楷体 这是仿宋_GB2312字体\n字体名称 字体写法 黑体 SimHei 宋体 SimSun 新宋体 NSimSun 仿宋 FangSong 楷体 KaiTi 仿宋_GB2312 FangSong_GB2312 楷体_GB2312 KaiTi_GB2312 微软雅黑 Microsoft YaHei 落霞文楷 LXGW WenKai 落霞文楷 Lite LXGW WenKai Lite 落霞文楷 Screen LXGW WenKai Screen 落霞文楷 TC LXGW WenKai TC 字号 1 2 3 4 5 6 7 \u003cfont size=\"1\"\u003e这是1号字体\u003c/font\u003e \u003cfont size=\"2\"\u003e这是2号字体\u003c/font\u003e \u003cfont size=\"3\"\u003e这是3号字体\u003c/font\u003e \u003cfont size=\"4\"\u003e这是4号字体\u003c/font\u003e \u003cfont size=\"5\"\u003e这是5号字体\u003c/font\u003e \u003cfont size=\"6\"\u003e这是6号字体\u003c/font\u003e \u003cfont size=\"7\"\u003e这是7号字体\u003c/font\u003e 这是1号字体\n这是2号字体 这是3号字体 这是4号字体 这是5号字体 这是6号字体 这是7号字体 字体颜色 1 2 3 4 \u003cfont color='red'\u003e这是红色字体\u003c/font\u003e \u003cfont color='rgb(200, 100, 100)'\u003e这是rgb(200, 100, 100)颜色字体\u003c/font\u003e \u003cfont color='#FF00BB'\u003e这是#FF00BB颜色字体\u003c/font\u003e \u003cfont style=\"background: linear-gradient(to right, #ff1616, #36c945, #10a5ce, #0f0096, #a51eff, #ff1616);\"\u003e这是7色渐变颜色\u003c/font\u003e 这是红色字体 这是rgb(200, 100, 100)颜色字体 这是#FF00BB颜色字体\n这是7色渐变颜色\n待办列表 使用-[]表示一项待办，当完成待办后给中括号中添加x（不区分大小写，注意空格不可省略）即可，例如：\n1 2 3 - [x] 吃饭 - [x] 睡觉 - [ ] 写作业 吃饭 睡觉 写作业 脚注和页内跳转 脚注 1 2 3 这是一个简单的脚注[^1]，这是另一个脚注[^bignote]。 [^1]:这是第一个脚注 [^bignote]:这是第二脚注 这是一个简单的脚注1，这是另一个脚注2。\n页内跳转 1 2 3 4 5 6 7 // 1. 首先定义一个锚点： ",
-  "wordCount" : "3567",
+  "wordCount" : "3763",
   "inLanguage": "zh",
   "datePublished": "2023-05-08T18:13:32+08:00",
   "dateModified": "2023-05-14T00:00:00Z",
@@ -267,7 +267,7 @@
 
 
 
-创建:&nbsp;<span title='2023-05-08 18:13:32 +0800 CST'>2023-05-08</span>&nbsp;|&nbsp;更新:&nbsp;2023-05-14&nbsp;|&nbsp;字数:&nbsp;3567字&nbsp;|&nbsp;
+创建:&nbsp;<span title='2023-05-08 18:13:32 +0800 CST'>2023-05-08</span>&nbsp;|&nbsp;更新:&nbsp;2023-05-14&nbsp;|&nbsp;字数:&nbsp;3763字&nbsp;|&nbsp;
 作者:&nbsp;kdjlyy
 
 
@@ -302,6 +302,8 @@
                         <li>
                             <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89shortcodes" aria-label="自定义shortcodes">自定义shortcodes</a><ul>
                                     
+                        <li>
+                            <a href="#%e4%b8%8d%e5%90%8c%e9%a2%9c%e8%89%b2%e7%9a%84%e4%bf%a1%e6%81%af%e6%a1%86" aria-label="不同颜色的信息框">不同颜色的信息框</a></li>
                         <li>
                             <a href="#%e6%8f%92%e5%85%a5pdf" aria-label="插入pdf">插入pdf</a></li>
                         <li>
@@ -624,6 +626,29 @@
 <h2 id="自定义shortcodes">自定义shortcodes<a hidden class="anchor" aria-hidden="true" href="#自定义shortcodes">#</a></h2>
 <p>Hugo博客通过简码方式插入pdf、bilibili以及博客文章内链等功能。</p>
 <p>为了防止被识别生效，调用样式均表示为<code>{.{&lt; xxx &gt;}}</code>，实际使用时去掉大括号中间的<code>.</code>即可。</p>
+<h3 id="不同颜色的信息框">不同颜色的信息框<a hidden class="anchor" aria-hidden="true" href="#不同颜色的信息框">#</a></h3>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{.{<span style="color:#eceff4">&lt;</span> <span style="color:#81a1c1">black</span> <span style="color:#8fbcbb">message</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;这是一条黑白信息&#34;</span> <span style="color:#eceff4">&gt;</span>}}
+</span></span><span style="display:flex;"><span>{.{<span style="color:#eceff4">&lt;</span> <span style="color:#81a1c1">grey</span> <span style="color:#8fbcbb">message</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;这是一条灰色信息&#34;</span> <span style="color:#eceff4">&gt;</span>}}
+</span></span><span style="display:flex;"><span>{.{<span style="color:#eceff4">&lt;</span> <span style="color:#81a1c1">blue</span> <span style="color:#8fbcbb">message</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;这是一条蓝色信息&#34;</span> <span style="color:#eceff4">&gt;</span>}}
+</span></span><span style="display:flex;"><span>{.{<span style="color:#eceff4">&lt;</span> <span style="color:#81a1c1">green</span> <span style="color:#8fbcbb">message</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;这是一条绿色信息&#34;</span> <span style="color:#eceff4">&gt;</span>}}
+</span></span><span style="display:flex;"><span>{.{<span style="color:#eceff4">&lt;</span> <span style="color:#81a1c1">yellow</span> <span style="color:#8fbcbb">message</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;这是一条黄色信息&#34;</span> <span style="color:#eceff4">&gt;</span>}}
+</span></span><span style="display:flex;"><span>{.{<span style="color:#eceff4">&lt;</span> <span style="color:#81a1c1">red</span> <span style="color:#8fbcbb">message</span><span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;这是一条红色信息&#34;</span> <span style="color:#eceff4">&gt;</span>}}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div style="text-align:center;">
+  <img style="display: block; margin: 0 auto;" src="https://img.picgo.net/2023/11/16/messageca6da75eebe658dc.png" width="100%" height="100%">
+  <span style="font-size: 14px; color: grey;">不同颜色的信息框</span>
+</div>
 <h3 id="插入pdf">插入pdf<a hidden class="anchor" aria-hidden="true" href="#插入pdf">#</a></h3>
 <div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
