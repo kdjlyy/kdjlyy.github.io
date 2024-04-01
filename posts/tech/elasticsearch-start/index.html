@@ -12,9 +12,7 @@
 作者:&nbsp;kdjlyy">
 <link rel="canonical" href="https://kdjlyy.github.io/posts/tech/elasticsearch-start/">
 
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c2f0e623e86eeca31ef4d93192e55ff58676853610c86e9ed2fb22b5ce7e6479.css" integrity="sha256-wvDmI&#43;hu7KMe9NkxkuVf9YZ2hTYQyG6e0vsitc5&#43;ZHk=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4a1e83b1dc991b987e09d59a3232bf231a50d897a91cd64f5577a412f11bd136.css" integrity="sha256-Sh6DsdyZG5h&#43;CdWaMjK/IxpQ2JepHNZPVXekEvEb0TY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="https://kdjlyy.github.io/img/logo.ico">
@@ -83,7 +81,7 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css" />
+    
     <style>
         body {
              
@@ -275,86 +273,86 @@
     </div>
   </header> 
   <div class="post-content"><p>参考：https://www.cnblogs.com/benjieqiang/p/17501293.html#:~:text=3%E5%88%86%E9%92%9F%E5%AE%8C%E6%88%90Macbook%20m1%E8%8A%AF%E7%89%87%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85Elasticsearch%E5%92%8CKibana%201%201%E3%80%81%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6,2%202%E3%80%81%E5%88%9B%E5%BB%BAes%E5%AE%9E%E4%BE%8B%203%203%E3%80%81%E5%88%9B%E5%BB%BAKibana</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">38
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker pull elasticsearch:7.16.2
-</span></span><span style="display:flex;"><span>docker pull kibana:7.16.2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>➜  codes mkdir elasticsearch
-</span></span><span style="display:flex;"><span>➜  codes <span style="color:#81a1c1">cd</span> elasticsearch
-</span></span><span style="display:flex;"><span>➜  elasticsearch mkdir config
-</span></span><span style="display:flex;"><span>➜  elasticsearch mkdir data
-</span></span><span style="display:flex;"><span>➜  elasticsearch mkdir plugins
-</span></span><span style="display:flex;"><span>➜  codes chmod -R <span style="color:#b48ead">777</span> ./elasticsearch
-</span></span><span style="display:flex;"><span>➜  codes <span style="color:#81a1c1">echo</span> <span style="color:#a3be8c">&#34;http.host: 0.0.0.0&#34;</span> &gt;&gt; elasticsearch/config/elasticsearch.yml
-</span></span><span style="display:flex;"><span>➜  codes
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"># -d : 后台运行</span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"># -p : 指定宿主机与docker启动容器的端口映射</span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"># --name : 为 elasticsearch 容器起个别名</span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"># -e : 指定为单节点集群模式</span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"># -e ES_JAVA_OPTS=&#34;-Xms64m -Xmx512m&#34; \ 设置ES的初始内存和最大内存，否则导致过大启动不了ES</span>
-</span></span><span style="display:flex;"><span>docker run --name elasticsearch -p 9200:9200 -p 9300:9300 <span style="color:#ebcb8b">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ebcb8b"></span>-e <span style="color:#a3be8c">&#34;discovery.type=single-node&#34;</span> <span style="color:#ebcb8b">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ebcb8b"></span>-e ES_JAVA_OPTS<span style="color:#81a1c1">=</span><span style="color:#a3be8c">&#34;-Xms64m -Xmx512m&#34;</span> <span style="color:#ebcb8b">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ebcb8b"></span>-v /Users/yuki/codes/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml <span style="color:#ebcb8b">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ebcb8b"></span>-v /Users/yuki/codes/elasticsearch/data:/usr/share/elasticsearch/data <span style="color:#ebcb8b">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ebcb8b"></span>-v /Users/yuki/codes/elasticsearch/plugins:/usr/share/elasticsearch/plugins <span style="color:#ebcb8b">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ebcb8b"></span>-d elasticsearch:7.16.2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>➜  elasticsearch docker inspect -f <span style="color:#a3be8c">&#39;{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span> elasticsearch
-</span></span><span style="display:flex;"><span>172.17.0.2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>docker run --name kibana -e ELASTICSEARCH_HOSTS<span style="color:#81a1c1">=</span>http://172.17.0.2:9200 -e <span style="color:#a3be8c">&#34;I18N_LOCALE=zh-CN&#34;</span> -p 5601:5601 -d kibana:7.16.2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>docker pull alivv/elasticsearch-head
-</span></span><span style="display:flex;"><span>    vi config/elasticsearch.yml
-</span></span><span style="display:flex;"><span>    添加
-</span></span><span style="display:flex;"><span>    http.cors.enabled: <span style="color:#81a1c1">true</span>
-</span></span><span style="display:flex;"><span>    http.cors.allow-origin: <span style="color:#a3be8c">&#34;*&#34;</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>docker create --name elasticsearch-head -p 9100:9100 alivv/elasticsearch-head
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull elasticsearch:7.16.2
+</span></span><span class="line"><span class="cl">docker pull kibana:7.16.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜  codes mkdir elasticsearch
+</span></span><span class="line"><span class="cl">➜  codes <span class="nb">cd</span> elasticsearch
+</span></span><span class="line"><span class="cl">➜  elasticsearch mkdir config
+</span></span><span class="line"><span class="cl">➜  elasticsearch mkdir data
+</span></span><span class="line"><span class="cl">➜  elasticsearch mkdir plugins
+</span></span><span class="line"><span class="cl">➜  codes chmod -R <span class="m">777</span> ./elasticsearch
+</span></span><span class="line"><span class="cl">➜  codes <span class="nb">echo</span> <span class="s2">&#34;http.host: 0.0.0.0&#34;</span> &gt;&gt; elasticsearch/config/elasticsearch.yml
+</span></span><span class="line"><span class="cl">➜  codes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -d : 后台运行</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -p : 指定宿主机与docker启动容器的端口映射</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># --name : 为 elasticsearch 容器起个别名</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -e : 指定为单节点集群模式</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -e ES_JAVA_OPTS=&#34;-Xms64m -Xmx512m&#34; \ 设置ES的初始内存和最大内存，否则导致过大启动不了ES</span>
+</span></span><span class="line"><span class="cl">docker run --name elasticsearch -p 9200:9200 -p 9300:9300 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="s2">&#34;discovery.type=single-node&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">ES_JAVA_OPTS</span><span class="o">=</span><span class="s2">&#34;-Xms64m -Xmx512m&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /Users/yuki/codes/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /Users/yuki/codes/elasticsearch/data:/usr/share/elasticsearch/data <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /Users/yuki/codes/elasticsearch/plugins:/usr/share/elasticsearch/plugins <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-d elasticsearch:7.16.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜  elasticsearch docker inspect -f <span class="s1">&#39;{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span> elasticsearch
+</span></span><span class="line"><span class="cl">172.17.0.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker run --name kibana -e <span class="nv">ELASTICSEARCH_HOSTS</span><span class="o">=</span>http://172.17.0.2:9200 -e <span class="s2">&#34;I18N_LOCALE=zh-CN&#34;</span> -p 5601:5601 -d kibana:7.16.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker pull alivv/elasticsearch-head
+</span></span><span class="line"><span class="cl">    vi config/elasticsearch.yml
+</span></span><span class="line"><span class="cl">    添加
+</span></span><span class="line"><span class="cl">    http.cors.enabled: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">    http.cors.allow-origin: <span class="s2">&#34;*&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">docker create --name elasticsearch-head -p 9100:9100 alivv/elasticsearch-head
 </span></span></code></pre></td></tr></table>
 </div>
 </div>

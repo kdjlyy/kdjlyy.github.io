@@ -12,9 +12,7 @@
 作者:&nbsp;kdjlyy">
 <link rel="canonical" href="https://kdjlyy.github.io/posts/site/ecs_deploy/">
 
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c2f0e623e86eeca31ef4d93192e55ff58676853610c86e9ed2fb22b5ce7e6479.css" integrity="sha256-wvDmI&#43;hu7KMe9NkxkuVf9YZ2hTYQyG6e0vsitc5&#43;ZHk=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4a1e83b1dc991b987e09d59a3232bf231a50d897a91cd64f5577a412f11bd136.css" integrity="sha256-Sh6DsdyZG5h&#43;CdWaMjK/IxpQ2JepHNZPVXekEvEb0TY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="https://kdjlyy.github.io/img/logo.ico">
@@ -83,7 +81,7 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css" />
+    
     <style>
         body {
              
@@ -383,218 +381,218 @@
         <b> 代码 </b>
     </summary>
 
-    <div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">53
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">54
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">55
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">56
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">57
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">58
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">59
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">60
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">61
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">62
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">63
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">64
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">65
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">66
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">67
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">68
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">69
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">70
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">71
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">72
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">73
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">74
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">75
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">76
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">77
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">78
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">79
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">80
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">81
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">82
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">83
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">84
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">85
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">86
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">87
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">88
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">89
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">90
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">91
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">92
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">93
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">94
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">95
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">96
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">97
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">98
+    <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span><span class="lnt">97
+</span><span class="lnt">98
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>user  www www;
-</span></span><span style="display:flex;"><span>worker_processes auto;
-</span></span><span style="display:flex;"><span>error_log  /www/wwwlogs/nginx_error.log  crit;
-</span></span><span style="display:flex;"><span>pid        /www/server/nginx/logs/nginx.pid;
-</span></span><span style="display:flex;"><span>worker_rlimit_nofile 51200;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>stream {
-</span></span><span style="display:flex;"><span>    log_format tcp_format &#39;$time_local|$remote_addr|$protocol|$status|$bytes_sent|$bytes_received|$session_time|$upstream_addr|$upstream_bytes_sent|$upstream_bytes_received|$upstream_connect_time&#39;;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    access_log /www/wwwlogs/tcp-access.log tcp_format;
-</span></span><span style="display:flex;"><span>    error_log /www/wwwlogs/tcp-error.log;
-</span></span><span style="display:flex;"><span>    include /www/server/panel/vhost/nginx/tcp/*.conf;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>events
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        use epoll;
-</span></span><span style="display:flex;"><span>        worker_connections 51200;
-</span></span><span style="display:flex;"><span>        multi_accept on;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>http
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        include       mime.types;
-</span></span><span style="display:flex;"><span>		include proxy.conf;
-</span></span><span style="display:flex;"><span>        default_type  application/octet-stream;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        server_names_hash_bucket_size 512;
-</span></span><span style="display:flex;"><span>        client_header_buffer_size 32k;
-</span></span><span style="display:flex;"><span>        large_client_header_buffers 4 32k;
-</span></span><span style="display:flex;"><span>        client_max_body_size 50m;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        sendfile   on;
-</span></span><span style="display:flex;"><span>        tcp_nopush on;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        keepalive_timeout 60;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        tcp_nodelay on;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        fastcgi_connect_timeout 300;
-</span></span><span style="display:flex;"><span>        fastcgi_send_timeout 300;
-</span></span><span style="display:flex;"><span>        fastcgi_read_timeout 300;
-</span></span><span style="display:flex;"><span>        fastcgi_buffer_size 64k;
-</span></span><span style="display:flex;"><span>        fastcgi_buffers 4 64k;
-</span></span><span style="display:flex;"><span>        fastcgi_busy_buffers_size 128k;
-</span></span><span style="display:flex;"><span>        fastcgi_temp_file_write_size 256k;
-</span></span><span style="display:flex;"><span>		fastcgi_intercept_errors on;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        gzip on;
-</span></span><span style="display:flex;"><span>        gzip_min_length  1k;
-</span></span><span style="display:flex;"><span>        gzip_buffers     4 16k;
-</span></span><span style="display:flex;"><span>        gzip_http_version 1.1;
-</span></span><span style="display:flex;"><span>        gzip_comp_level 2;
-</span></span><span style="display:flex;"><span>        gzip_types     text/plain application/javascript application/x-javascript text/javascript text/css application/xml;
-</span></span><span style="display:flex;"><span>        gzip_vary on;
-</span></span><span style="display:flex;"><span>        gzip_proxied   expired no-cache no-store private auth;
-</span></span><span style="display:flex;"><span>        gzip_disable   &#34;MSIE [1-6]\.&#34;;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        limit_conn_zone $binary_remote_addr zone=perip:10m;
-</span></span><span style="display:flex;"><span>		limit_conn_zone $server_name zone=perserver:10m;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        server_tokens off;
-</span></span><span style="display:flex;"><span>        access_log off;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>server
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        listen 443 ssl;
-</span></span><span style="display:flex;"><span>        server_name kdjlyy.cn;
-</span></span><span style="display:flex;"><span>		root html;
-</span></span><span style="display:flex;"><span>        index index.html index.htm index.php;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    	<span style="color:#616e87;font-style:italic">#填写证书文件名称</span>
-</span></span><span style="display:flex;"><span>    	ssl_certificate cert/xxxxxxx_kdjlyy.cn.pem;
-</span></span><span style="display:flex;"><span>  		<span style="color:#616e87;font-style:italic">#填写证书私钥文件名称</span>
-</span></span><span style="display:flex;"><span>   		ssl_certificate_key cert/xxxxxxx_kdjlyy.cn.key;
-</span></span><span style="display:flex;"><span>    	ssl_session_timeout 5m;
-</span></span><span style="display:flex;"><span>    	<span style="color:#616e87;font-style:italic">#表示使用的加密套件的类型</span>
-</span></span><span style="display:flex;"><span>    	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-</span></span><span style="display:flex;"><span>    	<span style="color:#616e87;font-style:italic">#表示使用的TLS协议的类型，您需要自行评估是否配置TLSv1.1协议。</span>
-</span></span><span style="display:flex;"><span>    	ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
-</span></span><span style="display:flex;"><span>    	ssl_prefer_server_ciphers on;
-</span></span><span style="display:flex;"><span>    	location / {
-</span></span><span style="display:flex;"><span>        	root /www/wwwroot/public/ ;  <span style="color:#616e87;font-style:italic"># 站点目录设置为之前Hugo生成的public路径即可</span>
-</span></span><span style="display:flex;"><span>       		index index.html;
-</span></span><span style="display:flex;"><span>    	}
-</span></span><span style="display:flex;"><span>        access_log  /www/wwwlogs/access.log;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>	<span style="color:#616e87;font-style:italic"># 设置HTTP请求自动跳转HTTPS</span>
-</span></span><span style="display:flex;"><span>	server {
-</span></span><span style="display:flex;"><span>   		listen 80;
-</span></span><span style="display:flex;"><span>   	 	server_name kdjlyy.cn; <span style="color:#616e87;font-style:italic">#需要将yourdomain替换成证书绑定的域名。</span>
-</span></span><span style="display:flex;"><span>  	  	rewrite ^(.*)$ https://$host$1; <span style="color:#616e87;font-style:italic">#将所有HTTP请求通过rewrite指令重定向到HTTPS。</span>
-</span></span><span style="display:flex;"><span>  	 	location / {
-</span></span><span style="display:flex;"><span>   	   		index index.html index.htm;
-</span></span><span style="display:flex;"><span>   	 	}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>include /www/server/panel/vhost/nginx/*.conf;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">user  www www;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">worker_processes auto;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">error_log  /www/wwwlogs/nginx_error.log  crit;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">pid        /www/server/nginx/logs/nginx.pid;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">worker_rlimit_nofile 51200;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">stream {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">log_format tcp_format &#39;$time_local|$remote_addr|$protocol|$status|$bytes_sent|$bytes_received|$session_time|$upstream_addr|$upstream_bytes_sent|$upstream_bytes_received|$upstream_connect_time&#39;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">access_log /www/wwwlogs/tcp-access.log tcp_format;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">error_log /www/wwwlogs/tcp-error.log;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">include /www/server/panel/vhost/nginx/tcp/*.conf;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">events</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>{<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">use epoll;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">worker_connections 51200;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">multi_accept on;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">http</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>{<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">include       mime.types;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="l">include proxy.conf;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">default_type  application/octet-stream;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">server_names_hash_bucket_size 512;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">client_header_buffer_size 32k;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">large_client_header_buffers 4 32k;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">client_max_body_size 50m;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">sendfile   on;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">tcp_nopush on;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">keepalive_timeout 60;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">tcp_nodelay on;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">fastcgi_connect_timeout 300;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">fastcgi_send_timeout 300;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">fastcgi_read_timeout 300;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">fastcgi_buffer_size 64k;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">fastcgi_buffers 4 64k;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">fastcgi_busy_buffers_size 128k;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">fastcgi_temp_file_write_size 256k;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="l">fastcgi_intercept_errors on;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">gzip on;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">gzip_min_length  1k;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">gzip_buffers     4 16k;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">gzip_http_version 1.1;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">gzip_comp_level 2;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">gzip_types     text/plain application/javascript application/x-javascript text/javascript text/css application/xml;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">gzip_vary on;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">gzip_proxied   expired no-cache no-store private auth;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">gzip_disable   &#34;MSIE [1-6]\.&#34;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">limit_conn_zone $binary_remote_addr zone=perip:10m;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="l">limit_conn_zone $server_name zone=perserver:10m;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">server_tokens off;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">access_log off;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>{<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">listen 443 ssl;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">server_name kdjlyy.cn;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="l">root html;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">index index.html index.htm index.php;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="c">#填写证书文件名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="l">ssl_certificate cert/xxxxxxx_kdjlyy.cn.pem;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  		</span><span class="c">#填写证书私钥文件名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   		</span><span class="l">ssl_certificate_key cert/xxxxxxx_kdjlyy.cn.key;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="l">ssl_session_timeout 5m;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="c">#表示使用的加密套件的类型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="l">ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="c">#表示使用的TLS协议的类型，您需要自行评估是否配置TLSv1.1协议。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="l">ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="l">ssl_prefer_server_ciphers on;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="l">location / {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        	</span><span class="l">root /www/wwwroot/public/ ; </span><span class="w"> </span><span class="c"># 站点目录设置为之前Hugo生成的public路径即可</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       		</span><span class="l">index index.html;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">access_log  /www/wwwlogs/access.log;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c"># 设置HTTP请求自动跳转HTTPS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="l">server {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   		</span><span class="l">listen 80;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   	 	</span><span class="l">server_name kdjlyy.cn;</span><span class="w"> </span><span class="c">#需要将yourdomain替换成证书绑定的域名。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  	  	</span><span class="l">rewrite ^(.*)$ https://$host$1;</span><span class="w"> </span><span class="c">#将所有HTTP请求通过rewrite指令重定向到HTTPS。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  	 	</span><span class="l">location / {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   	   		</span><span class="l">index index.html index.htm;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   	 	</span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">include /www/server/panel/vhost/nginx/*.conf;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </details>
 <p>需要更改的地方为第68、73、75、83、91行，配置完 Nginx 后把博客的<code>public</code>目录上传到云服务器上，对应 Nginx 配置的 location 中的 root 字段。</p>
 <p>然后输入命令重启 Nginx 即可通过域名访问博客。</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>/www/server/nginx/sbin/nginx -s reload
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/www/server/nginx/sbin/nginx -s reload
 </span></span></code></pre></td></tr></table>
 </div>
 </div>

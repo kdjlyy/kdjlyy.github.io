@@ -12,9 +12,7 @@
 作者:&nbsp;kdjlyy">
 <link rel="canonical" href="https://kdjlyy.github.io/posts/algorithm/stl-basic/">
 
-<link crossorigin="anonymous" href="/assets/css/stylesheet.c2f0e623e86eeca31ef4d93192e55ff58676853610c86e9ed2fb22b5ce7e6479.css" integrity="sha256-wvDmI&#43;hu7KMe9NkxkuVf9YZ2hTYQyG6e0vsitc5&#43;ZHk=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4a1e83b1dc991b987e09d59a3232bf231a50d897a91cd64f5577a412f11bd136.css" integrity="sha256-Sh6DsdyZG5h&#43;CdWaMjK/IxpQ2JepHNZPVXekEvEb0TY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://kdjlyy.github.io/img/logo.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="https://kdjlyy.github.io/img/logo.ico">
@@ -83,7 +81,7 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css" />
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/style.css" />
+    
     <style>
         body {
              
@@ -394,87 +392,87 @@
   <div class="post-content"><h2 id="set">set<a hidden class="anchor" aria-hidden="true" href="#set">#</a></h2>
 <p>set 容器的功用就是维护一个集合，其中的元素默认升序排列。其底层由红黑树实现，insert、erase、find 操作的时间复杂度均为$O(logN)$。</p>
 <h3 id="自定义从大到小排序">自定义从大到小排序<a hidden class="anchor" aria-hidden="true" href="#自定义从大到小排序">#</a></h3>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>set<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> greater<span style="color:#81a1c1">&lt;&gt;&gt;</span> st<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// 或者
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#81a1c1;font-weight:bold">auto</span> func <span style="color:#81a1c1">=</span> <span style="color:#eceff4">[](</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1">int</span><span style="color:#81a1c1">&amp;</span> x<span style="color:#eceff4">,</span> <span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1">int</span><span style="color:#81a1c1">&amp;</span> y<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span> <span style="color:#81a1c1;font-weight:bold">return</span> x <span style="color:#81a1c1">&gt;</span> y<span style="color:#eceff4">;</span> <span style="color:#eceff4">};</span>
-</span></span><span style="display:flex;"><span>set<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1;font-weight:bold">decltype</span><span style="color:#eceff4">(</span>func<span style="color:#eceff4">)</span><span style="color:#81a1c1">&gt;</span> st<span style="color:#eceff4">(</span>func<span style="color:#eceff4">);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;&gt;&gt;</span> <span class="n">st</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 或者
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">func</span> <span class="o">=</span> <span class="p">[](</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">st</span><span class="p">(</span><span class="n">func</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="map">map<a hidden class="anchor" aria-hidden="true" href="#map">#</a></h2>
 <p>map 容器存储的都是 pair 对象，该容器会自动根据各键值对的键的大小，默认选用<code>std::less&lt;T&gt;</code>排序规则（其中 T 表示键的数据类型），其会根据键的大小对所有键值对做升序排序。其底层由红黑树实现。</p>
 <h3 id="自定义从大到小排序-1">自定义从大到小排序<a hidden class="anchor" aria-hidden="true" href="#自定义从大到小排序-1">#</a></h3>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>map<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> greater<span style="color:#81a1c1">&lt;&gt;&gt;</span> mp<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// 或者
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#81a1c1;font-weight:bold">auto</span> func <span style="color:#81a1c1">=</span> <span style="color:#eceff4">[](</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1">int</span><span style="color:#81a1c1">&amp;</span> x<span style="color:#eceff4">,</span> <span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1">int</span><span style="color:#81a1c1">&amp;</span> y<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span> <span style="color:#81a1c1;font-weight:bold">return</span> x <span style="color:#81a1c1">&gt;</span> y<span style="color:#eceff4">;</span> <span style="color:#eceff4">};</span>
-</span></span><span style="display:flex;"><span>map<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1;font-weight:bold">decltype</span><span style="color:#eceff4">(</span>func<span style="color:#eceff4">)</span><span style="color:#81a1c1">&gt;</span> mp<span style="color:#eceff4">(</span>func<span style="color:#eceff4">);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;&gt;&gt;</span> <span class="n">mp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 或者
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">func</span> <span class="o">=</span> <span class="p">[](</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">mp</span><span class="p">(</span><span class="n">func</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="priority_queue">priority_queue<a hidden class="anchor" aria-hidden="true" href="#priority_queue">#</a></h2>
 <p>在优先队列中，优先级高的元素先出队列，并非按照先进先出的要求，类似一个堆。优先队列<strong>默认大根堆</strong>，重载方式与 sort、set、map 相反。</p>
 <h3 id="vector转priority_queue">vector转priority_queue<a hidden class="anchor" aria-hidden="true" href="#vector转priority_queue">#</a></h3>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;</span> nums <span style="color:#81a1c1">=</span> <span style="color:#eceff4">{</span><span style="color:#b48ead">3</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">4</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">2</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">5</span><span style="color:#eceff4">};</span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// vector快速建立大根堆
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>priority_queue<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;</span> q<span style="color:#eceff4">(</span>less<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;</span><span style="color:#eceff4">(),</span> move<span style="color:#eceff4">(</span>nums<span style="color:#eceff4">));</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// vector快速建立大根堆
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">(</span><span class="n">less</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">move</span><span class="p">(</span><span class="n">nums</span><span class="p">));</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="建立小根堆">建立小根堆<a hidden class="anchor" aria-hidden="true" href="#建立小根堆">#</a></h3>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">14
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// 方法1
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>priority_queue<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;</span><span style="color:#eceff4">,</span> greater<span style="color:#81a1c1">&lt;&gt;&gt;</span> q<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// 方法2
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#81a1c1;font-weight:bold">auto</span> func <span style="color:#81a1c1">=</span> <span style="color:#eceff4">[](</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1">int</span><span style="color:#81a1c1">&amp;</span> x<span style="color:#eceff4">,</span> <span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1">int</span><span style="color:#81a1c1">&amp;</span> y<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span> <span style="color:#81a1c1;font-weight:bold">return</span> x <span style="color:#81a1c1">&lt;</span> y<span style="color:#eceff4">;</span> <span style="color:#eceff4">};</span>
-</span></span><span style="display:flex;"><span>priority_queue<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1;font-weight:bold">decltype</span><span style="color:#eceff4">(</span>func<span style="color:#eceff4">)</span><span style="color:#81a1c1">&gt;</span> q<span style="color:#eceff4">(</span>func<span style="color:#eceff4">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// 方法3
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#81a1c1;font-weight:bold">struct</span> <span style="color:#8fbcbb">edge</span><span style="color:#eceff4">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">int</span> to<span style="color:#eceff4">,</span> w<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span>    edge<span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> _to<span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span> _w<span style="color:#eceff4">)</span><span style="color:#81a1c1">:</span> to<span style="color:#eceff4">(</span>_to<span style="color:#eceff4">),</span> w<span style="color:#eceff4">(</span>_w<span style="color:#eceff4">)</span> <span style="color:#eceff4">{}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#616e87;font-style:italic">// 运算符重载 让priority_queue&lt;edge&gt;为小顶堆
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#81a1c1">bool</span> <span style="color:#81a1c1;font-weight:bold">operator</span> <span style="color:#81a1c1">&lt;</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1;font-weight:bold">const</span> edge<span style="color:#81a1c1">&amp;</span> x<span style="color:#eceff4">)</span> <span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#eceff4">{</span> <span style="color:#81a1c1;font-weight:bold">return</span> w <span style="color:#81a1c1">&gt;</span> x<span style="color:#eceff4">.</span>w<span style="color:#eceff4">;</span> <span style="color:#eceff4">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 方法1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;&gt;&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 方法2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">func</span> <span class="o">=</span> <span class="p">[](</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">(</span><span class="n">func</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 方法3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">edge</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">to</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_w</span><span class="p">)</span><span class="o">:</span> <span class="n">to</span><span class="p">(</span><span class="n">_to</span><span class="p">),</span> <span class="n">w</span><span class="p">(</span><span class="n">_w</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 运算符重载 让priority_queue&lt;edge&gt;为小顶堆
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">bool</span> <span class="k">operator</span> <span class="o">&lt;</span> <span class="p">(</span><span class="k">const</span> <span class="n">edge</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">w</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -482,14 +480,14 @@
 <ul>
 <li><strong>erase</strong></li>
 </ul>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>iterator <span style="color:#88c0d0">erase</span><span style="color:#eceff4">(</span>iterator position<span style="color:#eceff4">);</span>
-</span></span><span style="display:flex;"><span>iterator <span style="color:#88c0d0">erase</span><span style="color:#eceff4">(</span>iterator first<span style="color:#eceff4">,</span> iterator last<span style="color:#eceff4">);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span><span class="n">iterator</span> <span class="n">position</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span><span class="n">iterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">iterator</span> <span class="n">last</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>erase()</code>函数可以用于删除 vector 容器（或 string）中的一个或者一段元素，在删除一个元素的时候，其参数为指向相应元素的迭代器，而在删除一段元素的时候，参数为指向一段元素的开头的迭代器以及指向结尾元素的下一个元素的迭代器。</p>
@@ -497,12 +495,12 @@
 <ul>
 <li><strong>remove</strong></li>
 </ul>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>iterator <span style="color:#88c0d0">remove</span><span style="color:#eceff4">(</span>iterator first<span style="color:#eceff4">,</span> iterator last<span style="color:#eceff4">,</span> val<span style="color:#eceff4">);</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">iterator</span> <span class="nf">remove</span><span class="p">(</span><span class="n">iterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">iterator</span> <span class="n">last</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>remove()</code>的作用是将等于 val 的元素放到 vector（或 string）的尾部，但并不减少 vector 的 size。执行 remove 之后返回新的 end() 迭代器，但是不改变原来数组的 end() 迭代器的值。也就是数组中新的 end() 至原 end() 范围内的值是原数组中等于 val 的值，但是这部分状态不可靠。begin() 到新的 end() 这部分是不等于 val 的值。</p>
@@ -513,20 +511,20 @@
 <p>vector 中 erase 的作用是删除掉某个位置或一段区域中的元素，减少其 size，返回被删除元素下一个元素的位置。</p>
 <p>vector 中 remove 的作用是将范围内为 val 的值都 remove 到后面，返回新的 end() 值（非 val 部分的end）,但传入的原 vector 的 end 并没有发生改变，因此 size 也就没有变化。</p>
 <p>所以说<code>remove()</code><strong><u>不是真正的删除</u></strong>，而是<u><strong>移除</strong></u>。<code>erase()</code>结合<code>remove()</code>能做到删除一段范围内的某个元素。</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// 删除vector中值为x的元素
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>vec<span style="color:#eceff4">.</span>erase<span style="color:#eceff4">(</span>remove<span style="color:#eceff4">(</span>vec<span style="color:#eceff4">.</span>begin<span style="color:#eceff4">(),</span> vec<span style="color:#eceff4">.</span>end<span style="color:#eceff4">(),</span> x<span style="color:#eceff4">),</span> vec<span style="color:#eceff4">.</span>end<span style="color:#eceff4">());</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// 删除string中所有的&#39;_&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>s<span style="color:#eceff4">.</span>erase<span style="color:#eceff4">(</span>remove<span style="color:#eceff4">(</span>s<span style="color:#eceff4">.</span>begin<span style="color:#eceff4">(),</span> s<span style="color:#eceff4">.</span>end<span style="color:#eceff4">(),</span> <span style="color:#a3be8c">&#39;_&#39;</span><span style="color:#eceff4">),</span> s<span style="color:#eceff4">.</span>end<span style="color:#eceff4">());</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 删除vector中值为x的元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">vec</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">remove</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">x</span><span class="p">),</span> <span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 删除string中所有的&#39;_&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">s</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">s</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="sc">&#39;_&#39;</span><span class="p">),</span> <span class="n">s</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -534,85 +532,85 @@
 <p>常用的图的存储方式很多，例如邻接矩阵、邻接链表、链式前向星等，兼顾性能和效率，一般使用的最多的是邻接链表。</p>
 <h3 id="不需要保存权值">不需要保存权值<a hidden class="anchor" aria-hidden="true" href="#不需要保存权值">#</a></h3>
 <p>当不需要保存边的权值信息（或每条边的权值固定）时，直接使用二维 vector 即可（假设有10000个结点，编号从1到10000）：</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>vector<span style="color:#81a1c1">&lt;</span>vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;&gt;</span> G<span style="color:#eceff4">(</span><span style="color:#b48ead">10002</span><span style="color:#eceff4">,</span> vector<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;</span><span style="color:#eceff4">());</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>G<span style="color:#eceff4">[</span>i<span style="color:#eceff4">].</span>emplace_back<span style="color:#eceff4">(</span>j<span style="color:#eceff4">);</span>  <span style="color:#616e87;font-style:italic">// 表示有一条 i→j 的边
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>G<span style="color:#eceff4">[</span>i<span style="color:#eceff4">].</span>size<span style="color:#eceff4">();</span>		   <span style="color:#616e87;font-style:italic">// 表示结点 i 的出度 
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">G</span><span class="p">(</span><span class="mi">10002</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>  <span class="c1">// 表示有一条 i→j 的边
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">();</span>		   <span class="c1">// 表示结点 i 的出度 
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="使用-pair">使用 pair<a hidden class="anchor" aria-hidden="true" href="#使用-pair">#</a></h3>
 <p>使用 pair 能很方便地保存边的权值。</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">typedef</span> pair<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;</span> PII<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span>vector<span style="color:#81a1c1">&lt;</span>PII<span style="color:#81a1c1">&gt;</span> G<span style="color:#eceff4">[</span><span style="color:#b48ead">10002</span><span style="color:#eceff4">];</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>G<span style="color:#eceff4">[</span>i<span style="color:#eceff4">].</span>emplace_back<span style="color:#eceff4">(</span>make_pair<span style="color:#eceff4">(</span>j<span style="color:#eceff4">,</span> <span style="color:#b48ead">100</span><span style="color:#eceff4">));</span>  <span style="color:#616e87;font-style:italic">// 表示有一条 i→j 的边，权值为100
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">PII</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">PII</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">[</span><span class="mi">10002</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">make_pair</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">100</span><span class="p">));</span>  <span class="c1">// 表示有一条 i→j 的边，权值为100
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="需要进行排序的情况">需要进行排序的情况<a hidden class="anchor" aria-hidden="true" href="#需要进行排序的情况">#</a></h3>
 <p>有时候需要按边权对结点进行排序，这时候我们可以使用以下存储结构：</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">9
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">struct</span> <span style="color:#8fbcbb">edge</span><span style="color:#eceff4">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">int</span> s<span style="color:#eceff4">,</span> t<span style="color:#eceff4">,</span> cost<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span>    edge<span style="color:#eceff4">(</span><span style="color:#81a1c1">int</span> _s<span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span> _t<span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span> _cost<span style="color:#eceff4">)</span><span style="color:#81a1c1">:</span> s<span style="color:#eceff4">(</span>_s<span style="color:#eceff4">),</span> t<span style="color:#eceff4">(</span>_t<span style="color:#eceff4">),</span> cost<span style="color:#eceff4">(</span>_cost<span style="color:#eceff4">)</span> <span style="color:#eceff4">{}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">bool</span> <span style="color:#81a1c1;font-weight:bold">operator</span> <span style="color:#81a1c1">&lt;</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1;font-weight:bold">const</span> edge<span style="color:#81a1c1">&amp;</span> o<span style="color:#eceff4">)</span> <span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#eceff4">{</span> <span style="color:#81a1c1;font-weight:bold">return</span> cost <span style="color:#81a1c1">&lt;</span> o<span style="color:#eceff4">.</span>cost<span style="color:#eceff4">;</span> <span style="color:#eceff4">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
-</span></span><span style="display:flex;"><span>vector<span style="color:#81a1c1">&lt;</span>edge<span style="color:#81a1c1">&gt;</span> G<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>G<span style="color:#eceff4">.</span>emplace_back<span style="color:#eceff4">(</span>edge<span style="color:#eceff4">(</span>i<span style="color:#eceff4">,</span> j<span style="color:#eceff4">,</span> <span style="color:#b48ead">100</span><span style="color:#eceff4">));</span> <span style="color:#616e87;font-style:italic">//表示有一条 i→j 的边，权值为100
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>sort<span style="color:#eceff4">(</span>G<span style="color:#eceff4">.</span>begin<span style="color:#eceff4">(),</span> G<span style="color:#eceff4">.</span>end<span style="color:#eceff4">());</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">edge</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">cost</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">_s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_t</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_cost</span><span class="p">)</span><span class="o">:</span> <span class="n">s</span><span class="p">(</span><span class="n">_s</span><span class="p">),</span> <span class="n">t</span><span class="p">(</span><span class="n">_t</span><span class="p">),</span> <span class="n">cost</span><span class="p">(</span><span class="n">_cost</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="k">operator</span> <span class="o">&lt;</span> <span class="p">(</span><span class="k">const</span> <span class="n">edge</span><span class="o">&amp;</span> <span class="n">o</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">cost</span> <span class="o">&lt;</span> <span class="n">o</span><span class="p">.</span><span class="n">cost</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">G</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">edge</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="mi">100</span><span class="p">));</span> <span class="c1">//表示有一条 i→j 的边，权值为100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">sort</span><span class="p">(</span><span class="n">G</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">G</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>或者使用 tuple&lt;int, int, int&gt;：</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">9
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>vector<span style="color:#81a1c1">&lt;</span>tuple<span style="color:#81a1c1">&lt;</span><span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span><span style="color:#eceff4">,</span> <span style="color:#81a1c1">int</span><span style="color:#81a1c1">&gt;&gt;</span> edges<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 结点i 结点j 权值
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>edges<span style="color:#eceff4">.</span>emplace_back<span style="color:#eceff4">(</span>make_tuple<span style="color:#eceff4">(</span>i<span style="color:#eceff4">,</span> j<span style="color:#eceff4">,</span> <span style="color:#b48ead">100</span><span style="color:#eceff4">));</span>  <span style="color:#616e87;font-style:italic">// 表示有一条 i→j 的边，权值为100
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// 按权值从小到大排序
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>sort<span style="color:#eceff4">(</span>edges<span style="color:#eceff4">.</span>begin<span style="color:#eceff4">(),</span> edges<span style="color:#eceff4">.</span>end<span style="color:#eceff4">(),</span> <span style="color:#eceff4">[](</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1;font-weight:bold">auto</span><span style="color:#81a1c1">&amp;</span> e1<span style="color:#eceff4">,</span> <span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1;font-weight:bold">auto</span><span style="color:#81a1c1">&amp;</span> e2<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">auto</span><span style="color:#81a1c1">&amp;&amp;</span> <span style="color:#eceff4">[</span>x1<span style="color:#eceff4">,</span> y1<span style="color:#eceff4">,</span> v1<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> e1<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">auto</span><span style="color:#81a1c1">&amp;&amp;</span> <span style="color:#eceff4">[</span>x2<span style="color:#eceff4">,</span> y2<span style="color:#eceff4">,</span> v2<span style="color:#eceff4">]</span> <span style="color:#81a1c1">=</span> e2<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">return</span> v1 <span style="color:#81a1c1">&lt;</span> v2<span style="color:#eceff4">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#eceff4">});</span>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">edges</span><span class="p">;</span>  <span class="c1">// 结点i 结点j 权值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">edges</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">make_tuple</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="mi">100</span><span class="p">));</span>  <span class="c1">// 表示有一条 i→j 的边，权值为100
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 按权值从小到大排序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">sort</span><span class="p">(</span><span class="n">edges</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edges</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">e1</span><span class="p">,</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">e2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">v1</span><span class="p">]</span> <span class="o">=</span> <span class="n">e1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">v2</span><span class="p">]</span> <span class="o">=</span> <span class="n">e2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">v1</span> <span class="o">&lt;</span> <span class="n">v2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -622,56 +620,56 @@
 <p><code>__builtin_ctz(x)</code>返回 x 的二进制表示数末尾 0 的个数；</p>
 <p><code>__builtin_clz(x)</code>返回 x 的二进制表示数前导 0 的个数。</p>
 <p>对应的 64 位长整型版本分别为：<code>__builtin_ctzll(x)</code>和<code>__builtin_clzll(x)</code></p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">5
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ctz<span style="color:#eceff4">(</span><span style="color:#b48ead">128</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 7
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ctz<span style="color:#eceff4">(</span><span style="color:#b48ead">128</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 24
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ctzll<span style="color:#eceff4">(</span><span style="color:#b48ead">1024L</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 10
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_clzll<span style="color:#eceff4">(</span><span style="color:#b48ead">1024L</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 53
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_ctz</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 7
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_ctz</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 24
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_ctzll</span><span class="p">(</span><span class="mi">1024L</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_clzll</span><span class="p">(</span><span class="mi">1024L</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 53
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="__builtin_popcountx">__builtin_popcount(x)<a hidden class="anchor" aria-hidden="true" href="#__builtin_popcountx">#</a></h3>
 <p>返回 x 的二进制表示数 1 的个数。</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_popcount<span style="color:#eceff4">(</span><span style="color:#b48ead">15</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 4
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_popcount</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 4
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="__builtin_parityx">__builtin_parity(x)<a hidden class="anchor" aria-hidden="true" href="#__builtin_parityx">#</a></h3>
 <p>判断 x 的二进制表示数 1 的个数的奇偶性(偶数返回 0，奇数返回 1)。</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_parity<span style="color:#eceff4">(</span><span style="color:#b48ead">14</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 1
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_parity<span style="color:#eceff4">(</span><span style="color:#b48ead">15</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 0
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_parity</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_parity</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 0
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="__builtin_ffsx">__builtin_ffs(x)<a hidden class="anchor" aria-hidden="true" href="#__builtin_ffsx">#</a></h3>
 <p>返回 x 的二进制表示数的最后一个 1 在第几位（从后往前算）。</p>
-<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74">3
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ffs<span style="color:#eceff4">(</span><span style="color:#b48ead">1024</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>  <span style="color:#616e87;font-style:italic">// 11
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ffs<span style="color:#eceff4">(</span><span style="color:#b48ead">6</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>     <span style="color:#616e87;font-style:italic">// 2
-</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>cout <span style="color:#81a1c1">&lt;&lt;</span> __builtin_ffs<span style="color:#eceff4">(</span><span style="color:#b48ead">0</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1">&lt;&lt;</span> endl<span style="color:#eceff4">;</span>     <span style="color:#616e87;font-style:italic">// 0
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_ffs</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 11
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_ffs</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">// 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">__builtin_ffs</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">// 0
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
