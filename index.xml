@@ -6,7 +6,16 @@
     <description>Recent content on 向着悠远的苍穹</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 12 Sep 2023 23:14:58 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Sep 2023 22:47:21 +0800</lastBuildDate><atom:link href="https://kdjlyy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elasticsearch初体验</title>
+      <link>https://kdjlyy.github.io/posts/draft/elasticsearch-start/</link>
+      <pubDate>Wed, 20 Sep 2023 22:47:21 +0800</pubDate>
+      
+      <guid>https://kdjlyy.github.io/posts/draft/elasticsearch-start/</guid>
+      <description>elasticsearch</description>
+    </item>
+    
     <item>
       <title>图论专题</title>
       <link>https://kdjlyy.github.io/posts/algorithm/algorithm-graph/</link>
@@ -50,6 +59,24 @@
       
       <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-linkedlist/</guid>
       <description>链表, linkedlist, 尾插法, 头插法, 合并两个有序单链表, 判断链表是否有环</description>
+    </item>
+    
+    <item>
+      <title>搜索算法专题</title>
+      <link>https://kdjlyy.github.io/posts/algorithm/algorithm-search/</link>
+      <pubDate>Thu, 13 Jul 2023 14:14:40 +0800</pubDate>
+      
+      <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-search/</guid>
+      <description>搜索算法, DFS, BFS, 记忆化搜索</description>
+    </item>
+    
+    <item>
+      <title>动态规划专题</title>
+      <link>https://kdjlyy.github.io/posts/algorithm/algorithm-dp/</link>
+      <pubDate>Tue, 11 Jul 2023 17:36:38 +0800</pubDate>
+      
+      <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-dp/</guid>
+      <description>动态规划, dp, 记忆化搜索, 滑雪， 矩阵中的最长递增路径</description>
     </item>
     
     <item>
@@ -122,6 +149,15 @@
       
       <guid>https://kdjlyy.github.io/posts/site/site-init/</guid>
       <description>hugo, 静态博客, PaperMod, 快速启动</description>
+    </item>
+    
+    <item>
+      <title>常见算法-模拟篇</title>
+      <link>https://kdjlyy.github.io/posts/algorithm/algorithm-simulation/</link>
+      <pubDate>Thu, 18 May 2023 18:17:41 +0800</pubDate>
+      
+      <guid>https://kdjlyy.github.io/posts/algorithm/algorithm-simulation/</guid>
+      <description>大数, 大数加法, 大数乘法, 位运算, 二进制</description>
     </item>
     
     <item>
